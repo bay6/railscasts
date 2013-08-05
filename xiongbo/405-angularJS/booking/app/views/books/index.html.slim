@@ -1,0 +1,12 @@
+h1
+  Booking
+
+div ng-controller="BookingCtrl"
+  form ng-submit="addBook()"
+    input type="text" ng-model="book.name"
+    input type="text" ng-model="book.pic"
+    input type="submit" value="Add"
+
+  ul
+    li ng-repeat="book in books"
+      span ng-show="book.borrower" class="borrowed" borrowed 

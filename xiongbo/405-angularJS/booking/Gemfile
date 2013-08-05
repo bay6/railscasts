@@ -28,10 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
-
-group :assets do
-  gem 'angularjs-rails'
-end
+gem 'angularjs-rails'
 
 group :test do
   gem 'minitest-spec-rails'

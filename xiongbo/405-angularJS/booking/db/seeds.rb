@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+50.times do |n| 
+  Book.create(name: 'hellow world-#{n}', pic: '#{n}.jpg', borrower: 'xiongbo')
+end
