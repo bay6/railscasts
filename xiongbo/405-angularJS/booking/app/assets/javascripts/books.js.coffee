@@ -3,10 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
 
-app = angular.module("Booking", ["ngResource"])
+app = angular.module("Booking", ["ngResource","ng-rails-csrf"])
 
 app.factory "Book", ["$resource", ($resource) ->
-  $resource("/books/:id", {id: "@id"}, {update: {method: "PUT"}})
+  $resource("/books/:id", {id: "@id"}, {update: {method: "PUT"} })
 ]
 
 @BookingCtrl = ["$scope", "Book", ($scope, Book) ->
@@ -15,5 +15,12 @@ app.factory "Book", ["$resource", ($resource) ->
   $scope.addBook = ->
     book = Book.save($scope.newBook)
     $scope.books.push(book)
-    $scope.newBook = {} 
+    $scope.newBook = {}
+
+  $scope.queryBook = (id)->
+    $scope.books = Book.query({id: id})
+
+  $scope.borrowBook = (book)->
+    book.borrowed = true
+    Book.update(book)
 ]

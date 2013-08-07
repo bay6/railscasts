@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805124418) do
+ActiveRecord::Schema.define(version: 20130807065859) do
 
   create_table "books", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130805124418) do
     t.string   "borrower"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "borrowed",   default: false
   end
 
 end

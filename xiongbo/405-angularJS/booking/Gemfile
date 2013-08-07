@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
 gem 'angularjs-rails'
+gem 'ng-rails-csrf'
 
 group :test do
   gem 'minitest-spec-rails'

@@ -58,6 +58,7 @@ GEM
       minitest (~> 4.7)
       rails (<= 4.0)
     multi_json (1.7.8)
+    ng-rails-csrf (0.1.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -125,6 +126,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   minitest-spec-rails
+  ng-rails-csrf
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
