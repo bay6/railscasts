@@ -11,15 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row collapse">
+    <div class="small-3 columns">
+      <%= f.label :name, class: "right inline" %>
+    </div>
+    <div class="small-8 columns"><%= f.text_field :name %></div>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+  <div class="row collapse">
+    <div class="small-3 columns">
+      <%= f.label :price, class: "right inline", title: "Price in USD", data: {tooltip: true} %>
+    </div>
+    <div class="small-8 columns"><%= f.text_field :price %></div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row collapse">
+    <div class="small-9 small-offset-4 columns"><%= f.submit class: "button radius" %></div>
   </div>
 <% end %>
