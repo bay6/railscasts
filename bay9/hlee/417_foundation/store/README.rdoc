@@ -1,0 +1,4 @@
+== Objective 
+
+* practise using foundation
+* more css and js
