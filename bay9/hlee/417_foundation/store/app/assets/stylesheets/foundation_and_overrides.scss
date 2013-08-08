@@ -138,7 +138,7 @@ $default-float: left;
 //
 
 // $row-width: emCalc(1000);
-// $column-gutter: emCalc(30);
+$column-gutter: emCalc(60);
 // $total-columns: 12;
 
 //
@@ -1234,7 +1234,7 @@ $default-float: left;
 
 // Background color for the top bar
 
-// $topbar-bg: #111;
+$topbar-bg: #212D48 !default;
 
 // Height and margin
 
