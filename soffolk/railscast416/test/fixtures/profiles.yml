@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  born_on: 2013-06-02
+  twitter_name: MyString
+  facebook_name: MyString
+  github_name: MyString
+  bio: MyText
+
+two:
+  user: 
+  born_on: 2013-06-02
+  twitter_name: MyString
+  facebook_name: MyString
+  github_name: MyString
+  bio: MyText

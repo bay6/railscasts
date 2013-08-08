@@ -1,0 +1,19 @@
+<h1>User Profile</h1>
+
+<p>Username: <%= @user.username %></p>
+
+<p>Email: <%= @user.email %></p>
+
+<% if @user.profile.twitter_name.present? %>
+  <p>Twitter: <%= @user.profile.twitter_name %></p>
+<% end %>
+
+<% if @user.profile.github_name.present? %>
+  <p>GitHub: <%= @user.profile.github_name %></p>
+<% end %>
+
+<% if @user.profile.bio.present? %>
+  <p>Bio: <%= @user.profile.bio %></p>
+<% end %>
+
+<p><%= link_to "Change Password", new_password_path %></p>
