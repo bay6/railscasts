@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
-    @user.build_profile
+    @signup_form = SignupForm.new
   end
 
   def create
