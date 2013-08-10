@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<%= form_for @signup_form, url: users_path do |f| %>
+<%= form_for @signup_form do |f| %>
   <% if @signup_form.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -33,7 +33,6 @@
     <%= f.label :subscribed, "Subscribe to our mailing list." %>
   </div>
 
-  <%= f.fields_for :profile do |p| %>
     <h3>Profile Details</h3>
     <div class="field">
       <%= f.label :twitter_name %><br />
@@ -47,6 +46,5 @@
       <%= f.label :bio %><br />
       <%= f.text_area :bio, rows: 5, cols: 40 %>
     </div>
-  <% end %>
   <div class="actions"><%= f.submit "Sign Up" %></div>
 <% end %>

@@ -20,8 +20,25 @@ class SignupForm
     @user ||= User.new
   end
 
+  def self.model_name
+    ActiveModel::Name.new(self, nil, "User")
+  end
+
   def profile
     @profile ||= user.build_profile
+  end
+
+  def submit(params)
+    user.attributes = params.slice(:username, :email, :password, :password_confirmation)
+    profile.attributes = params.slice(:twitter_name, :github_name, :bio)
+    self.subscribed = params[:subscribed]
+    if valid?
+      generate_token
+      user.save!
+      profile.save!
+    else
+      false
+    end
   end
 
   def subscribed
@@ -34,8 +51,8 @@ class SignupForm
 
   def generate_token
     begin
-      self.token = SecureRandom.hex
-    end while User.exists?(token: token)
+      user.token = SecureRandom.hex
+    end while User.exists?(token: user.token)
   end
 
   def verify_unique_username

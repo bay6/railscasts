@@ -22,3 +22,7 @@ Why we don't need `changing_password` as attributes?
 #### Q4
 
 `accepts_nested_attributes_for :profile` why we don't need it again?
+
+#### Q5
+
+What should we do to replace `params[:user]` with `params[signup_form]`
