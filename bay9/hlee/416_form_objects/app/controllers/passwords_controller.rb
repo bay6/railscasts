@@ -1,6 +1,6 @@
 class PasswordsController < ApplicationController
   def new
-    @user = current_user
+    @password_form = PasswordForm.new current_user
   end
 
   def create
