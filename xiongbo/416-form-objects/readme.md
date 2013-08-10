@@ -24,30 +24,32 @@ viewmodel like .net mvc
 
 ## pay attentions to
 
-  def self.model_name
-    ActiveModel::Name.new(self,nil, "User")
-  end
-
-  user.attributes = params.slice(:username, :email, :password, :password_confirmation)
-
-  def generate_token
-    begin
-      user.token = SecureRandom.hex
-  end while User.exists?(token: user.token)
-
-  # you should write custom validate for uniqueness, because ActiveModel does not support validates_uniqueness_fo currently
-  def verify_unique_username
-    if User.exists? username: username
-      errors.add :username, "has already been taken"
+    def self.model_name
+      ActiveModel::Name.new(self,nil, "User")
     end
-  end
 
-  # in password_form, you should write validate for password by calling the authenticate method which `has_secure_password` has provided
-  def verify_original_password
-    unless @user.authenticate(original_password)
-      errors.add :original_password, "is not correct"
+    user.attributes = params.slice(:username, :email, :password, :password_confirmation)
+  
+    def generate_token
+      begin
+        user.token = SecureRandom.hex
+    end while User.exists?(token: user.token)
+
+    # you should write custom validate for uniqueness, 
+    # because ActiveModel does not support validates_uniqueness_fo currently
+    def verify_unique_username
+      if User.exists? username: username
+        errors.add :username, "has already been taken"
+      end
     end
-  end
+  
+    # in password_form, you should write validate for password by calling the authenticate method 
+    # which has_secure_password has provided
+    def verify_original_password
+      unless @user.authenticate(original_password)
+        errors.add :original_password, "is not correct"
+      end
+    end
 
 
 
