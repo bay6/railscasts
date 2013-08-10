@@ -4,18 +4,12 @@ class PasswordsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @user.changing_password = true
-    if @user.update_attributes(password_params)
+    @password_form = PasswordForm.new(current_user)
+    if @password_form.submit(params[:password_form])
       redirect_to current_user, notice: "Successfully changed password."
     else
       render "new"
     end
   end
 
-private
-
-  def password_params
-    params.require(:user).permit(:original_password, :new_password, :new_password_confirmation)
-  end
 end

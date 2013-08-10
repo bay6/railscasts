@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   validates_length_of :password, minimum: 6, on: :create
 
   before_create :generate_token
-  before_update :change_password, if: :changing_password
 
   has_one :profile
   accepts_nested_attributes_for :profile
@@ -27,13 +26,4 @@ class User < ActiveRecord::Base
     end while User.exists?(token: token)
   end
 
-  def verify_original_password
-    unless authenticate(original_password)
-      errors.add :original_password, "is not correct"
-    end
-  end
-
-  def change_password
-    self.password = new_password
-  end
 end
