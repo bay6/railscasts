@@ -17,3 +17,8 @@ Will this attributes associate with database?
 #### Q3
 
 Why we don't need `changing_password` as attributes?
+
+
+#### Q4
+
+`accepts_nested_attributes_for :profile` why we don't need it again?
