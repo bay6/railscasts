@@ -1,0 +1,11 @@
+.comment.clearfix
+  .avatar.pull-left.small-avatar
+    = link_to image_tag(comment.cache_user.avatar_url), comment.cache_user.github_homepage
+  .info-content-wrapper.pull-left
+    .info.muted
+      span = link_to comment.cache_user.nickname, comment.cache_user.github_homepage
+      span = "#{index+1}楼"
+      span.time_ago
+        = "#{time_ago_in_words comment.created_at}前"
+    .content
+      = markdown comment.content.html_safe

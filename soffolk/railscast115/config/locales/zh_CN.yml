@@ -1,0 +1,25 @@
+zh_CN:
+  site_name: '工会任务'
+  error:
+    require_permission: "您没有根据执行此操作"
+  common:
+    login_success: "登录成功"
+    create_success: "创建成功"
+    update_success: "修改成功"
+    update_not_success: "修改没有成功"
+    destroy_success: "删除成功"
+    save: "保存"
+    edit: "编辑"
+    preview: "预览"
+    create: "创建"
+    accept: "接受"
+    finish: "完成"
+    confirm: "验收"
+    close: "关闭"
+    comment: "评论"
+    published_at: "发布于"
+    back: "返回"
+    new: "新建"
+    destroy: '删除'
+    destroy_confirm: '删除是一种危险的操作，确认？'
+    login: "登录"

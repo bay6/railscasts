@@ -1,0 +1,8 @@
+zh_CN:
+  teams:
+    index: '所有团队'
+    quit: '退出团队'
+    join: '加入团队'
+    quit_success: '成功退出团队'
+    join_success: '成功加入团队'
+    join_fail: '加入失败'

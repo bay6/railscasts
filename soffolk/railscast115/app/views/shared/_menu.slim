@@ -1,0 +1,15 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      a.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+      = render 'shared/user_nav'
+      = link_to t('site_name', default: 'site'), root_path, class: 'brand'
+      .container-fluid.nav-collapse
+        ul.nav
+          li= link_to "工会主系统", 'http://rubyunion.com'
+          li= link_to "任务系统", missions_path
+          li= link_to "团队列表", teams_path

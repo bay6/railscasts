@@ -1,0 +1,37 @@
+.row-fluid.mission-show
+  .span8
+    .mission.well
+      h4
+        = @mission.name
+      div.muted
+        span = link_to @mission.cache_creator.nickname, '#'
+        span = " • " + t('common.published_at')
+        span = @mission.created_at.to_s(:db)
+
+        - if current_user == @mission.cache_creator
+          span.edit = link_to t("common.edit"), edit_mission_path(@mission)
+      hr
+      p = markdown @mission.description.html_safe
+    .comments.well
+      = render partial: "comments", locals: {comments: @mission.cache_comments, comments_count: @mission.cache_comments_count}
+    .new-comment.well
+      = render "new_comment"
+
+  .span4
+    .action.well
+      = @mission.status_description
+      - if current_user
+        - action = @mission.action_for(current_user)
+        - unless action.nil?
+          hr
+          = link_to t("missions.#{action}"),
+            mission_perform_action_path(@mission, action_name: action),
+            method: "post",
+            class: "registry-activity btn btn-success btn-large btn-block"
+
+    .latest.well
+      h5 = t("missions.latest")
+      hr
+      - @latest_missions.each do |mission|
+        .mission-name
+          = link_to mission.name.truncate(23), mission_path(mission)

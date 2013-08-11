@@ -1,0 +1,15 @@
+= simple_form_for @mission, html: {class: "form-horizontal"} do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, label: t(".name")
+
+    - unless f.object.new_record?
+      = f.input :status, label: t(".status"),
+        collection: Mission::STATUS.map{|k,v| [v, k]}
+
+    = f.input :description, label: t(".description"),
+      :input_html => { :class => "span5", :rows => 5 }
+
+  .form-actions
+    = f.button :submit, value: t("common.save"), class: "btn-primary"

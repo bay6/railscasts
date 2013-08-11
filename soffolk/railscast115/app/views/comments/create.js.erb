@@ -1,0 +1,12 @@
+<% if @comment.errors.any? %>
+  $(".new-comment textarea").focus();
+<% else %>
+  if ($(".new-comment textarea").val() != "") {
+    $(".comments").append("<%= j (render @comment, :index => @mission.comments.count-1) %>");
+    $(".new-comment #preview").addClass("hidden").html('');
+    $(".new-comment textarea").css("display", "block").val('');
+    $(".editor-toolbar .preview").removeClass("active");
+    $(".editor-toolbar .edit").addClass("active");
+    $(".comments_count > span").html("共收到<%= @mission.cache_comments_count %>条评论")
+  }
+<% end %>

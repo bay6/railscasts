@@ -1,0 +1,19 @@
+zh_CN:
+  activerecord:
+    errors:
+      models:
+        mission:
+          attributes:
+            name:
+              blank: "名称不能为空"
+            description:
+              blank: "描述不能为空"
+            status:
+              blank: "状态不能为空"
+    attributes:
+      team:
+        name: '团队名称'
+        description: '团队宣言'
+        avatar_url: '团队标志'
+      mission:
+        title: "任务"
