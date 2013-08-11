@@ -23,6 +23,7 @@ gem 'redcarpet'
 gem 'md_emoji'
 
 gem 'rack-mini-profiler'
+gem 'cache_query', github: 'zlx/cache_query'
 
 group :test, :development do
   gem 'pry-debugger'

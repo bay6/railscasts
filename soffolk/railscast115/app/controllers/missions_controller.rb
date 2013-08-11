@@ -5,11 +5,15 @@ class MissionsController < ApplicationController
 
   def index
     @missions = Mission.cache_all
-    @events = Event.cache_newest_event
+    @events = Event.cache('newest_event') do
+      Event.order("id desc").limit(10)
+    end
   end
 
   def show
-    @latest_missions = Mission.cache_latest_mission 
+    @latest_missions = Mission.cache("latest_mission") do
+      Mission.order("id desc").limit(10)
+    end
   end
 
   def create

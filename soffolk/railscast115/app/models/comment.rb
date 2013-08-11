@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include CommentCache
+  include CacheQuery
 
   belongs_to :commentable, polymorphic: true, touch: true
   belongs_to :user

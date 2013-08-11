@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include UserCache
+  include CacheQuery
 
   has_many :created_missions, class_name: "Mission", foreign_key: "creator_id"
   has_many :assigned_missions, class_name: "Mission", foreign_key: "assigned_to_id"

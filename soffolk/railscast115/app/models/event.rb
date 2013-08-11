@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  include EventCache
+  include CacheQuery
 
   belongs_to :user
   belongs_to :eventable, polymorphic: true

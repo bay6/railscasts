@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/zlx/cache_query.git
+  revision: d074208bb5ffc3a5bcdad64f72a9e8e98435a18d
+  specs:
+    cache_query (0.0.1)
+      rails (> 3)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -26,7 +33,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.0)
-    atomic (1.1.10)
+    atomic (1.1.12)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     bootstrap_helper (4.2.2.3)
@@ -102,7 +109,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.23)
     minitest (4.7.5)
-    multi_json (1.7.7)
+    multi_json (1.7.8)
     multipart-post (1.2.0)
     mysql2 (0.3.13)
     oauth2 (0.8.1)
@@ -247,6 +254,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   bootstrap_helper
+  cache_query!
   cancan
   coffee-rails (~> 4.0.0)
   factory_girl_rails
