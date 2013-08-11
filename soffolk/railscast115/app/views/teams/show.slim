@@ -1,0 +1,28 @@
+.row-fluid.mission-show
+  .span9
+    .info.well
+      h4
+        = @team.name
+      hr
+      p = simple_format @team.description.html_safe
+    h2 = t('team.joined_user')
+    .users.well
+      .thumbnails
+        - @team.cache_users.each do |user|
+          .thumbnail.span2.box
+            = link_to image_tag(user.avatar_url), user
+
+  .span3.well
+
+    - if current_user && @team.has_joined?(current_user)
+      = link_to t("teams.quit"), [:quit, @team], method: "post",
+        class: "registry-activity btn btn-danger btn-large btn-block"
+    - else
+      = link_to t("teams.join"), [:join, @team], method: "post",
+        class: "registry-activity btn btn-success btn-large btn-block"
+    - if can? :manage, Team
+      = link_to t("common.edit"), [:edit, @team],
+        class: "registry-activity btn btn-success btn-large btn-block"
+      = link_to t("common.destroy"), team_path(@team), method: 'delete',
+        confirm: t('common.destroy_confirm'), 
+        class: "registry-activity btn btn-danger btn-large btn-block"
