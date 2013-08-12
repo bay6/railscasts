@@ -1,9 +1,9 @@
 class EpisodesController < ApplicationController
-  before_filter :load_episode, only: [:show, :edit, :update, :destroy]
+  before_action :load_episode, only: [:show, :edit, :update, :destroy]
   caches_page :index
 
   def index
-    @episodes = Episode.published.find_all_by_pro(false)
+    @episodes = Episode.published.where(pro: false)
   end
 
   def show
@@ -17,7 +17,7 @@ class EpisodesController < ApplicationController
   end
 
   def create
-    @episode = Episode.new(params[:episode])
+    @episode = Episode.new(params_episode)
     if @episode.save
       redirect_to @episode, notice: 'Episode was successfully created.'
     else
@@ -26,7 +26,7 @@ class EpisodesController < ApplicationController
   end
 
   def update
-    if @episode.update_attributes(params[:episode])
+    if @episode.update_attributes(params_episode)
       redirect_to @episode, notice: 'Episode was successfully updated.'
     else
       render action: "edit"
@@ -42,5 +42,9 @@ private
 
   def load_episode
     @episode = Episode.find(params[:id])
+  end
+
+  def params_episode
+    params.require(:episode).permit(:description, :name, :seconds, :published_on, :timecode)
   end
 end
