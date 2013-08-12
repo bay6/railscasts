@@ -19,7 +19,7 @@
 <%= link_to 'Back', articles_path %>
 
 
-<h2><%= pluralize(@article.comments.size, "Comment") %></h2>
+<h2><%= pluralize(@article.cached_comments_count, "Comment") %></h2>
 
 <div id="comments">
   <%= render @article.comments %>
