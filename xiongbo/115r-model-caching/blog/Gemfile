@@ -13,3 +13,5 @@ gem 'turbolinks'
 # gem 'bcrypt-ruby', '~> 3.0.0''
 
 gem 'rack-mini-profiler'
+
+gem 'protected_attributes'

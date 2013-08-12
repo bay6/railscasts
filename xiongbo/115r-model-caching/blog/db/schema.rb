@@ -9,35 +9,35 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511024608) do
+ActiveRecord::Schema.define(version: 20130511024608) do
 
-  create_table "articles", :force => true do |t|
+  create_table "articles", force: true do |t|
     t.string   "name"
     t.datetime "published_at"
     t.integer  "author_id"
     t.text     "content"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
+  add_index "articles", ["author_id"], name: "index_articles_on_author_id"
 
-  create_table "authors", :force => true do |t|
+  create_table "authors", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "comments", :force => true do |t|
+  create_table "comments", force: true do |t|
     t.integer  "article_id"
     t.string   "name"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "comments", ["article_id"], :name => "index_comments_on_article_id"
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
 end
