@@ -8,7 +8,7 @@
       by <%= article.cached_author.name %>
     </p>
     <%= simple_format article.content %>
-    <p><%= link_to pluralize(article.cached_comments, "comment"), article %></p>
+    <p><%= link_to pluralize(article.cached_comments_count, "comment"), article %></p>
   <% end %>
 </div>
 
