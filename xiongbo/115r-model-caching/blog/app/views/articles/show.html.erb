@@ -2,7 +2,7 @@
 
 <p class="info">
   Published on <%= @article.published_at.strftime("%B %e, %Y") %>
-  by <%= @article.author.name %>
+  by <%= @article.cached_author.name %>
 </p>
 
 <%= simple_format @article.content %>

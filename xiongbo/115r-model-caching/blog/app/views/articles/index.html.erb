@@ -5,10 +5,10 @@
     <h2><%= link_to article.name, article %></h2>
     <p class="info">
       Published on <%= article.published_at.strftime("%B %e, %Y") %>
-      by <%= article.author.name %>
+      by <%= article.cached_author.name %>
     </p>
     <%= simple_format article.content %>
-    <p><%= link_to pluralize(article.comments.size, "comment"), article %></p>
+    <p><%= link_to pluralize(article.cached_comments, "comment"), article %></p>
   <% end %>
 </div>
 
