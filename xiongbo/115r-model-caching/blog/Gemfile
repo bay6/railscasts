@@ -1,0 +1,17 @@
+source 'http://ruby.taobao.org'
+
+gem 'rails', '4.0.0' 
+gem 'sqlite3' 
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+
+gem 'jquery-rails'
+gem 'turbolinks'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0''
+
+gem 'rack-mini-profiler'
+
+gem 'protected_attributes'
