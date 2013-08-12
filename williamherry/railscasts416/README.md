@@ -1,5 +1,3 @@
-## only difference is without strong parameter
-
 # RailsCasts Example Application
 
 Run these commands to try it out.

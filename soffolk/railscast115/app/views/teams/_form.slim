@@ -1,0 +1,11 @@
+= simple_form_for @team, html: {class: "form-horizontal"} do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, label: Team.human_attribute_name(:name)
+    = f.input :description, label: Team.human_attribute_name(:description),
+      :input_html => { :class => "span5", :rows => 5 }
+    = f.input :avatar_url, label: Team.human_attribute_name(:avatar_url)
+
+  .form-actions
+    = f.button :submit, value: t("common.save"), class: "btn-primary"

@@ -1,0 +1,109 @@
+// Place all the styles related to the missions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+hr {
+  margin: 5px 0 5px 0;
+}
+.mission-show {
+  hr {
+    margin: 5px 0 20px 0;
+  }
+  span.edit {
+    margin-left: 15px;
+  }
+}
+
+.thumbnails {
+  li.box {
+    margin-left: 0;
+    margin-right: 12px;
+  }
+  .thumbnail {
+    height: 104px;
+  }
+}
+
+.small-avatar {
+  width: 48px;
+  margin-right: 10px;
+}
+
+.comment {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #DDD;
+  span {
+    margin-right: 10px;
+  }
+  .content {
+    margin-top: 5px;
+  }
+  a {
+    color: #999999;
+  }
+  .info-content-wrapper {
+    width: 612px;
+  }
+}
+
+.new-comment {
+  .editor-toolbar {
+    font-size: 13px;
+    ul {
+      margin: 0 0 2px 0;
+      li {
+        margin-right: 10px;
+        list-style: none;
+        a {
+          padding: 0 6px;
+          color: #666;
+        }
+      }
+      li.active a {
+        padding: 0 5px;
+        border: 1px solid #ddd;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  #preview {
+    margin-top: 0px;
+    border: 1px solid #ccc;
+    padding: 4px;
+    min-height: 400px;
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 546px;
+    margin-bottom: 10px;
+    min-height: 80px;
+  }
+  form {
+    margin-bottom: 0;
+    position: relative;
+    input {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  }
+}
+
+.latest {
+  hr {
+    margin: 5px 0 5px 0;
+  }
+  .mission-name {
+    padding: 10px 0;
+  }
+  .event {
+    padding: 10px 0;
+    span {
+      margin: 0 5px;
+    }
+  }
+}
