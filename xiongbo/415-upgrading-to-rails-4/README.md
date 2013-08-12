@@ -1,11 +1,3 @@
-# RailsCasts Example Application
+# Rails casts practice -415 upgrade to rails 4
 
-Run these commands to try it out.
-
-```
-bundle
-rake db:setup
-rails s
-```
-
-Requires Ruby 1.9.2 or later to run.
+[upgrade issue](http://weblog.rubyonrails.org/2013/6/25/Rails-4-0-final/)
