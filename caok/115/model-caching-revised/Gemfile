@@ -4,6 +4,7 @@ source 'http://ruby.taobao.org/'
 gem 'rails', '4.0.0'
 
 gem 'rack-mini-profiler'
+gem 'pry-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
