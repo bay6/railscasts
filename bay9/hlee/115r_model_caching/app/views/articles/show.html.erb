@@ -12,10 +12,10 @@
   <%= link_to "Edit", edit_article_path(@article) %>
 </p>
 
-<h2><%= pluralize(@article.comments.size, "Comment") %></h2>
+<h2><%= pluralize(@article.cached_comments_count, "Comment") %></h2>
 
 <div id="comments">
-  <%= render @article.comments %>
+  <%= render @article.cached_comments %>
 </div>
 
 <h3>New Comment</h3>
