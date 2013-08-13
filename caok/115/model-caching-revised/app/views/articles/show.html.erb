@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @article.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= simple_format @article.content %>
+</p>
+
+<p>
+  <strong>Published at:</strong>
+  <%= @article.published_at.strftime("%B %e, %Y") %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
+
+
+<h2><%= pluralize(@article.cached_comments_count, "Comment") %></h2>
+
+<div id="comments">
+  <%= render @article.cached_comments %>
+</div>
+
+<h3>New Comment</h3>
+
+<%= render 'comments/form' %>
