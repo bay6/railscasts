@@ -11,3 +11,4 @@
 * explain model cache
 * eager load & lazy load
 * n + 1 problem
+* after_commit vs after_create vs after_save
