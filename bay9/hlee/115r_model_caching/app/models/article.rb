@@ -24,5 +24,21 @@ class Article < ActiveRecord::Base
   def cached_author
     Author.cached_find(author_id)
   end
- 
+
+  def self.cached_published
+    updated_at = published.maximum(:updated_at)
+    Rails.cache.fetch([name, updated_at]) { published.to_a}
+  end 
+
+  def self.cached_published2
+    Rails.cache.fetch([name, 'published'], expires_in: 5.minutes) { published }
+  end
+
+  def flush_cache
+    Rails.cache.delete([self.class.name, id])
+    Rails.cache.delete([self.class.name, 'published'])
+  end
+
+  
+
 end
