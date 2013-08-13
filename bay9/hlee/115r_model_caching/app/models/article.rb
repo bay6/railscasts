@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
   end
 
   def cached_comments
-    Rails.cache.fetch([self, 'comments']) { comments.to_s }
+    Rails.cache.fetch([self, 'comments']) { comments }
   end
 
 end
