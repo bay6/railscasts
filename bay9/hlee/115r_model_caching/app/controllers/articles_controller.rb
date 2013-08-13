@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.cached_find(params[:id])
     @comment = Comment.new
   end
 
