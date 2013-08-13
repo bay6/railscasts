@@ -6,7 +6,7 @@
 * git merge/rebase [william]
 * Rails cache [@hlee]
 * strong parameter
-* explain form_object
+* explain form_object［clark］
 * remote github feature branch
 * eager load & lazy load
 * n + 1 problem
