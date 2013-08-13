@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.published
+    @articles = Article.cached_published2
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.cached_find(params[:id])
     @comment = Comment.new
   end
 
