@@ -9,3 +9,5 @@
 * explain form_object
 * remote github feature branch
 * explain model cache
+* eager load & lazy load
+* n + 1 problem
