@@ -4,6 +4,7 @@
 * mock/stub [新仔]
 * activesupport/concern [hlee]
 * git merge/rebase [william]
+* Rails cache
 * strong parameter
 * explain form_object
 * remote github feature branch
