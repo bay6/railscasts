@@ -2,9 +2,9 @@
 
 08/10/2013
 * mock/stub [新仔]
-* activesupport/concern [hlee]
+* activesupport/concern [@hlee]
 * git merge/rebase [william]
-* Rails cache
+* Rails cache [@hlee]
 * strong parameter
 * explain form_object
 * remote github feature branch
