@@ -11,14 +11,19 @@ class TasksController < ApplicationController
   end
 
   def create
-    respond_with Task.create(params[:task])
+    respond_with Task.create(params_task)
   end
 
   def update
-    respond_with Task.update(params[:id], params[:task])
+    respond_with Task.update(params[:id], params_task)
   end
 
   def destroy
     respond_with Task.destroy(params[:id])
   end
-end
+
+  private
+  def params_task
+    params.require(:task).permit(:name, :complete)
+  end
+end 
