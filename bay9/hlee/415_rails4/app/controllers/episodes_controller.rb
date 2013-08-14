@@ -3,7 +3,7 @@ class EpisodesController < ApplicationController
   caches_page :index
 
   def index
-    @episodes = Episode.published.find_all_by_pro(false)
+    @episodes = Episode.published.where(pro: false)
   end
 
   def show
@@ -17,7 +17,7 @@ class EpisodesController < ApplicationController
   end
 
   def create
-    @episode = Episode.new(params[:episode])
+    @episode = Episode.new(episode_params)
     if @episode.save
       redirect_to @episode, notice: 'Episode was successfully created.'
     else
@@ -39,6 +39,10 @@ class EpisodesController < ApplicationController
   end
 
 private
+
+  def episode_params
+    params.require(:episode).permit(:description, :name, :seconds, :published_on, :timecode)
+  end
 
   def load_episode
     @episode = Episode.find(params[:id])
