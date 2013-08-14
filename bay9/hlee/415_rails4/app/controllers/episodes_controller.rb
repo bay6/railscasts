@@ -3,7 +3,7 @@ class EpisodesController < ApplicationController
   caches_page :index
 
   def index
-    @episodes = Episode.published.find_all_by_pro(false)
+    @episodes = Episode.published.where(pro: false)
   end
 
   def show
