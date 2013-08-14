@@ -2,7 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-Bundle.require(:default, Rails.env)
+Bundler.require(:default, Rails.env)
 module Example
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
