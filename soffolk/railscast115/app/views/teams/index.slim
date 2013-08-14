@@ -1,0 +1,17 @@
+h4 = t('teams.index')
+
+hr
+
+.row-fluid
+  .span12
+    ul.thumbnails
+      - @teams.each do |team|
+        li.span3.box
+          .thumbnail
+            .caption
+              h5 = link_to team.name, team_path(team)
+              p = team.description
+      br
+
+- if can? :manage, Team
+  = link_to t('common.new'), new_team_path, class: 'btn btn-primary'
