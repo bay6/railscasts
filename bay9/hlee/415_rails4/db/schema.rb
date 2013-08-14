@@ -9,29 +9,29 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130506054647) do
+ActiveRecord::Schema.define(version: 20130506054647) do
 
-  create_table "episodes", :force => true do |t|
+  create_table "episodes", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "seconds"
     t.date     "published_on"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "pro",          :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "pro",          default: false, null: false
   end
 
-  create_table "versions", :force => true do |t|
-    t.string   "item_type",  :null => false
-    t.integer  "item_id",    :null => false
-    t.string   "event",      :null => false
+  create_table "versions", force: true do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
   end
 
-  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end
