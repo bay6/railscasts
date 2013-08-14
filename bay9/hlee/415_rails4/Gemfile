@@ -12,6 +12,11 @@ end
 gem 'jquery-rails'
 
 gem 'paper_trail', github: 'airblade/paper_trail', branch: 'rails4'
+gem 'protected_attributes'
+gem 'rails-observers'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'activerecord-deprecated_finders'
 
 group :test, :development do
   gem "rspec-rails"
