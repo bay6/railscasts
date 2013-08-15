@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  class Forbidden < StandardError; end
+  class Forbidden < StandardError
+  end
 
   def index
     @products = Product.order("name")
