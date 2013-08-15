@@ -59,5 +59,6 @@ class ToDoList
 
   sync: ->
     unless @offline
+      console.log @requests
       $.post("/batch", requests: JSON.stringify(@requests))
       @requests = []
