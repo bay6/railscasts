@@ -27,6 +27,7 @@ class ToDoList
     event.preventDefault()
     @offline = !@offline
     $('#toggle_offline').text(if @offline then "Go Online" else "Go Offline")
+    @sync()
 
   add: (event) =>
     event.preventDefault()
