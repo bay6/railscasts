@@ -11,6 +11,7 @@ class ToDoList
     $('#tasks').on('click', '#complete_all', @completeAll)
     $('#tasks').on('click', '#toggle_offline', @toggleOffline)
 
+
   render: (task) ->
     content = Mustache.render($('#task_template').html(), task)
     if task.complete
@@ -45,10 +46,20 @@ class ToDoList
 
   completeAll: (event) =>
     event.preventDefault()
+    @ffline = true
     $('#incomplete_tasks').find('input[type=checkbox]').click()
+    @offline = false
+    @sync()
+
+  sync: -> 
+    unless @offline
+      console.log @requests
+      $.post('/batch', requests: JSON.stringify(@requests))
+      @requests = []
 
   save: (task) ->
-    $.ajax
-      type: "PUT"
+    @requests.push
+      method: 'PUT'
       url: "/tasks/#{task.id}.json"
-      data: {task: {complete: task.complete}}
+      body: $.param(task: {complete: task.complete})
+    @sync()

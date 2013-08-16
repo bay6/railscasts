@@ -7,6 +7,7 @@ class BatchRequests
     if env['PATH_INFO'] == '/batch'
       #[200, {'Content-Type' => 'application/json'}, [env.inspect]]
       request = Rack::Request.new(env.deep_dup)
+     binding.pry
       responses = JSON.parse(request[:requests]).map do |override|
         process_request(env.deep_dup, override)
       end
