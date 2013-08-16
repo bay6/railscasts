@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'protected_attributes'
+gem 'pry-debugger'
 
 
 # To use ActiveModel has_secure_password
