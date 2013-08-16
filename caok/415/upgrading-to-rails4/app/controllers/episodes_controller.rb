@@ -1,5 +1,5 @@
 class EpisodesController < ApplicationController
-  before_filter :load_episode, only: [:show, :edit, :update, :destroy]
+  before_action :load_episode, only: [:show, :edit, :update, :destroy]
   caches_page :index
 
   def index
