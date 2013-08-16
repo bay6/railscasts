@@ -17,7 +17,7 @@ class EpisodesController < ApplicationController
   end
 
   def create
-    @episode = Episode.new(params[:episode])
+    @episode = Episode.new(episode_params)
     if @episode.save
       redirect_to @episode, notice: 'Episode was successfully created.'
     else
@@ -26,7 +26,7 @@ class EpisodesController < ApplicationController
   end
 
   def update
-    if @episode.update_attributes(params[:episode])
+    if @episode.update_attributes(episode_params)
       redirect_to @episode, notice: 'Episode was successfully updated.'
     else
       render action: "edit"
@@ -42,5 +42,9 @@ private
 
   def load_episode
     @episode = Episode.find(params[:id])
+  end
+
+  def episode_params
+    params.require(:episode).permit(:description, :name, :seconds, :published_on, :timecode)
   end
 end
