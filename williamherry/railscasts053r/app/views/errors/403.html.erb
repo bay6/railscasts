@@ -1,0 +1,6 @@
+<h1>Forbidden.</h1>
+<% if @exception %>
+  <p><%= @exception.message %></p>
+<% else %>
+  <p>You are not authorized to perform that action.</p>
+<% end %>
