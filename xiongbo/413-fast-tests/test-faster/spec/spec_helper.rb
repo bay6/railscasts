@@ -31,4 +31,11 @@ RSpec.configure do |config|
   config.filter_run current: true
   config.filter_run_excluding :slow unless ENV["SLOW"]
   config.run_all_when_everything_filtered = true
+
+  config.before(:all) do
+    DeferredGarbageCollection.start
+  end
+  config.after(:all) do
+    DeferredGarbageCollection.reconsider
+  end
 end
