@@ -14,6 +14,8 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem "rspec-rails"
+  gem "parallel_tests"
+  gem 'zeus-parallel_tests'
 end
 
 group :test do
