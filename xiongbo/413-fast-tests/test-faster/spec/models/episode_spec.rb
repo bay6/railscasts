@@ -28,8 +28,8 @@ describe Episode do
   end
 
   it "parses timecode into seconds" do
-    create(:episode, timecode: '10:03').seconds.should eq(603)
-    create(:episode, timecode: '').seconds.should be_nil
+    build(:episode, timecode: '10:03').seconds.should eq(603)
+    build(:episode, timecode: '').seconds.should be_nil
   end
 
   it "returns nil for minutes if seconds aren't set" do
