@@ -60,5 +60,7 @@ module Store
     config.assets.version = '1.0'
 
     config.action_dispatch.rescue_responses["ProductsController::Forbidden"] = :forbidden
+
+    config.exceptions_app = self.routes
   end
 end
