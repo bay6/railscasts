@@ -1,5 +1,5 @@
 Store::Application.routes.draw do
   resources :products
   root to: 'products#index'
-  match '404', to: redirect('/')
+  match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/} # via: :all
 end

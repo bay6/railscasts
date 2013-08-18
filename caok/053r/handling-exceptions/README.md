@@ -16,6 +16,8 @@ rake middleware
 
 config.exceptions_app sets the exceptions application invoked by the ShowException middleware when an exception happens. Defaults to ActionDispatch::PublicExceptions.new(Rails.public_path).
 
+  match '(errors)/:status', to: 'errors#show', constraints: {status: /\d{3}/} # via: :all
+
 ### references
 * http://rubydoc.info/github/rack/rack/master/Rack/Utils
 * http://guides.rubyonrails.org/configuring.html
