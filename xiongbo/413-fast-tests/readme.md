@@ -11,6 +11,7 @@
 
 ## Q and A
 1. what is build_stubbed works for?
+2. min, sec = *seconds.divmod(60) how to explain *seconds
 
 ## attention
 
