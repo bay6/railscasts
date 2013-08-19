@@ -13,7 +13,7 @@ class TimeDuration
   end
 
   def timecode=(timecode)
-    if timecode && !timecode.present?
+    if timecode && !timecode.empty?
       min, sec = *timecode.split(':').map(&:to_i)
       @seconds = min*60 + sec
     end

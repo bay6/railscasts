@@ -16,94 +16,38 @@ describe "Episodes" do
     page.should have_content("April 6, 2013") 
   end 
 
-  describe "create action" do
-    before(:each) do
-      visit episodes_path
-      click_on "New Episode"
-    end
-
-    it "requires name" do
-      click_on "Create"
-      page.should have_content("Name can't be blank")
-    end
-
-    it "requires description" do
-      click_on "Create"
-      page.should have_content("Description can't be blank")
-    end
-
-    describe "with valid episode" do
-      before(:each) do
-        fill_in "Name", with: "Blast from the Past"
-        fill_in "Description", with: "Hello world"
-        fill_in "Duration (timecode)", with: "15:23"
-        click_on "Create"
-      end
-
-      it "says the record was created" do
-        page.should have_content("Episode was successfully created")
-      end
-
-      it "redirects to show page" do
-        current_path.should eq(episode_path(Episode.last))
-      end
-
-      it "has updated title" do
-        page.should have_content("Blast from the Past")
-      end
-
-      it "has minutes" do
-        page.should have_content("15 minutes")
-      end
-    end
+  it "creates episode" do
+    visit episodes_path
+    click_on "New Episode"
+    click_on "Create"
+    page.should have_content("errors prohibited this")
+    fill_in "Name", with: "Blast from the Past"
+    fill_in "Description", with: "Hello world"
+    fill_in "Duration (timecode)", with: "15:23"
+    click_on "Create"
+    current_path.should eq(episode_path(Episode.last))
+    page.should have_content("Blast from the Past")
+    page.should have_content("15 minutes")
   end
 
-  describe "update action" do
-    before(:each) do
-      episode = create(:episode, name: "Blast from the Past")
-      visit episode_path(episode)
-      click_on "Edit"
-    end
-
-    it "displays validation errors" do
-      fill_in "Name", with: ""
-      click_on "Update"
-      page.should have_content("error prohibited this")
-    end
-
-    describe "with valid episode" do
-      before(:each) do
-        fill_in "Name", with: "Back to the Future"
-        click_on "Update"
-      end
-
-      it "redirects to show page" do
-        current_path.should eq(episode_path(Episode.last))
-      end
-
-      it "says the record was updated" do
-        page.should have_content("Episode was successfully updated")
-      end
-
-      it "has updated title" do
-        page.should have_content("Back to the Future")
-      end
-    end
+  it "updates episode" do
+    episode = create(:episode, name: "Blast from the Past")
+    visit episode_path(episode)
+    click_on "Edit"
+    fill_in "Name", with: ""
+    click_on "Update"
+    page.should have_content("error prohibited this")
+    fill_in "Name", with: "Back to the Future"
+    click_on "Update"
+    current_path.should eq(episode_path(Episode.last))
+    page.should have_content("Back to the Future")
   end
 
-  describe "destroy action" do
-    before(:each) do
-      episode = create(:episode, name: "Hello World")
-      visit episode_path(episode)
-      click_on "Destroy"
-    end
-
-    it "says the record was destroyed" do
-      page.should have_content("Episode was successfully destroyed")
-    end
-
-    it "removes the record" do
-      page.should_not have_content("Hello World")
-    end
-  end
+  it "destroys episode" do
+    episode = create(:episode, name: "Hello World")
+    visit episode_path(episode)
+    click_on "Destroy"
+    page.should have_content("Episode was successfully destroyed")
+    page.should_not have_content("Hello World")
+  end 
 end
