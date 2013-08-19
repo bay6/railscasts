@@ -24,3 +24,14 @@ cache key bind with updated at
   Article Load (0.3ms)  SELECT "articles".* FROM "articles" LIMIT 1
  => "articles/1-20130819123916"
 ```
+
+#### template view cache key
+
+template cache keys look like this:
+
+```ruby
+views/projects/123-20120806214154/7a1156131a6928cb0026877f8b749ac9
+       ^class   ^id ^updated_at    ^template tree digest
+```
+
+Reference: http://api.rubyonrails.org/classes/ActionView/Helpers/CacheHelper.html#method-i-cache
