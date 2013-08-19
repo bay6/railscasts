@@ -81,12 +81,6 @@ describe "Episodes" do
       click_on "Edit"
     end
 
-    it "displays validation errors" do
-      fill_in "Name", with: ""
-      click_on "Update"
-      page.should have_content("error prohibited this")
-    end
-
     describe "with valid episode" do
       before(:each) do
         fill_in "Name", with: "Back to the Future"
