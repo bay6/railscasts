@@ -1,5 +1,9 @@
 # rails casts practice --413 fast tests
 
+## Q and A
+1. what is build_stubbed works for?
+2. min, sec = *seconds.divmod(60) => why to use * before seconds
+
 ## resources
 1. [binstubs](https://github.com/sstephenson/rbenv/wiki/Understanding-binstubs)
 
@@ -9,9 +13,16 @@
   running specs may increase performance dramatically
 3. parallel tests is separate test cases to the parts by your cpu cores
 
-## Q and A
-1. what is build_stubbed works for?
-2. min, sec = *seconds.divmod(60) => why to use * before seconds
+## methods
+1. use binstubs
+2. use zeus
+3. use spec filter
+4. use GC
+5. use parallelization
+6. use guard
+7. improve the tests by move before blocks
+8. decouple code which has the logic that not belongs to model and should not setup rails env
+9. combine all above
 
 ## attention
 
