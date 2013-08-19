@@ -11,6 +11,8 @@ What's that to_a for?
 
 #### About cache_key
 
+cache key bind with updated at
+
 ```ruby
 1.9.3-p429 :014 > Article.first.created_at.strftime("%T")
   Article Load (0.3ms)  SELECT "articles".* FROM "articles" LIMIT 1
