@@ -36,5 +36,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+group :development, :test do
+  gem 'spring'
+  gem 'zeus'
+  gem 'commands'
+end
 
-gem 'commands', group: [:development, :test]
+#gem 'commands', group: [:development, :test]
