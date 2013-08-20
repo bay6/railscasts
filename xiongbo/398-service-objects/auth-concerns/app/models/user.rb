@@ -3,28 +3,11 @@ class User < ActiveRecord::Base
   include Searchable
   include CsvConversion
   include Invitation
+  include PasswordResettable
 
   attr_accessible :email, :username, :password, :password_confirmation
 
   validates_presence_of :username, :email
   validates_uniqueness_of :username
   validates_confirmation_of :password 
-
-
-  def send_password_reset
-    generate_password_reset_token
-    self.password_reset_sent_at = Time.zone.now
-    save!
-    UserMailer.password_reset(self).deliver
-  end
-
-  def generate_password_reset_token
-    begin
-      self.password_reset_token = SecureRandom.hex
-    end while User.exists?(password_reset_token: password_reset_token)
-  end
-
-  def password_reset_expired?
-    password_reset_sent_at < 2.hours.ago
-  end
 end
