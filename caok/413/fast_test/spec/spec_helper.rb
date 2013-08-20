@@ -32,4 +32,15 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
 
   config.filter_run_excluding :slow unless ENV["SLOW_SPECS"]
+
+  #config.before(:each) { GC.disable }
+  #config.after(:each) { GC.enable }
+
+  config.before(:all) do
+    DeferredGarbageCollection.start
+  end
+
+  config.after(:all) do
+    DeferredGarbageCollection.reconsider
+  end
 end
