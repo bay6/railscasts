@@ -1,4 +1,3 @@
-#load 'concerns/authentication.rb'
 class User < ActiveRecord::Base
   attr_accessible :email, :username, :password, :password_confirmation
 
@@ -6,7 +5,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_confirmation_of :password
 
-  include Authentication
+  has_secure_password
+
+
   def self.search(query)
     users = order("username")
     if query.present?
