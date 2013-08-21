@@ -15,6 +15,13 @@
 4. which is better between `UserFormat.new(@users).csv` and @users.to_csv?
 5. `new User.find_by_email(email)` why we should use new?
 
+```ruby
+def self.from_email(email)
+    PasswordReset.new(User.find_by_email(email))
+end
+```
+
+
  
 
 
