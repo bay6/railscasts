@@ -1,24 +1,6 @@
 require 'spec_helper'
 
-describe User do
-  describe '.authenticate' do
-    it "returns user only if username and password match" do
-      user = create(:user, username: "foobar", password: "secret")
-      User.authenticate("foobar", "secret").should eq(user)
-      User.authenticate("foobar2", "secret").should be_nil
-      User.authenticate("foobar", "secret2").should be_nil
-    end
-  end
-
-  describe '.from_omniauth' do
-    it "finds a user record matching uid/provider and updates username" do
-      user = create(:user, username: "foobar", provider: "foo", uid: "123")
-      user2 = User.from_omniauth(provider: "foo", uid: "123", info: {nickname: "newfoo"})
-      user.should eq(user2)
-      user2.username.should eq("newfoo")
-    end
-  end
-
+describe User do 
   describe '.search' do
     it "finds users matching username or email" do
       user = create(:user, username: "foobar", email: "foobar@example.com")

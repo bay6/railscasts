@@ -5,21 +5,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_confirmation_of :password
 
-  has_secure_password
-
-  def self.authenticate(username, password)
-    user = find_by_username(username)
-    user if user && user.authenticate(password)
-  end
-
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth[:provider]
-      user.uid = auth[:uid]
-      user.username = auth[:info][:nickname]
-      user.save!
-    end
-  end
+  has_secure_password 
 
   def self.search(query)
     users = order("username")
