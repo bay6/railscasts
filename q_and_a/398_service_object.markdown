@@ -22,6 +22,6 @@ q and a
 
 #### about assets pipeline
 
-[question](general_question.markdown)
+[question about asset path](general_question.markdown)
 
 [asset pipeline resource](http://guides.rubyonrails.org/asset_pipeline.html)
