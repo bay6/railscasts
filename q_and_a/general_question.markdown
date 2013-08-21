@@ -4,7 +4,7 @@
 
 If you have a image menu.png under app/assets/images/menu.png
 
-What should you write for image_tag and img in html and css
+What should you write for image_tag and img in html and css, and what's the reason
 
 ```ruby
 <%= image_tag menu.png%>
