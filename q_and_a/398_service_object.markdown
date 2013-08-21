@@ -19,3 +19,9 @@ q and a
     user.save!
   end
 ```
+
+#### about assets pipeline
+
+[question](./generatal_question.markdown)
+
+[asset pipeline resource](http://guides.rubyonrails.org/asset_pipeline.html)
