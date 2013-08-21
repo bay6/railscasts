@@ -61,6 +61,6 @@ module Auth
     config.assets.version = '1.0'
 
     #loaded concern folder along with mode
-    config.autoload_paths += %w(#{config.root}/app/models/concerns)
+    config.autoload_paths += %W(#{config.root}/app/models/concerns)
   end
 end
