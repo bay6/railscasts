@@ -5,3 +5,17 @@ q and a
 * user = create(:user, username: 'xxx', password: 'xxx') how to explain create?
 * which is better between UserFormat.new(@users).csv and @users.to_csv?
 * new User.find_by_email(email) why we should use new?
+* 
+
+#### tap 是ruby 还是rails 用法
+
+看着不眼熟啊，什么情况下用
+
+```ruby
+  @user = User.where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    user.provider = auth[:provider]
+    user.uid = auth[:uid]
+    user.username = auth[:info][:nickname]
+    user.save!
+  end
+```
