@@ -1,9 +1,0 @@
-<h1>Invite Your Friends</h1>
-
-<%= form_tag invitations_path, method: :post do %>
-  <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="actions"><%= submit_tag "Send Invitation" %></div>
-<% end %>
