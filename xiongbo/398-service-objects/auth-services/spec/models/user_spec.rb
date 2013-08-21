@@ -1,15 +1,6 @@
 require 'spec_helper'
 
 describe User do 
-  describe '.search' do
-    it "finds users matching username or email" do
-      user = create(:user, username: "foobar", email: "foobar@example.com")
-      User.search("foobar").should eq([user])
-      User.search("foobar@example.com").should eq([user])
-      User.search("foobar2").should_not eq([user])
-    end
-  end
-
   describe '.to_csv' do
     it "returns the records in CSV format" do
       user = create(:user)

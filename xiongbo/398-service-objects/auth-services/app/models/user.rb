@@ -7,14 +7,6 @@ class User < ActiveRecord::Base
 
   has_secure_password 
 
-  def self.search(query)
-    users = order("username")
-    if query.present?
-      users = users.where("email like :q or username like :q", q: query)
-    end
-    users
-  end
-
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << %w[id username email]
