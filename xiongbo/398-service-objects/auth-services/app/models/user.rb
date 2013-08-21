@@ -7,24 +7,6 @@ class User < ActiveRecord::Base
 
   has_secure_password 
 
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      csv << %w[id username email]
-      all.each do |user|
-        csv << [user.id, user.username, user.email]
-      end
-    end
-  end
-
-  def send_invitation(email)
-    UserMailer.invitation(self, email).deliver
-    increment! :invitation_count
-  end
-
-  def reached_invitation_limit?
-    invitation_count.to_i > 5
-  end
-
   def send_password_reset
     generate_password_reset_token
     self.password_reset_sent_at = Time.zone.now

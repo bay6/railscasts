@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @users = UserSearch.new(params[:query]).users
     respond_to do |format|
       format.html
-      format.csv { send_data @users.to_csv }
+      format.csv { send_data UserFormat.new(@users).csv }
     end
   end
 
