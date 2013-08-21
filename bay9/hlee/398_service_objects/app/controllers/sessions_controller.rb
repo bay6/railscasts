@@ -3,18 +3,29 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if env["omniauth.auth"]
-      @user = User.from_omniauth(env["omniauth.auth"])
-    else
-      @user = User.authenticate(params[:username], params[:password])
+    if auth = env['omniauth.auth']
+    @user = User.where(auth.slice(:provider, :uid)).first_or_initialize.tap do |usr|
+      usr.provider = auth[:provider]
+      usr.uid = auth[:uid]
+      usr.username = auth[:info][:nickname]
+      usr.save!
     end
-    if @user
-      session[:user_id] = @user.id
-      redirect_to root_url, notice: "Logged in!"
     else
-      flash.now.alert = "Username or password is invalid"
-      render "new"
+      user = User.find_by_username(params[:username])
+      @user = user if user and user.authenticate(params[:username], params[:password])
     end
+    #if env["omniauth.auth"]
+      #@user = User.from_omniauth(env["omniauth.auth"])
+    #else
+      #@user = User.authenticate(params[:username], params[:password])
+    #end
+    #if @user
+      #session[:user_id] = @user.id
+      #redirect_to root_url, notice: "Logged in!"
+    #else
+      #flash.now.alert = "Username or password is invalid"
+      #render "new"
+    #end
   end
 
   def destroy
