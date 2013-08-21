@@ -2,10 +2,21 @@
 
 ## q and a
 1. why should use has_secure_password in included callback
+
+这个就是加载一个功能模块吧。不放到concern之前是直接加。放到concern里后，是在include的时候，加载，就是hook上次说的。不加的话不能得到password加密的功能 
+
 2. why the namespace should as the same as directionary
+ 
+
 3. `user = create(:user, username: 'xxx', password: 'xxx')` how to explain create?
+
+`FactoryGirl`
+
 4. which is better between `UserFormat.new(@users).csv` and @users.to_csv?
 5. `new User.find_by_email(email)` why we should use new?
+
+ 
+
 
 ## resources
 [concern,include,extend](http://www.zhlwish.com/2012/07/23/rails-activesupport-concern/)
