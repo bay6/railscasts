@@ -4,7 +4,8 @@
 1. why should use has_secure_password in included callback
 2. why the namespace should as the same as directionary
 3. `user = create(:user, username: 'xxx', password: 'xxx')` how to explain create?
-4. which is better between `UserFormat.new(@users).csv` and @users.to_csv
+4. which is better between `UserFormat.new(@users).csv` and @users.to_csv?
+5. `new User.find_by_email(email)` why we should use new?
 
 ## resources
 [concern,include,extend](http://www.zhlwish.com/2012/07/23/rails-activesupport-concern/)
