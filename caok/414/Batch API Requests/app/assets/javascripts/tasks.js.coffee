@@ -26,6 +26,7 @@ class ToDoList
     event.preventDefault()
     @offline = !@offline
     $('#toggle_offline').text(if @offline then "Go Online" else "Go Offline")
+    @sync()
 
   add: (event) =>
     event.preventDefault()
@@ -45,10 +46,19 @@ class ToDoList
 
   completeAll: (event) =>
     event.preventDefault()
+    @offline = true
     $('#incomplete_tasks').find('input[type=checkbox]').click()
+    @offline = false
+    @sync()
 
   save: (task) ->
-    $.ajax
-      type: "PUT"
+    @requests.push
+      method: "PUT"
       url: "/tasks/#{task.id}.json"
-      data: {task: {complete: task.complete}}
+      body: $.param(task: {complete: task.complete})
+    @sync()
+
+  sync: ->
+    unless @offline
+      $.post("/batch", requests: JSON.stringify(@requests))
+      @requests = []
