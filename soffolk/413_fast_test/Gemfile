@@ -1,0 +1,26 @@
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
+
+gem 'rails', '3.2.13'
+gem 'sqlite3'
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
+
+group :test, :development do
+  gem "rspec-rails"
+  gem "parallel_tests"
+  gem "zeus-parallel_tests"
+end
+
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem "zeus"
+end
