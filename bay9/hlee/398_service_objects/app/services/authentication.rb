@@ -19,7 +19,6 @@ private
       usr.provider = @omniauth[:provider]
       usr.uid = @omniauth[:uid]
       usr.username = @omniauth[:info][:nickname]
-      user.save!
     end
   end
 
