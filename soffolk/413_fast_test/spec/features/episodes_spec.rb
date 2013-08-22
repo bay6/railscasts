@@ -38,14 +38,9 @@ describe "Episodes" do
       click_on "New Episode"
     end
 
-    it "requires name" do
+    it "displays Validation errors" do
       click_on "Create"
-      page.should have_content("Name can't be blank")
-    end
-
-    it "requires description" do
-      click_on "Create"
-      page.should have_content("Description can't be blank")
+      page.should have_content("errors prohibited this")
     end
 
     describe "with valid episode" do
