@@ -25,3 +25,12 @@ q and a
 [question about asset path](general_question.markdown)
 
 [asset pipeline resource](http://guides.rubyonrails.org/asset_pipeline.html)
+
+
+#### rspec `be_authenticated`
+
+```ruby
+      Authentication.new(username: 'foobar', password: 'secret').should be_authenticated
+```
+
+where this method from?
