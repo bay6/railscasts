@@ -8,10 +8,10 @@
   </tr>
 <% @products.each do |product| %>
   <tr>
-    <td><%= link_to product.name, product %></td>
+    <td><%= link_to product.name, "/products/#{product.to_param}" %></td>
     <td><%= product.category.name if product.category %></td>
-    <td class="price"><%= number_to_currency(product.price) %></td>
-    <td><%= link_to "edit", edit_product_path(product) %></td>
+    <td class="price"><%= "$%.2f" % product.price %></td>
+    <td><%= link_to "edit", "/products/#{product.to_param}/edit" %></td>
   </tr>
 <% end %>
 </table>
