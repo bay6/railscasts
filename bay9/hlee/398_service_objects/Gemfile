@@ -40,6 +40,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'will_paginate'
 gem 'omniauth-twitter'
 gem 'letter_opener', group: :development
+group :development, :test do
+  gem 'pry-debugger'
+end
 
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
