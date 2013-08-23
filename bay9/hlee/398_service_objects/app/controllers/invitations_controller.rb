@@ -3,11 +3,14 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    if current_user.reached_invitation_limit?
+    invitation = Invitation.new(current_user)
+    if invitation.at_limit?
+    #if current_user.reached_invitation_limit?
       flash.now.alert = "You have reached your invitation limit."
       render :new
     else
-      current_user.send_invitation(params[:email])
+      #current_user.send_invitation(params[:email])
+      invitation.deliver(params[:email])
       redirect_to root_url, notice: "Sent invitation"
     end
   end
