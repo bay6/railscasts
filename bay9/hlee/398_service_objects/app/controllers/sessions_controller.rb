@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = auth.user.id
       redirect_to root_url, notice: 'Logged in!'
     else
-      flash.now.alert = 'Username or passord is invalid'
+      flash.now.alert = 'Username or password is invalid'
       render 'new'
     end
     #if auth = env['omniauth.auth']

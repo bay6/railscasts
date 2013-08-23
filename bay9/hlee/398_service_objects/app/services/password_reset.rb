@@ -6,7 +6,7 @@ class PasswordReset
   end
 
   def self.from_token(token)
-    new user.find_by_password_reset_token!(token)
+    new User.find_by_password_reset_token!(token)
   end
 
   def initialize(user)
