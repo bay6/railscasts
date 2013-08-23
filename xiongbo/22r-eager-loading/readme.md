@@ -12,7 +12,7 @@
 3. use select to fetch part data
 
 `Product.order("categories.name").includes(:category).select('products.*, categories.name as category_name')`
-# q? this also cause N+1 problem
+# ?q this also cause N+1 problem
 
 4. more on joins
 
