@@ -21,9 +21,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'ruby-prof', group: :test
+gem 'test-unit', group: :test
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -36,14 +38,3 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
-
-gem 'will_paginate'
-gem 'omniauth-twitter'
-gem 'letter_opener', group: :development
-
-gem 'rspec-rails', :group => [:test, :development]
-group :test do
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'launchy'
-end
