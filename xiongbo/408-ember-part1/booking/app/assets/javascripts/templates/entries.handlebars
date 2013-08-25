@@ -1,0 +1,13 @@
+{{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+<button {{action booking}}>Booking</button>
+
+<ul>
+  {{#each controller}}
+  <li>
+    {{ name }}
+    {{#if booked}}
+      <span {{bindAttr class="booked highlight"}}>Already Booked</span>
+    {{/if}} 
+  </li>
+  {{/each}}
+</ul>
