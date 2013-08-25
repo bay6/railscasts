@@ -1,0 +1,26 @@
+---
+categories_001:
+  id: 1
+  name: Electronics
+  created_at: '2013-03-20 22:24:34.460870'
+  updated_at: '2013-03-20 22:24:34.460870'
+categories_002:
+  id: 2
+  name: 'Toys & Games'
+  created_at: '2013-03-20 22:24:34.466324'
+  updated_at: '2013-03-20 22:24:34.466324'
+categories_003:
+  id: 3
+  name: Clothes
+  created_at: '2013-03-20 22:24:34.468288'
+  updated_at: '2013-03-20 22:24:34.468288'
+categories_004:
+  id: 4
+  name: Furniture
+  created_at: '2013-03-20 22:24:34.470172'
+  updated_at: '2013-03-20 22:24:34.470172'
+categories_005:
+  id: 5
+  name: Foods
+  created_at: '2013-03-20 22:24:34.471788'
+  updated_at: '2013-03-20 22:24:34.471788'
