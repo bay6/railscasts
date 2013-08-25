@@ -1,0 +1,5 @@
+#### Q1 What's that mean?
+
+```ruby
+Product.joins(:category, :reviews => :user)
+```
