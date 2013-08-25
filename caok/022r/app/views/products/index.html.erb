@@ -9,7 +9,7 @@
 <% @products.each do |product| %>
   <tr>
     <td><%= link_to product.name, product %></td>
-    <td><%= product.category.name %></td>
+    <td><%= product.category_name %></td>
     <td class="price"><%= number_to_currency(product.price) %></td>
     <td><%= link_to "edit", edit_product_path(product) %></td>
   </tr>
