@@ -1,0 +1,6 @@
+{{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+<ul>
+  {{#each entries}}
+    <li>{{name}}</li>
+  {{/each}}
+</ul>
