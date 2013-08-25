@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order("name").includes(:category)
+    @products = Product.order("categories.name").joins(:category).select('products.*, categories.name as category_name')
   end
 
   def show
