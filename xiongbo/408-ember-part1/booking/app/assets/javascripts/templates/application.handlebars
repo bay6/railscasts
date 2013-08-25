@@ -1,9 +1,4 @@
 <div id="container">
   <h1>Booking</h1>
-  {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
-  {{newEntryName }}
-
-  {{#each entries}}
-  <li>{{ name }}</li>
-  {{/each}}
+  {{outlet}}
 </div>

@@ -1,3 +1,7 @@
 Booking.Router.map (match)->
-  # match('/').to('index')
+  @route 'entries', path: '/'
+
+Booking.EntriesRoute = Ember.Route.extend
+  setupController: (controller) ->
+    controller.set('content', [])
 
