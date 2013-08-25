@@ -1,5 +1,4 @@
-Raffler.EntriesController = Ember.Controller.extend
-  entries: []
+Raffler.EntriesController = Ember.ArrayController.extend
   addEntry: ->
-    @entries.pushObject name: @get('newEntryName')
+    @pushObject name: @get('newEntryName')
     @set('newEntryName', "")
