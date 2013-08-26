@@ -6,6 +6,13 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    respond_with @article
+    respond_to do |format|
+      format.html { @article }
+      format.json  { render json: @article }
+    end
+  end
+
+  def default_serializer_options
+    { root: false }
   end
 end
