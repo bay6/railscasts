@@ -34,4 +34,7 @@ Raffler::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # setting for ember
+  config.ember.variant = :development
 end
