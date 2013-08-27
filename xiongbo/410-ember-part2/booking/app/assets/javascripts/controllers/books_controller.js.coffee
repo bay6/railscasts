@@ -1,6 +1,6 @@
 Booking.BooksController = Ember.ArrayController.extend
-  addBook: ->
-    Booking.Book.createRecord name: @get('newBookName')
+  addBook: (name)->
+    Booking.Book.createRecord name: name
     @get('store').commit()
     @set('newBookName', "")
     

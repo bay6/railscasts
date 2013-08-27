@@ -1,5 +1,4 @@
-{{view Ember.TextField valueBinding="newBookName" action="addBook"}}
-<button {{action booking}} {{bindAttr disabled="allBooked"}}>Booking</button>
+{{view Booking.NewBookView}}
 
 <ul>
   {{#each controller}}
@@ -11,3 +10,4 @@
   </li>
   {{/each}}
 </ul>
+<button {{action booking}} {{bindAttr disabled="allBooked"}}>Booking</button> 
