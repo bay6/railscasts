@@ -1,3 +1,7 @@
+### official code base
+
+https://github.com/railscasts
+
 ### 项目定位
 
 中级练功房，用于入职成员提升自身水平。方式就是，在创建自己目录，完成对应railscasts
