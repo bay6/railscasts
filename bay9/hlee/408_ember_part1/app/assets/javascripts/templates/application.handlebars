@@ -2,4 +2,9 @@
   <h1>Raffler</h1>
   {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
   {{newEntryName}}
+  <ul>
+   {{#each entries}}
+   <li>{{name}}</li>
+   {{/each}}
+  </ul>
 </div>
