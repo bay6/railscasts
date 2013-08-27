@@ -1,6 +1,6 @@
 Booking.BooksController = Ember.ArrayController.extend
   addBook: ->
-    @pushObject Ember.Object.create name: @get('newBookName')
+    Booking.Book.createRecord name: @get('newBookName')
     @set('newBookName', "")
     
   booking: ->
@@ -10,3 +10,4 @@ Booking.BooksController = Ember.ArrayController.extend
       book = pool[Math.floor(Math.random()*pool.length)]
       book.set('booked', true)
       book.set('highlight', true)
+      @get('store').commit()
