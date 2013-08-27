@@ -52,6 +52,13 @@ form input[type='submit'], button {
   text-shadow: 0 -1px 0 #036;
   text-align: middle;
   vertical-align: top;
+  &:disabled {
+    backgroud: #929490;
+    background: -webkit-gradient(linear, left top, left bottom, from(#AAAAAA), to(#777777));
+    background: -moz-linear-gradient(top, #AAAAAA, #777777);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AAAAAA', endColorstr='#777777');
+    border: 1px solid #525351;
+  }
 }
 
 button {

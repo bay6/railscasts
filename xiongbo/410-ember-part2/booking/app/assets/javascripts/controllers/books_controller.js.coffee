@@ -1,6 +1,7 @@
 Booking.BooksController = Ember.ArrayController.extend
   addBook: ->
     Booking.Book.createRecord name: @get('newBookName')
+    @get('store').commit()
     @set('newBookName', "")
     
   booking: ->
@@ -11,3 +12,7 @@ Booking.BooksController = Ember.ArrayController.extend
       book.set('booked', true)
       book.set('highlight', true)
       @get('store').commit()
+
+  allBooked: (->
+    @everyProperty('booked')
+  ).property('@each.booked')

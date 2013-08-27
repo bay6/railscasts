@@ -14,7 +14,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    respond_with Book.update(params_book)
+    respond_with Book.update(params[:id], params_book)
   end
 
   def destroy
