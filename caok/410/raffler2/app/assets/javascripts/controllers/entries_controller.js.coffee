@@ -11,3 +11,7 @@ Raffler.EntriesController = Ember.ArrayController.extend
       entry.set('winner', true)
       entry.set('highlight', true)
       @get('store').commit()
+
+  allWinners: (->
+    @everyProperty('winner')
+  ).property('@each.winner')
