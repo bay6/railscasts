@@ -1,0 +1,13 @@
+{{view Booking.NewBookView}}
+
+<ul>
+  {{#each controller}}
+  <li>
+    {{ name }}
+    {{#if booked}}
+      <span {{bindAttr class="booked highlight"}}>Already Booked</span>
+    {{/if}} 
+  </li>
+  {{/each}}
+</ul>
+<button {{action booking}} {{bindAttr disabled="allBooked"}}>Booking</button> 
