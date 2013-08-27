@@ -3,5 +3,6 @@ Raffler.Router.map (match)->
   @route 'entries', path: '/'
 
 Raffler.EntriesRoute = Ember.Route.extend
-  setupController: (controller) -> controller.set('controller', [])
+  #setupController: (controller) -> controller.set('controller', [])
+  model: -> Raffler.Entry.find()
 
