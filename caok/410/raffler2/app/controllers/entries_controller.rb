@@ -10,14 +10,19 @@ class EntriesController < ApplicationController
   end
 
   def create
-    respond_with Entry.create(params[:entry])
+    respond_with Entry.create(entry_params)
   end
 
   def update
-    respond_with Entry.update(params[:id], params[:entry])
+    respond_with Entry.update(params[:id], entry_params)
   end
 
   def destroy
     respond_with Entry.destroy(params[:id])
+  end
+
+  private
+  def entry_params
+    params.require(:entry).permit(:name, :winner)
   end
 end
