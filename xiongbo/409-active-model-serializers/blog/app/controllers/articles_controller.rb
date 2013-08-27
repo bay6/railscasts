@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     respond_to do |format|
       format.html { @article }
-      format.json  { render json: @article }
+      format.json  { render json: @article, root: :article }
     end
   end
 
