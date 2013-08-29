@@ -36,8 +36,9 @@ gem 'ember-rails'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'jasmine-rails'
 end
+gem 'jasmine'
+gem 'rspec-jasmine'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
