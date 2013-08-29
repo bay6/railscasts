@@ -15,7 +15,7 @@
       #entry.winner = true
 Raffler.EntriesController = Ember.ArrayController.extend
   addEntry: -> 
-    @pushObject Ember.Object.create(name: @get('newEntryName'))
+    @pushObject Ember.Object.create(name:    @get('newEntryName'))
     @set('newEntryName', "")
 
   drawWinner: ->
