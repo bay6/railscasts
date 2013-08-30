@@ -1,4 +1,7 @@
-{{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+<form>
+  {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+  <input type='submit' value='Add' {{action addEntry}}>
+</form>
 <ul>
   {{#each controller}}
     <li>
