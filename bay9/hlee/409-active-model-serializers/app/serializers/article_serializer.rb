@@ -10,7 +10,7 @@ class ArticleSerializer < ActiveModel::Serializer
 
   def attributes
     data = super
-    data[:edit_url] = edit_article_url(object) if scope.admin?
+    data[:edit_url] = edit_article_url(object)# if scope.admin?
     data
   end
 end
