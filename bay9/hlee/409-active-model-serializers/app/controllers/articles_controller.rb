@@ -7,11 +7,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: @article, root: false}
+      format.json { render json: @article}
     end
   end
 
   def default_serializer_options
-    {root: false}
+    {root: true}
   end
 end
