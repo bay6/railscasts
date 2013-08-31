@@ -1,0 +1,7 @@
+#### scope
+
+```ruby
+serialization_scope :view_context
+```
+
+这是个啥用法
