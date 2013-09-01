@@ -1,4 +1,10 @@
 Store::Application.routes.draw do
   root to: 'products#index'
-  resources :products
+  resources :products do
+    collection do
+      get :edit_multiple
+      put :update_multiple
+      put :discontinue
+    end
+  end
 end
