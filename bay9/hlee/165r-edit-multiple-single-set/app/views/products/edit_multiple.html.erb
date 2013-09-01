@@ -24,6 +24,10 @@
       <%= f.text_field :price %>
     </div>
     <div class="field">
+      <%= f.label :price_modification %><br />
+      <%= f.text_field :price_modification %>
+    </div>    
+    <div class="field">
       <%= f.label :category_id %><br />
       <%= f.collection_select :category_id, Category.order("name"), :id, :name, include_blank: true %>
     </div>
