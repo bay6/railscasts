@@ -1,0 +1,33 @@
+<h1>Edit Checked Products</h1>
+
+<%= form_tag update_multiple_products_path, method: :put do %>
+  <ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= hidden_field_tag "product_ids[]", product.id %>
+      <%= product.name %>
+    </li>
+  <% end %>
+  </ul>
+  <%= fields_for :product do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :price %><br />
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :category_id %><br />
+      <%= f.collection_select :category_id, Category.order("name"), :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.check_box :discontinued %>
+      <%= f.label :discontinued %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= submit_tag "Update" %>
+  </div>
+<% end %>
