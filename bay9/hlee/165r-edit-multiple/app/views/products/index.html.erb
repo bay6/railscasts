@@ -1,7 +1,8 @@
 <h1>Products</h1>
-
+<%= form_tag discontinue_products_path, method: :put do%>
 <table>
   <tr>
+    <th>&nbsp;</th>
     <th>Name</th>
     <th>Category</th>
     <th>Discontinued</th>
@@ -9,6 +10,7 @@
   </tr>
   <% @products.each do |product| %>
     <tr>
+      <td><%= check_box_tag 'product_ids[]', product.id %></td>
       <td><%= product.name %></td>
       <td><%= product.category.name %></td>
       <td><%= product.discontinued ? "Yes" : "No" %></td>
@@ -18,5 +20,6 @@
     </tr>
   <% end %>
 </table>
-
+<%= submit_tag "Discontinued Checked" %>
+<% end %>
 <p><%= link_to 'New Product', new_product_path %></p>
