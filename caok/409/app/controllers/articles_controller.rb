@@ -10,4 +10,8 @@ class ArticlesController < ApplicationController
       format.json { render json: @article }
     end
   end
+
+  #def default_serializer_options
+    #{root: false}
+  #end
 end
