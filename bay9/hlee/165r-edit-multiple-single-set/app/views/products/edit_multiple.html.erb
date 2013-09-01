@@ -6,6 +6,11 @@
     <li>
       <%= hidden_field_tag "product_ids[]", product.id %>
       <%= product.name %>
+      <ul class="errors">
+        <% product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     </li>
   <% end %>
   </ul>
