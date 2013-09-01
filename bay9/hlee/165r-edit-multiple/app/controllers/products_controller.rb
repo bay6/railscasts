@@ -39,4 +39,13 @@ class ProductsController < ApplicationController
     Product.update_all({discontinued: true}, {id: params[:product_ids]})
     redirect_to products_url
   end
+
+  def edit_multiple 
+    @products = Product.find(params[:product_ids])
+  end
+
+  def update_multiple
+    Product.update(params[:products].keys, params[:products].values)
+    redirect_to products_path
+  end
 end
