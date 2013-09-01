@@ -20,11 +20,11 @@
     </div>
     <div class="field">
       <%= f.label :category_id %><br />
-      <%= f.collection_select :category_id, Category.order("name"), :id, :name %>
+      <%= f.collection_select :category_id, Category.order("name"), :id, :name, include_blank: true %>
     </div>
     <div class="field">
       <%= f.check_box :discontinued %>
-      <%= f.label :discontinued %>
+      <%= f.label :discontinued, [['Yes', true], ['No', false]], include_blank: true%>
     </div>
   <% end %>
   <div class="actions">

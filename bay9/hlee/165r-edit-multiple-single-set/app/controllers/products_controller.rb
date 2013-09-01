@@ -45,8 +45,12 @@ class ProductsController < ApplicationController
   end
 
   def update_multiple
-    @products = Product.update(params[:products].keys, params[:products].values)
-    @products.reject! { |p| p.errors.empty? }
+    #@products = Product.update(params[:products].keys, params[:products].values)
+    #@products.reject! { |p| p.errors.empty? }
+    @products = Product.find(params[:product_ids])
+    @products.reject! do |product|
+      product.update_attributes(params[:product].reject{ |k,v| v.blank? })
+    end
     if @products.empty?
       redirect_to products_path
     else
