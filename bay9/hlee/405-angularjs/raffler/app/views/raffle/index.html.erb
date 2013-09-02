@@ -1,6 +1,16 @@
 <h1>Raffle#index</h1>
-<form>
-  <input type="text" ng-model="newEntry.name">
-</form> 
+<div ng-controller='RaffleCtrl'>
 
-{{newEntry.name}}
+  <form ng-submit="addEntry()">
+    <input type="text" ng-model="newEntry.name">
+    <input type="submit" value="Add">
+  </form>
+
+  {{newEntry.name}}
+
+  <ul>
+    <li ng-repeat="entry in entries">
+      {{entry.name}}
+    </li>
+  </ul>
+</div>
