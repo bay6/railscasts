@@ -17,3 +17,6 @@ app = angular.module("Raffler", ["ngResource"])
 ```
 
 这里的这个啥Raffler是跟谁对应的
+
+
+### what's  dependency injection
