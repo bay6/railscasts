@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(params[:comment])
     @comment.user = current_user
     if @comment.save
-      track_acitvity @comment
+      track_activity @comment
       redirect_to @recipe, notice: "Comment was created."
     else
       render :new
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   def update
     @comment = current_user.comments.find(params[:id])
     if @comment.update_attributes(params[:comment])
-      track_acitvity @comment
+      track_activity @comment
       redirect_to @recipe, notice: "Comment was updated."
     else
       render :edit

@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(params[:recipe])
     if @recipe.save
-      track_acitvity @recipe
+      track_activity @recipe
       redirect_to @recipe, notice: "Recipe was created."
     else
       render :new
@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = current_user.recipes.find(params[:id])
     if @recipe.update_attributes(params[:recipe])
-      track_acitvity @recipe
+      track_activity @recipe
       redirect_to @recipe, notice: "Recipe was updated."
     else
       render :edit
