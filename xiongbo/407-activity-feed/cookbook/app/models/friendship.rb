@@ -1,4 +1,4 @@
-# == Schema Information
+#s == Schema Information
 #
 # Table name: friendships
 #
