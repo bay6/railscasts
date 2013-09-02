@@ -1,0 +1,19 @@
+### 谁讲讲，这个resource怎么映射的
+
+```javascript
+
+app = angular.module("Raffler", ["ngResource"])
+
+@RaffleCtrl = ($scope, $resource) ->
+  Entry = $resource("/entries/:id", {id: "@id"}, {update: {method: "PUT"}})
+  $scope.entries = Entry.query()
+```
+
+
+### layout里
+
+```html
+<html ng-app='Raffler'>
+```
+
+这里的这个啥Raffler是跟谁对应的
