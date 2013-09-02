@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: activities
+#
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  action         :string(255)
+#  trackable_id   :integer
+#  trackable_type :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  action: MyString
+  trackable: 
+  trackable_type: MyString
+
+two:
+  user: 
+  action: MyString
+  trackable: 
+  trackable_type: MyString
