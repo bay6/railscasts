@@ -1,0 +1,6 @@
+[submodule "codebase/407-activity-feed-from-scratch"]
+	path = codebase/407-activity-feed-from-scratch
+	url = git@github.com:railscasts/407-activity-feed-from-scratch.git
+[submodule "codebase/406-public-activity"]
+	path = codebase/406-public-activity
+	url = git@github.com:railscasts/406-public-activity.git
