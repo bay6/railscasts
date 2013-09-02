@@ -19,6 +19,15 @@ class ActivityPresenter < SimpleDelegator
   end
 
   def partial_path
-    "activities/#{activity.trackable_type.underscore}/#{activity.action.underscore}"
+    partial_paths.detect do |path|
+      lookup_context.template_exists? path, nil, true
+    end || raise("No partial found for activity in #{partial_paths}")
+  end
+
+  def partial_paths
+    [
+      "activities/#{activity.trackable_type.underscore}/#{activity.action.underscore}",
+      "activities/#{activity.trackable_type.underscore}"
+    ]
   end
 end

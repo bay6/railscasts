@@ -1,1 +1,6 @@
-commented on <%= link_to comment.recipe.name, comment.recipe %>
+<% if comment %>
+  commented on <%= link_to comment.recipe.name, comment.recipe %>
+<% else %>
+  added a comment which has since been removed
+<% end %>
+
