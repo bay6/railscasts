@@ -1,4 +1,7 @@
-{{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+<form>
+  {{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
+  <input type='submit' value='Add' {{action addEntry}}>
+</form>
 <ul>
   {{#each controller}}
     <li>
@@ -9,4 +12,4 @@
     </li>
   {{/each}}
 </ul>
-<button {{action drawWinner}}>Draw Winner</button>
+<button {{action drawWinner}} {{bindAttr disabled='allWinner'}}>Draw Winner</button>
