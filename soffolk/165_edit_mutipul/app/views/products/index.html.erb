@@ -1,6 +1,6 @@
 <h1>Products</h1>
 
-<%= form_tag discontinue_products_path, method: :put do %>
+<%= form_tag edit_multipul_products_path, method: :get do %>
   <table>
     <tr>
       <th></th>
@@ -21,7 +21,7 @@
       </tr>
     <% end %>
   </table>
-  <%= submit_tag "Discontinued Products" %>
+  <%= submit_tag "Edit Products" %>
 <% end %>
 
 <p><%= link_to 'New Product', new_product_path %></p>

@@ -35,8 +35,17 @@ class ProductsController < ApplicationController
     redirect_to products_url, notice: "Product was successfully destroyed."
   end
 
-  def discontinue
-    Product.update_all({discontinued: true}, {id: params[:product_ids]})
-    redirect_to products_path
+  def edit_multipul
+    @products = Product.find(params[:product_ids])
+  end
+
+  def update_multipul
+    @products = Product.update(params[:products].keys, params[:products].values)
+    @products.reject!{ |product| product.errors.empty? }
+    if @products.empty?
+      redirect_to products_path
+    else
+      render "edit_multipul"
+    end
   end
 end

@@ -1,0 +1,28 @@
+<h1>Edit Multipul Product</h1>
+
+<%= form_tag update_multipul_products_path, method: :put do %>
+  <% @products.each do |product| %>
+    <%= fields_for "products[]", product do |f| %>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :price %><br />
+        <%= f.text_field :price %>
+      </div>
+      <div class="field">
+        <%= f.label :category_id %><br />
+        <%= f.collection_select :category_id, Category.order("name"), :id, :name %>
+      </div>
+      <div class="field">
+        <%= f.check_box :discontinued %>
+        <%= f.label :discontinued %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= submit_tag "Update" %>
+  </div>
+<% end %>
+
