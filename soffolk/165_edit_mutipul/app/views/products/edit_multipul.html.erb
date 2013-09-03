@@ -1,25 +1,34 @@
 <h1>Edit Multipul Product</h1>
 
 <%= form_tag update_multipul_products_path, method: :put do %>
-  <% @products.each do |product| %>
-    <%= fields_for "products[]", product do |f| %>
-      <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
-        <%= f.label :price %><br />
-        <%= f.text_field :price %>
-      </div>
-      <div class="field">
-        <%= f.label :category_id %><br />
-        <%= f.collection_select :category_id, Category.order("name"), :id, :name %>
-      </div>
-      <div class="field">
-        <%= f.check_box :discontinued %>
-        <%= f.label :discontinued %>
-      </div>
+  <ul>
+    <% @products.each do |product| %>
+      <%= hidden_field_tag "product_ids[]", product.id %>
+      <li><%= product.name %></li>
+      <ul>
+        <% product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     <% end %>
+  </ul>
+  <%= fields_for :product do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :price_modification %><br />
+      <%= f.text_field :price_modification %>
+    </div>
+    <div class="field">
+      <%= f.label :category_id %><br />
+      <%= f.collection_select :category_id, Category.order("name"), :id, :name, include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label :discontinued %><br />
+      <%= f.select :discontinued, [["Yes", true], ["No", false]], include_blank: true  %>
+    </div>
   <% end %>
   <div class="actions">
     <%= submit_tag "Update" %>

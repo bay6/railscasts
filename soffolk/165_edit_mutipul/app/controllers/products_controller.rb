@@ -40,11 +40,14 @@ class ProductsController < ApplicationController
   end
 
   def update_multipul
-    @products = Product.update(params[:products].keys, params[:products].values)
-    @products.reject!{ |product| product.errors.empty? }
+    @products = Product.find(params[:product_ids])
+    @products.reject! do |product| 
+      product.update_attributes(params[:product].reject{|k, v| v.blank?})
+    end
     if @products.empty?
       redirect_to products_path
     else
+      @product = Product.new(params[:product])
       render "edit_multipul"
     end
   end
