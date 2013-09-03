@@ -1,6 +1,5 @@
 class Comment < ActiveRecord::Base
-  include PublicActivity::Model
-  tracked
+  include PublicActivity::Common
   attr_accessible :content
 
   belongs_to :user
