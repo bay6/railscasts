@@ -1,0 +1,6 @@
+<%= div_for recipe do %>
+  <%= image_tag recipe.image_url, size: "120x120" %>
+  <h2><%= link_to_unless_current recipe.name, recipe %></h2>
+  <%= simple_format recipe.description %>
+  <em>added by <%= link_to recipe.user.name, recipe.user %></em>
+<% end %>
