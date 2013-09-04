@@ -34,4 +34,9 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_url, notice: "Product was successfully destroyed."
   end
+
+  def discontinue
+    Product.update_all({discontinued: true}, {id: params[:product_ids]})
+    redirect_to products_url
+  end
 end
