@@ -1,0 +1,17 @@
+<%= render @recipe %>
+
+<%= link_to "Back to Recipes", recipes_path %>
+<% if @recipe.user == current_user %>
+  | <%= link_to "Edit Recipe", edit_recipe_path(@recipe) %>
+  | <%= link_to "Destroy Recipe", @recipe, method: :delete %>
+<% end %>
+
+<h2>Comments</h2>
+
+<div id="comments">
+  <%= render @recipe.comments %>
+</div>
+
+<h3>New Comment</h3>
+
+<%= render 'comments/form' %>
