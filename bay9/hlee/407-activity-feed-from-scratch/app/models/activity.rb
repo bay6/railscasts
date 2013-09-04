@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
-  belongs_to :trackable
-  attr_accessible :action, :trackable_type
+  belongs_to :trackable, polymorphic: true
+  attr_accessible :action, :trackable
 end
