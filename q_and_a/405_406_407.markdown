@@ -20,3 +20,7 @@ app = angular.module("Raffler", ["ngResource"])
 
 
 ### what's  dependency injection
+
+### partial fallback && presenter
+
+感觉partial 的fallback和那个presenter的path，还不是特别理解
