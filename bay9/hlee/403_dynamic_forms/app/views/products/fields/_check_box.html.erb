@@ -1,4 +1,5 @@
 <div class="field">
-  <%= f.check_box field.name %>
-  <%= f.label field.name %>
+  <%= f.label field.name %><br/>
+  <%= f.select field.name, %w[S M L XL], {}, {multiple: true} %>
 </div>
+
