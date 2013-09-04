@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(params[:comment])
     @comment.user = current_user
     if @comment.save
+      track_activity @recipe
       redirect_to @recipe, notice: "Comment was created."
     else
       render :new

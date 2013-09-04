@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(params[:recipe])
     if @recipe.save
+      track_activity @recipe
       redirect_to @recipe, notice: "Recipe was created."
     else
       render :new
