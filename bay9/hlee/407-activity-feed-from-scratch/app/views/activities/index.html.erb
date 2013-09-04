@@ -1,8 +1,5 @@
 <h1>Activities</h1>
 
 <% @activities.each do |activity| %>
-  <%= div_for activity do %>
-    <%= link_to activity.user.name, activity.user %>
-    <%= render partial: "activities/#{activity.trackable_type.underscore}/#{activity.action}", locals: {activity: activity} %>
-  <% end %>
+  <%= ActivityPresenter.new(activity, self).render_activity %>
 <% end %>
