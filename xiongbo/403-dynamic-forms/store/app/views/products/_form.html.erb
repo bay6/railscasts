@@ -18,6 +18,14 @@
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
+
+  <%= f.hidden_field :product_type_id %>
+
+  <%= f.fields_for :properties, OpenStruct.new(@product.properties) do |builder| %>
+    <% @product.product_type.fields.each do |field| %>
+      <%= render "products/fields/#{field.field_type}", field: field, f: builder %>
+    <% end %>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

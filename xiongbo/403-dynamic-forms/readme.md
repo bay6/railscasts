@@ -5,6 +5,8 @@
 
 2. [klass](apidock.com/rails/ActiveRecord/Reflection/AssociationReflection/klass)
 
+3. [options_from_collection_for_select](http://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/options_from_collection_for_select)
+
 ## code tips
 
 ```javascript

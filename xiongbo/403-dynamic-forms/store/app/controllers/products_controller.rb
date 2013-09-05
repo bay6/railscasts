@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = Product.new(product_type_id: params[:product_type_id])
   end
 
   def edit
