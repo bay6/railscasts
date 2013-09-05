@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Model
-  tracked
+  tracked owner: ->(controller, model) { controller && controller.current_user }
 
   attr_accessible :content
 
