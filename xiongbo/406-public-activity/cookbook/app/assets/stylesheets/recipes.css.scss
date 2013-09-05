@@ -1,0 +1,43 @@
+.recipe {
+  clear: both;
+  height: 135px;
+  padding-top: 1px;
+  em {
+    font-size: 12px;
+    color: #777;
+  }
+  img {
+    float: left;
+    margin-right: 15px;
+    box-shadow: 3px 3px 6px #999;
+  }
+  h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .info {
+    font-style: italic;
+    font-size: 12px;
+  }
+  p { margin: 5px 0; }
+}
+
+.comment {
+  width: 400px;
+  padding: 0 20px;
+  margin: 10px 0;
+  font-weight: normal;
+  font-size: 14px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border: solid 1px #BBB;
+  border-bottom-color: #AAA;
+  background-color: #DDD;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#DDD));
+  background: -moz-linear-gradient(top,  #EEE, #DDD);
+  p {
+    margin: 10px 0;
+  }
+}

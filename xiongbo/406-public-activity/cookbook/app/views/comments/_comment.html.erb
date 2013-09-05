@@ -1,0 +1,10 @@
+<%= div_for comment do %>
+  <p><strong><%= link_to comment.user.name, comment.user %> says</strong></p>
+  <%= simple_format comment.content %>
+  <% if comment.user == current_user %>
+    <p>
+      <%= link_to "Edit", edit_recipe_comment_path(@recipe, comment) %> |
+      <%= link_to "Destroy", [@recipe, comment], method: :delete %>
+    </p>
+  <% end %>
+<% end %>

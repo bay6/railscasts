@@ -1,0 +1,23 @@
+<h1>Activities#index</h1>
+<h1>Friends' Activities</h1>
+<% @activities.each do |activity| %>
+  <%= activity.inspect %>
+<% end %>
+
+<br/><br/>
+<hr/>
+
+<h1>Friends&rsquo; Activities</h1>
+<% @activities.each do |activity| %>
+  <div class="activity">
+  <%= link_to activity.owner.name, activity.owner if activity.owner %>
+  <%binding.pry%>
+  <% if activity.trackable_type == 'Recipe'%>
+  added comment to <%= link_to activity.trackable.name, activity.trackable %>
+  <%else%>
+    added comment to <%= link_to activity.trackable.content,recipe_comment_path(activity.trackable.recipe, activity.trackable)%> 
+  <%end%>
+  </div>
+<% end %>
+
+
