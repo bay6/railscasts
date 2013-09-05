@@ -1,0 +1,13 @@
+<h1><%= @user.name %>'s Profile</h1>
+
+<% if current_user %>
+  <% if current_user.friends.include? @user %>
+    <%= link_to "Remove Friend", current_user.friendships.find_by_friend_id(@user.id), method: :delete %>
+  <% else %>
+    <%= link_to "Add Friend", friendships_path(friend_id: @user), method: :post %>
+  <% end %>
+<% end %>
+
+<h2>Recipes</h2>
+
+<%= render @user.recipes %>
