@@ -31,3 +31,34 @@ end
   <%= link_to '[remove]', '#', class: 'remove_fields' %>
 </fieldset>
 ```
+
+```ruby
+  <%= f.fields_for :fields do |builder| %>
+    <%= render 'field_fields', f: builder %>
+  <% end %>
+
+  <%= link_to_add_fields "Add Field", f, :fields %>
+```
+整体功能上，add field就是，用js再添加一个和上面`fields_for` 一样的partial
+
+找一下f的定义，是`@product_type`
+
+```ruby
+fields = f.fields_for(association, new_object, child_index: id) do |builder|
+      render(association.to_s.singularize + "_fields", f: builder)
+    end
+```
+
+实际上
+
+```ruby
+
+fields = f.fields_for(:fields, ProductType.new, child_index: id) do |builder|
+      render("field_fields", f: builder)
+    end
+```
+而且，这个`:fields`也有讲究，是`@product_type.fields`的缩写
+
+[详见](http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-fields_for)
+
+理解有不准确，和不对的，欢迎指正哈
