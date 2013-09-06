@@ -3,6 +3,6 @@
 <% @activities.each do |activity| %>
   <div class="activity">
     <%= link_to activity.owner.name, activity.owner if activity.owner %>
-    added comment to <%= link_to activity.trackable.recipe.name, activity.trackable.recipe  %>
+    <%= render_activity activity %>
   </div>
 <% end %>
