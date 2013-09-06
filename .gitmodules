@@ -4,3 +4,6 @@
 [submodule "codebase/406-public-activity"]
 	path = codebase/406-public-activity
 	url = git@github.com:railscasts/406-public-activity.git
+[submodule "codebase/401-actioncontroller-live"]
+	path = codebase/401-actioncontroller-live
+	url = https://github.com/railscasts/401-actioncontroller-live.git
