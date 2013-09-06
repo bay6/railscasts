@@ -11,8 +11,14 @@ class MessagesController < ApplicationController
 
   def events
     response.headers["Content-Type"] = "text/event-stream"
-    3.times do |n|
-      response.stream.write "data: #{n}...\n\n"
+    start = Time.zone.now
+    3.times do
+      Message.uncached do
+        Message.where('created_at > ?', start).each do |message|
+          response.stream.write "data: #{message.to_json}\n\n"
+          start = Time.zone.now
+        end 
+      end
       sleep 2
     end
   rescue IOError
@@ -20,6 +26,6 @@ class MessagesController < ApplicationController
   ensure
     response.stream.close
   end
-
+  
 
 end

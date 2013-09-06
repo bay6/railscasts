@@ -3,4 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 source = new EventSource('/messages/events')
 source.addEventListener 'message', (e) ->
-  alert e.data
+  message = $.parseJSON(e.data).message
+  $('#chat').append($('<li>').text("#{message.name}: #{message.content}"))
