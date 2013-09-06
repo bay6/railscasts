@@ -6,18 +6,21 @@ class MessagesController < ApplicationController
   end
 
   def create
+    response.headers["Content-Type"] = "text/javascript"
     attributes = params.require(:message).permit(:content, :name)
     @message = Message.create!(attributes)
     $redis.publish('messages.create', @message.to_json)
   end
-  
+
+
   def events
     response.headers["Content-Type"] = "text/event-stream"
     start = Time.zone.now
     redis = Redis.new
-    redis.subscribe('messages.create') do |on|
-      on.message do |event, data|
-        response.stream.write("data: #{data }\n\n")
+    redis.psubscribe('messages.*') do |on|
+      on.pmessage do |pattern, event, data|
+        response.stream.write("event: #{event}\n")
+        response.stream.write("data: #{data}\n\n")
       end
     end
   rescue IOError
@@ -26,7 +29,5 @@ class MessagesController < ApplicationController
     redis.quit
     response.stream.close
   end
-  
-  
 
 end
