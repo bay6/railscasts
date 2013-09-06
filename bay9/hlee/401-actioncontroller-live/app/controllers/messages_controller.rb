@@ -10,12 +10,16 @@ class MessagesController < ApplicationController
   end
 
   def events
+    response.headers["Content-Type"] = "text/event-stream"
     3.times do |n|
-      response.stream.write "#{n}...\n\n"
+      response.stream.write "data: #{n}...\n\n"
       sleep 2
     end
+  rescue IOError
+    logger.info "Stream closed"
   ensure
     response.stream.close
   end
+
 
 end
