@@ -7,3 +7,6 @@
 [submodule "codebase/401-actioncontroller-live"]
 	path = codebase/401-actioncontroller-live
 	url = https://github.com/railscasts/401-actioncontroller-live.git
+[submodule "codebase/229r-polling-for-changes"]
+	path = codebase/229r-polling-for-changes
+	url = https://github.com/railscasts/229-polling-for-changes-revised.git
