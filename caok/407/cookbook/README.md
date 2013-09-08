@@ -9,3 +9,6 @@ rails s
 ```
 
 Requires Ruby 1.9.2 or later to run.
+
+
+rails g resource activity user:belongs_to action trackable:belongs_to trackable_type

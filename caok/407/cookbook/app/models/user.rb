@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   
   validates_uniqueness_of :name
 
+  has_many :activities
   has_many :recipes
   has_many :comments
   has_many :friendships

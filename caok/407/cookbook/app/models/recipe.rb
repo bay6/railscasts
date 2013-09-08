@@ -3,4 +3,6 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+
+  #after_create { |recipe| Activity.create! action: "create", trackable: recipe }
 end
