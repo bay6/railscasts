@@ -10,3 +10,6 @@
 [submodule "codebase/229r-polling-for-changes"]
 	path = codebase/229r-polling-for-changes
 	url = https://github.com/railscasts/229-polling-for-changes-revised.git
+[submodule "codebase/400--rails-4"]
+	path = codebase/400--rails-4
+	url = git@github.com:railscasts/400-what-s-new-in-rails-4.git
