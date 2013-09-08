@@ -13,3 +13,5 @@ jQuery ->
 
 ```
 
+这里的CommentPoller加@不加@有什么区别呢？
+
