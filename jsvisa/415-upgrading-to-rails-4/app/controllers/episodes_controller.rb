@@ -1,5 +1,5 @@
 class EpisodesController < ApplicationController
-  before_filter :load_episode, only: [:show, :edit, :update, :destroy]
+  before_action :load_episode, only: [:show, :edit, :update, :destroy]
   caches_page :index
 
   def index
@@ -26,7 +26,7 @@ class EpisodesController < ApplicationController
   end
 
   def update
-    if @episode.update_attributes(params[:episode])
+    if @episode.update_attributes(episode_params)
       redirect_to @episode, notice: 'Episode was successfully updated.'
     else
       render action: "edit"

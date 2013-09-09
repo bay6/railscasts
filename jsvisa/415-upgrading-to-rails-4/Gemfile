@@ -15,11 +15,9 @@ group :test, :development do
   gem "rspec-rails"
 end
 
-gem 'protected_attributes'
 gem 'rails-observers'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
-gem 'activerecord-deprecated_finders'
 
 group :test do
   gem "factory_girl_rails"
