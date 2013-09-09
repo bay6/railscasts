@@ -1,15 +1,11 @@
-# RailsCasts Episode #415: Upgrading to Rails 4
+# RailsCasts Example Application
 
-http://railscasts.com/episodes/415-upgrading-to-rails-4
-
-Requires Ruby 1.9.2 or higher.
-
-
-### Commands used in this episode
+Run these commands to try it out.
 
 ```
-git checkout -b rails4
-bundle update
-bundle outdated
-rspec .
+bundle
+rake db:setup
+rails s
 ```
+
+Requires Ruby 1.9.2 or later to run.
