@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
   resources :articles
+  root 'articles#index'
+  get 'foo', to: 'articles#index', constraints: {protocol: "https", subdomain: "test"}
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
