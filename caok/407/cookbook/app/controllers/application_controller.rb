@@ -11,4 +11,8 @@ private
   def require_login
     redirect_to login_url, alert: "You must first log in or sign up." if current_user.nil?
   end
+
+  def track_activity(trackable, action = params[:action])
+    current_user.activities.create! action: action, trackable: trackable
+  end
 end

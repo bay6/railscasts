@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.build(params[:comment])
     @comment.user = current_user
     if @comment.save
+      track_activity @comment
       redirect_to @recipe, notice: "Comment was created."
     else
       render :new
@@ -28,6 +29,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
+    track_activity @comment
     redirect_to @recipe, notice: "Comment was destroyed."
   end
 
