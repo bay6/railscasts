@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.date :published_on
-      t.string :tags
+      t.string :tags, array: true
       t.hstore :properties
 
       t.timestamps

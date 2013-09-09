@@ -48,8 +48,8 @@ test:
   encoding: unicode
   database: blog_test
   pool: 5
-  username: blog
-  password:
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql
