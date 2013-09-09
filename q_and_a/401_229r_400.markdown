@@ -1,0 +1,17 @@
+```coffeescript
+
+  @CommentPoller =
+  poll: ->
+    setTimeout @request, 5000
+
+  request: ->
+    $.get($('#comments').data('url'))
+
+jQuery ->
+  if $('#comments').length > 0
+    CommentPoller.poll()
+
+```
+
+这里的CommentPoller加@不加@有什么区别呢？
+

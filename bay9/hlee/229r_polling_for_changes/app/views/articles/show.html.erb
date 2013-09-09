@@ -1,0 +1,18 @@
+<h1><%= @article.name %></h1>
+
+<%= simple_format @article.content %>
+
+<h2>Comments</h2>
+
+<%= content_tag :div, id: "comments", data: {url: article_comments_url(@article) } do %>
+  <%= render @article.comments %>
+<% end %>
+
+<p id="show_comments" style="display:none;">
+  More comments have recently been added. <a href="#">Show Comments</a>
+</p>
+
+<h3>New Comment</h3>
+
+<%= render 'comments/form' %>
+
