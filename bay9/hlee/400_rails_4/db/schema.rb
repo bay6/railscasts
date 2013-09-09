@@ -21,22 +21,8 @@ ActiveRecord::Schema.define(version: 20130908122201) do
     t.string   "name"
     t.text     "content"
     t.date     "published_on"
-    t.string   "tags"
+    t.string   "tags",         array: true
     t.hstore   "properties"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "microposts", force: true do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
