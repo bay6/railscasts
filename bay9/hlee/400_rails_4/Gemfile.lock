@@ -1,3 +1,9 @@
+GIT
+  remote: git@github.com:rails/arel.git
+  revision: a1a46fd8c2a3d53e02e2e58ca575b2596646b2c3
+  specs:
+    arel (4.0.0.20130418133826)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -25,7 +31,6 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    arel (4.0.0)
     atomic (1.1.13)
     builder (3.1.4)
     coffee-rails (4.0.0)
@@ -97,8 +102,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.3.0)
-      coffee-rails
     tzinfo (0.3.37)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
@@ -108,6 +111,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  arel!
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
@@ -115,5 +119,4 @@ DEPENDENCIES
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
-  turbolinks
   uglifier (>= 1.3.0)
