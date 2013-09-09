@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   attr_accessible :complete, :name, :project_id
 
   def complete
-    !completed_at.empty?
+    !completed_at.present?
   end
 
   def complete=(value)
