@@ -1,0 +1,8 @@
+<h1>Activities</h1>
+
+<% @activities.each do |activity|  %>
+  <%= div_for activity do %>
+    <%= link_to activity.user.name, activity.user %>
+    <%= render "activities/#{activity.trackable_type.underscore}/#{activity.action}", activity: activity %>
+  <% end %>
+<% end %>
