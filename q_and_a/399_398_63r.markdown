@@ -15,3 +15,5 @@ def self.index_term(term)
   end
 end
 ```
+
+主要两个用法，不熟悉，一个是`find_each` 一个是`first_or_initialize.tap` 都是跟block的
