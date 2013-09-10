@@ -1,0 +1,17 @@
+### question: 解释用法
+
+```ruby
+def self.index_products
+  Product.find_each do |product|
+    index_term(product.name)
+    product.name.split.each { |t| index_term(t) }
+    index_term(product.category)
+  end
+end
+
+def self.index_term(term)
+  where(term: term.downcase).first_or_initialize.tap do |suggestion|
+    suggestion.increment! :popularity
+  end
+end
+```
