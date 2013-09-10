@@ -1,0 +1,2 @@
+class SearchSuggestionsController < ApplicationController
+end
