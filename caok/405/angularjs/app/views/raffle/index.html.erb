@@ -9,6 +9,8 @@
   <ul>
     <li ng-repeat="entry in entries">
       {{entry.name}}
+      <span ng-show="entry.winner" ng-class="{highlight: entry == lastWinner}" class="winner">winner</span>
     </li>
   </ul>
+  <button ng-click="drawWinner()">Draw Winner</button>
 </div>
