@@ -4,3 +4,7 @@
     {name: "Jack"}
     {name: "clark"}
   ]
+
+  $scope.addEntry = ->
+    $scope.entries.push($scope.newEntry)
+    $scope.newEntry = {}
