@@ -10,10 +10,19 @@ class MessagesController < ApplicationController
   end
 
   def events
-    3.times do |n|
-      response.stream.write "#{n}..\n\n"
+    response.headers["Content-Type"] = "text/event-stream"
+    start = Time.zone.now
+    10.times do
+      Message.uncached do
+        Message.where('created_at > ?', start).each do |msg|
+          response.stream.write "data: #{msg.to_json}\n\n"
+          start = Time.zone.now
+        end
+      end
       sleep 2
     end
+  rescue IOError
+    logger.info "Stream closed"
   ensure
     response.stream.close
   end
