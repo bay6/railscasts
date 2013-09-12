@@ -1,0 +1,26 @@
+<% content_for :title, @page.name %>
+
+<ul id="menu">
+  <% Page.roots.each do |page| %>
+    <li><%= link_to page.name, page, class: ("active" if @page.root == page) %></li>
+  <% end %>
+</ul>
+
+<div id="submenu">
+  <%= render 'submenu_pages', pages: @page.root.descendants.arrange %>
+</div>
+
+<div id="breadcrumbs">
+  <% @page.ancestors.each do |page| %>
+    <%= link_to page.name, page %> &gt;
+  <% end %>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<h1><%= @page.name %></h1>
+
+<%= simple_format @page.content %>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>
