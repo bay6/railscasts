@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
   before_filter :load_article
 
+  def index
+    @comments = @article.comments
+  end
+
   def create
     @comment = @article.comments.build(params[:comment])
     if @comment.save

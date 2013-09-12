@@ -10,4 +10,7 @@
 
 <h3>New Comment</h3>
 
-<%= render 'comments/form' %>
+<%= content_tag :div, id: "comments", 
+                      data: {url: article_comments_url(@article) } do %>
+  <%= render 'comments/form' %>
+<% end %>
