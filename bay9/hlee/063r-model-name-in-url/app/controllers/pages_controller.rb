@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
+  before_filter :find_page, only: [:show, :edit, :update, :destroy]
   def index
     @pages = Page.all
   end
 
   def show
-    @page = Page.find(params[:id])
   end
 
   def new
@@ -25,7 +25,6 @@ class PagesController < ApplicationController
   end
 
   def update
-    @page = Page.find(params[:id])
     if @page.update_attributes(params[:page])
       redirect_to @page, notice: "Page was successfully updated."
     else
@@ -34,8 +33,12 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page = Page.find(params[:id])
     @page.destroy
     redirect_to pages_url
   end
+
+private
+  def find_page
+   @page = Page.find_by_slug(params[:id])
+  end 
 end
