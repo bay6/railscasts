@@ -2,8 +2,10 @@ class SearchSuggestion < ActiveRecord::Base
   attr_accessible :popularity, :term
 
   def self.terms_for(prefix)
-    suggestions = where("term like ?", "#{prefix}_%")
-    suggestions.order("popularity desc").limit(10).pluck(:term)
+    Rails.cache.fetch(["search-term", prefix]) do
+      suggestions = where("term like ?", "#{prefix}_%")
+      suggestions.order("popularity desc").limit(10).pluck(:term)
+    end
   end
 
   def self.index_products
