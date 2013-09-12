@@ -1,0 +1,13 @@
+<h1><%= @article.name %></h1>
+
+<%= simple_format @article.content %>
+
+<h2>Comments</h2>
+
+<div id="comments">
+  <%= render @article.comments %>
+</div>
+
+<h3>New Comment</h3>
+
+<%= render 'comments/form' %>
