@@ -10,3 +10,5 @@
 ```
 
 2. `<%= j render(@comments) %>)` j is alias of escape_javascript
+
+3. use ujs to make setTimeout familar with SetInterval
