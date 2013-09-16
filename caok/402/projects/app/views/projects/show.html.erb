@@ -1,0 +1,21 @@
+<h1><%= @project.name %></h1>
+
+<div id="project">
+  <%= form_for @project.tasks.build do |f| %>
+    <%= f.hidden_field :project_id %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+
+  <h2>Incomplete Tasks</h2>
+  <div class="tasks" id="incomplete_tasks">
+    <%= render @project.incomplete_tasks %>
+  </div>
+
+  <h2>Complete Tasks</h2>
+  <div class="tasks" id="complete_tasks">
+    <%= render @project.complete_tasks %>
+  </div>
+
+  <p><%= link_to "Back to Projects", projects_path %></p>
+</div>
