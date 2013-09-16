@@ -7,7 +7,7 @@ class Task < ActiveRecord::Base
   end
 
   def complete=(value)
-    if value.zero?
+    if value.to_i.zero?
       self.completed_at = nil
     else
       self.completed_at = Time.zone.now
