@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   attr_accessible :parent_id, :content, :name
 
-  validates :slug, uniqueness: true, presence: true
+  validates :slug, uniqueness: true, presence: true,
            exclusion: {in: %w[signup login]}
   before_validation :generate_slug
   
@@ -13,5 +13,9 @@ class Page < ActiveRecord::Base
 
   def generate_slug
     self.slug ||= name.parameterize
+  end
+
+  def find_page
+    @page = Page.find_by_slug(params[:id].split('/').last)
   end
 end
