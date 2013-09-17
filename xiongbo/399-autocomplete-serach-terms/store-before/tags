@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Store
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+CreateProducts	db/migrate/20121230005138_create_products.rb	/^class CreateProducts < ActiveRecord::Migration$/;"	c
+CreateSearchSuggestions	db/migrate/20130915135905_create_search_suggestions.rb	/^class CreateSearchSuggestions < ActiveRecord::Migration$/;"	c
+Product	app/models/product.rb	/^class Product < ActiveRecord::Base$/;"	c
+ProductTest	test/unit/product_test.rb	/^class ProductTest < ActiveSupport::TestCase$/;"	c
+ProductsController	app/controllers/products_controller.rb	/^class ProductsController < ApplicationController$/;"	c
+ProductsControllerTest	test/functional/products_controller_test.rb	/^class ProductsControllerTest < ActionController::TestCase$/;"	c
+ProductsHelper	app/helpers/products_helper.rb	/^module ProductsHelper$/;"	m
+ProductsHelperTest	test/unit/helpers/products_helper_test.rb	/^class ProductsHelperTest < ActionView::TestCase$/;"	c
+SearchSuggestion	app/models/search_suggestion.rb	/^class SearchSuggestion < ActiveRecord::Base$/;"	c
+SearchSuggestionTest	test/unit/search_suggestion_test.rb	/^class SearchSuggestionTest < ActiveSupport::TestCase$/;"	c
+SearchSuggestionsController	app/controllers/search_suggestions_controller.rb	/^class SearchSuggestionsController < ApplicationController$/;"	c
+SearchSuggestionsControllerTest	test/functional/search_suggestions_controller_test.rb	/^class SearchSuggestionsControllerTest < ActionController::TestCase$/;"	c
+SearchSuggestionsHelper	app/helpers/search_suggestions_helper.rb	/^module SearchSuggestionsHelper$/;"	m
+SearchSuggestionsHelperTest	test/unit/helpers/search_suggestions_helper_test.rb	/^class SearchSuggestionsHelperTest < ActionView::TestCase$/;"	c
+Store	config/application.rb	/^module Store$/;"	m
+change	db/migrate/20121230005138_create_products.rb	/^  def change$/;"	f	class:CreateProducts
+change	db/migrate/20130915135905_create_search_suggestions.rb	/^  def change$/;"	f	class:CreateSearchSuggestions
+index	app/controllers/products_controller.rb	/^  def index$/;"	f	class:ProductsController
+index	app/controllers/search_suggestions_controller.rb	/^  def index$/;"	f	class:SearchSuggestionsController
+search	app/models/product.rb	/^  def self.search(term)$/;"	F	class:Product
+terms_for	app/models/search_suggestion.rb	/^  def self.terms_for prefix$/;"	F	class:SearchSuggestion
+test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
