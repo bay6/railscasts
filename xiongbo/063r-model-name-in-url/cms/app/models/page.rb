@@ -13,5 +13,5 @@ class Page < ActiveRecord::Base
 
   def generate_slug
     self.slug ||= name.parameterize
-  end
+  end 
 end
