@@ -6,8 +6,11 @@ _this is based on v3.2.9, 4.0 has changed a lots_
 
 signs:
 ->: method call
+=>: implement
 |-: argument
 <-: return
+: delegate
+= alias
 
 ActionView::Base
   Helpers
@@ -25,9 +28,29 @@ AbstractController::Rendering
     # inorder to find the view undered these prefixes
     # and the :template is options[:action] or current_action
 
-    -> render_to_body -> _render_template
+    -> render_to_body -> _render_template -> view_renderer.render
       -> view_renderer <- ActionView::Renderer.new(lookup_context)
-      # view_renderer is a method that returns 
+      # ActionView::Rendrer is the main entry point for rendering.
+      # it delegate to TemplateRenderer and ParitialRenderer to actually renders the template
+
+        -> TemplateRender#render 
+          -> determine_template <- tempalte 
+            # if options[:template].respond_to?(:render) then options[:template] otherwise
+            -> find_template:lookup_context=find -> view_path#find -> PathSet#find_all 
+            -> Resolver#find_all -> find_templates => PathResolver#find_template 
+            -> query -> Template.new(contents, File.expand_path(template), handler,
+                                      :virtual_path => path.virtual,
+                                      :format => format,
+                                      :updated_at => mtime(template))
+            # ie: action.html.erb, format: html, handler: erb
+
+          -> render_template(template, options[:layout], options[:locals])
+            -> render_with_layout
+              -> template.render <- content
+                -> Template#compile!(view) -> compile(view, mod) -> mod.module_eval
+                -> Template#view.send
+              -> layout.render
+
 
       # lookup_context is an instance of ActionView::LookupContext
 
