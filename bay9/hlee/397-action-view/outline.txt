@@ -1,0 +1,85 @@
+Action View
+
+- what happens when Rails renders a view?
+  - build off of what I covered in episode 395 on controller walkthrough
+  - what is the current context in a view
+  - print self.class
+    - anonymous class? That's not very helpful
+  - self.superclass
+    - ActionView::Base, aha, now we're getting somewhere
+- open up Rails source code
+  - git clone ...
+  - cd rails
+  - git checkout v3.2.9 to match current version
+  - mate actionpack/lib
+- ActionView::Base
+  - includes three modules
+  - Helpers
+    - includes many other modules to provide helper methods we know and love
+  - ERB::Utils
+    - helps with escaping HTML and others (h) method
+  - Context
+    - compatibility with Action Controller
+    - we could make another context separate from Action::View
+- what happens on request?
+  - before we go exploring the code on its own, let's have something to drive our exploring
+  - the process of a request when it loads this page
+  - as shown in episode 395, that starts in AbstractController::Rendering module
+  - view_renderer.render call, passes in a view_context
+  - make note about how options are processed
+    - template option being passed in
+    - just like calling render template: 'index', prefixes: %w[articles application]
+- view_context
+  - view_context_class subclasses ActionView::Base
+  - includes additional helper and route methods that are specific to this application
+  - passes assigns into it as well
+    - assigns is a hash that is generated based on the instance variables of the controller
+    - and set as instance variables in the view
+  - renderer, lookup context
+    - lookup context handles finding the templates
+    - that is needed when rendering the templates, handled by the renderer
+    - view paths (episode 269)
+    - show render call
+- template renderer
+  - delegates render call to template_renderer
+  - make note about context object being passed around
+    - sometimes called view_context, context, or view
+  - to render out a template we first need to find it
+- find template
+  - template: option is used
+  - delegates to lookup_context
+    - remember this is for finding templates, that makes sense
+  - lookup_context.find checks in the view_paths
+- view paths
+  - show how ArticlesController.view_paths returns a special path set object
+    - contains the lookup paths on where to find templates
+    - you can add additional paths into here, but we aren't going to get into that
+  - go to PathSet class
+    - find method calls resolver.find_all, what is a resolver?
+  - show resolver
+    - handles cached templates
+    - looks up content of a file
+    - along with a handler which is a class designed to handle a specific format
+      - quickly show ERB handler
+      - covered handlers more in episode 379
+    - this is passed along to build a new Template object
+  - quick overview
+    - tempate_renderer uses lookup context
+    - lookup context uses the path set
+    - path set uses a resolver
+    - resolver builds a template object and returns it to the template renderer
+- render template
+  - now that we have a template object, we need to render it
+  - render it with a layout, haven't talked much about layouts
+    - resolve_layout calls find_template, so a layout is just another template object
+  - yield in layout passes to block which ends up rendering the content
+    - I won't get into the details of how this works
+  - rendering on layout/template works like this
+    - complile! generates a method containing the code of the template through the handler
+    - show method_name, it is unique to the template
+      - demonstrate an error raised, show this in the stack trace
+    - render calls this method
+    - these methods are all added to this one module
+      - show CompiledTemplates module in Context file, the methods get put into there
+
+
