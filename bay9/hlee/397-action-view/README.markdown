@@ -1,6 +1,14 @@
 ### action view
 
 ```ruby
+def find(name, prefixes = [], partial = false, keys = [], options = {})
+  @view_paths.find(*args_for_lookup(name, prefixes, partial, keys, options))
+end
+alias :find_template :find
+```
+
+
+```ruby
 # Main render entry point shared by AV and AC.
 def render(context, options)
   if options.key?(:partial)
