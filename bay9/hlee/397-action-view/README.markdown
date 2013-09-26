@@ -47,6 +47,14 @@ def render(view, locals, buffer=nil, &block)
 rescue Exception => e
   handle_render_error(view, e)
 end
+
+if view.is_a?(ActionView::CompiledTemplates)
+  mod = ActionView::CompiledTemplates
+else
+  mod = view.singleton_class
+end
+
+compile(view, mod)
 ```
 
 
