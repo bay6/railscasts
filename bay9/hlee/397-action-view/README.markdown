@@ -5,6 +5,22 @@ def find(name, prefixes = [], partial = false, keys = [], options = {})
   @view_paths.find(*args_for_lookup(name, prefixes, partial, keys, options))
 end
 alias :find_template :find
+
+
+def find(*args)
+  find_all(*args).first || raise(MissingTemplate.new(self, *args))
+end
+
+def find_all(path, prefixes = [], *args)
+  prefixes = [prefixes] if String === prefixes
+  prefixes.each do |prefix|
+    paths.each do |resolver|
+      templates = resolver.find_all(path, prefix, *args)
+      return templates unless templates.empty?
+    end
+  end
+  []
+end
 ```
 
 
