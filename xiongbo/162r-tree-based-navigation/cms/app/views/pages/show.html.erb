@@ -1,3 +1,7 @@
+<div id="submenu">
+  <%= render 'submenu_pages', pages: @page.root.descendants.arrange %>
+</div>
+
 <ul id="menu">
   <% Page.roots.each do |page| %>
     <li><%= link_to page.name, page, class: ("active" if @page.root == page) %></li>
