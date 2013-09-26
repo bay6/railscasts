@@ -28,6 +28,25 @@ def find_all(name, prefix=nil, partial=false, details={}, key=nil, locals=[])
     find_templates(name, prefix, partial, details)
   end
 end
+
+def render_template(template, layout_name = nil, locals = {})
+  view, locals = @view, locals || {}
+
+  render_with_layout(layout_name, locals) do |layout|
+    instrument(:template, :identifier => template.identifier, :layout => layout.try(:virtual_path)) do
+    template.render(view, locals) { |*name| view._layout_for(*name) }
+    end
+  end
+end
+
+def render(view, locals, buffer=nil, &block)
+  ActiveSupport::Notifications.instrument("!render_template.action_view", :virtual_path => @virtual_path) do
+    compile!(view)
+    view.send(method_name, locals, buffer, &block)
+  end
+rescue Exception => e
+  handle_render_error(view, e)
+end
 ```
 
 
