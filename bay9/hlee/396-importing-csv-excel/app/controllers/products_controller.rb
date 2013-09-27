@@ -1,15 +1,14 @@
-class ProductsController < ApplicationController
-  def index
-    @products = Product.order(:name)
-    respond_to do |format|
-      format.html
-      format.csv { send_data @products.to_csv }
-      format.xls # { send_data @products.to_csv(col_sep: "\t") }
-    end
+class ProductImportsController < ApplicationController
+  def new
+    @product_import = ProductImport.new
   end
 
-  def import
-    Product.import(params[:file])
-    redirect_to root_url, notice: "Products imported."
+  def create
+    @product_import = ProductImport.new(params[:product_import])
+    if @product_import.save
+      redirect_to root_url, notice: "Imported products successfully."
+    else
+      render :new
+    end
   end
 end
