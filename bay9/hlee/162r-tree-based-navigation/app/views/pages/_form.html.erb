@@ -20,8 +20,8 @@
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :ancestry %><br>
-    <%= f.text_field :ancestry %>
+    <%= f.label :parent_id %><br>
+    <%= f.collection_select :parent_id, Page.order(:name), :id, :name, include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
