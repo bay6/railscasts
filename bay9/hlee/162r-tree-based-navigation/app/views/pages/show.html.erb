@@ -1,6 +1,6 @@
 <ul id='menu'>
   <% Page.roots.each do |page| %>
-    <li><%= link_to page.name, page%></li>
+    <li><%= link_to page.name, page, class: ('active' if @page.root == page) %></li>
   <% end %>
 </ul>
 
