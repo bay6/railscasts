@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121232652) do
+ActiveRecord::Schema.define(:version => 20130930133944) do
 
   create_table "tasks", :force => true do |t|
     t.integer  "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20121121232652) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.boolean  "guest"
+    t.string   "type"
   end
 
 end
