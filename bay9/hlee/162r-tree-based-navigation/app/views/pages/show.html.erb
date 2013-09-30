@@ -8,6 +8,12 @@
   <%= render 'submenu_pages', pages: @page.root.children %>
 </div>
 
+<div id="breadcrumbs">
+  <% @page.ancestors.each do |page| %>
+    <%= link_to page.name, page %> &gt;
+  <% end %>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <p>
