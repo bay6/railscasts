@@ -4,9 +4,9 @@
 
 <h2>Comments</h2>
 
-<div id="comments">
+<%= content_tag :div, id: "comments", data: {url: article_comments_url(@article)} do  %>
   <%= render @article.comments %>
-</div>
+<% end %>
 
 <h3>New Comment</h3>
 
