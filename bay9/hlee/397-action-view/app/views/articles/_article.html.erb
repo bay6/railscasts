@@ -1,0 +1,3 @@
+<h2><%= link_to article.name, article %></h2>
+<p class="info">Published on <%= article.created_at.strftime("%B %e, %Y") %></p>
+<%= simple_format article.content %>
