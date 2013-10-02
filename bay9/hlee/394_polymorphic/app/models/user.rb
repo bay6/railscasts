@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
+  belongs_to :profile, polymorphic: true
 
   attr_accessible :username, :email, :password, :password_confirmation
 
