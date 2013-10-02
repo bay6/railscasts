@@ -20,7 +20,7 @@ class MemberProfile < ActiveRecord::Base
   end
 
   def can_share_task?(task)
-    task.user_id == id
+    task.user_id == user.id
   end
 
   def send_password_reset

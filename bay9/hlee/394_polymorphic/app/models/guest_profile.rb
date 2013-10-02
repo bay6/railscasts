@@ -24,4 +24,9 @@ class GuestProfile < ActiveRecord::Base
 
   def send_password_reset
   end
+
+  def become_member(member_profile)
+    user.profile = member_profile
+    user.save!
+  end
 end
