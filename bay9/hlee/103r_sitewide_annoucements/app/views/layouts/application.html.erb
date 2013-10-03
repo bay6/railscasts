@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+  <head>
+    <title>Blog</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <% Announcement.current.each do |announcement| %>
+      <%= div_for announcement do %>
+        <%= announcement.message %>
+      <% end %>
+    <% end %>
+    <!-- Rest of body omitted -->
+  </body>
+</html>
