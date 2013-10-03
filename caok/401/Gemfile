@@ -40,3 +40,4 @@ gem 'jbuilder', '~> 1.0.1'
 # gem 'debugger'
 #
 gem 'puma'
+gem 'redis'
