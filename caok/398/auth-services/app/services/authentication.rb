@@ -27,5 +27,4 @@ private
     user = User.find_by_username(@params[:username])
     user && user.authenticate(@params[:password])
   end
-
 end

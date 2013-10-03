@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.search(params[:query])
+    @users = UserSearch.new(params[:query]).users
     respond_to do |format|
       format.html
       format.csv { send_data @users.to_csv }
