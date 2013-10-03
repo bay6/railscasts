@@ -18,6 +18,8 @@ end
 
 主要两个用法，不熟悉，一个是`find_each` 一个是`first_or_initialize.tap` 都是跟block的
 
+find_each使用 find_in_batches 每次取出1000条记录，非常有效的降低了对内存的需求。 如果用each能达到同样的目的，但内存消耗大的多
+
 ### redis useage:
 
 这两个用法为啥是一样的功能
