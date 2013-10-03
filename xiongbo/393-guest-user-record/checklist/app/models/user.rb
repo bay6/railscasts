@@ -9,11 +9,13 @@ class User < ActiveRecord::Base
 
   require 'bcrypt'
   attr_reader :password
-  include ActiveModel::SecurePassword::InstanceMethodsOnActivation
-
-  has_secure_password
+  include ActiveModel::SecurePassword::InstanceMethodsOnActivation 
 
   def self.new_guest
     new {|u| u.guest = true}
+  end
+
+  def name
+    guest ? "Guest" : username
   end
 end

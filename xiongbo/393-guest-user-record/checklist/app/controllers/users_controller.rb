@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user]) : User.new_guest
+    @user = params[:user] ? User.new(params[:user]) : User.new_guest
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url
