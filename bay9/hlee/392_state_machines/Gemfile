@@ -38,3 +38,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'rspec-rails', group: [:test, :development]
+gem 'state_machine'
