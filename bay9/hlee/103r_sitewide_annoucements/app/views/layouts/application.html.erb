@@ -18,6 +18,7 @@
     <% Announcement.current.each do |announcement| %>
       <%= div_for announcement do %>
         <%= announcement.message %>
+        <%= link_to "hide announcement", hide_announcement_path(announcement) %>
       <% end %>
     <% end %>
     <!-- Rest of body omitted -->
