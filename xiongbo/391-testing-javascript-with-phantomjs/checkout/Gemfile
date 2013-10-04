@@ -29,4 +29,5 @@ gem 'rspec-rails', group: [:test, :development]
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'poltergeist'
 end
