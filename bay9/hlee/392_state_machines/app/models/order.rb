@@ -1,3 +1,4 @@
+class Orders < ActiveRecord::Base
   include AASM
 
   scope :open_orders, -> { where(aasm_state: "open") }
@@ -33,3 +34,4 @@
   def valid_payment?
     !invalid_payment
   end
+end
