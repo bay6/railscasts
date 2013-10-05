@@ -1,29 +1,28 @@
 class Order < ActiveRecord::Base
-  attr_accessible :purchased_at, :shipped_at, :canceled_at
+  scope :open_orders, -> { with_state(:open) }
   attr_accessor :invalid_payment
 
-  def self.open_orders
-    where('purchased_at is not null and canceled_at is null and shipped_at is null')
-  end
+  state_machine initial: :incomplete do
+    event :purchase do
+      transition :incomplete => :open
+    end
 
-  def open?
-    purchased_at && !canceled_at && !shipped_at
-  end
+    event :cancel do
+      transition :open => :canceled
+    end
 
-  def purchase
-    # process payment ...
-    update_attributes(purchased_at: Time.zone.now) unless invalid_payment
-  end
+    event :resume do
+      transition :canceled => :open
+    end
 
-  def ship
-    update_attributes(shipped_at: Time.zone.now)
-  end
+    event :ship do
+      transition :open => :shipped
+    end
 
-  def cancel
-    update_attributes(canceled_at: Time.zone.now)
-  end
-
-  def resume
-    update_attributes(canceled_at: nil)
+    before_transition :incomplete => :open do |order|
+      # process payment ...
+      !order.invalid_payment
+    end
   end
 end
+

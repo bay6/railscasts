@@ -4,7 +4,10 @@ class CreateOrders < ActiveRecord::Migration
       t.datetime :purchased_at
       t.datetime :canceled_at
       t.datetime :shipped_at
+      t.string :state
+      t.string :aasm_state
       t.timestamps
     end
+
   end
 end
