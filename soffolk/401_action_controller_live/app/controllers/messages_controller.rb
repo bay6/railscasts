@@ -6,26 +6,24 @@ class MessagesController < ApplicationController
   end
 
   def create
+    response.headers["Content-Type"] = 'text/javascript'
     @message = Message.create!(params[:message].permit(:content, :name))
+    $redis.publish("messages.create", @message.to_json)
   end
 
   def events
     response.headers["Content-Type"] = 'text/event-stream'
-    start = Time.zone.now
-    begin
-      10.times do
-        Message.uncached do 
-          Message.where("created_at > ?", start).each do |message|
-            response.stream.write "data: #{message.to_json}\n\n"
-            start = message.created_at
-          end
-        end
-        sleep 2
+    redis = Redis.new
+    redis.psubscribe("messages.*") do |on|
+      on.pmessage do |pattern, event, message|
+        response.stream.write "event: #{event}\n"
+        response.stream.write "data: #{message}\n\n"
       end
-    rescue IOError
-      Logger.error "response closed"
-    ensure
-      response.stream.close
     end
+  rescue IOError
+    Logger.error "response closed"
+  ensure
+    redis.quit
+    response.stream.close
   end
 end

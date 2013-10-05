@@ -115,6 +115,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    redis (3.0.4)
     sass (3.2.5)
     sprockets (2.8.2)
       hike (~> 1.2)
@@ -147,6 +148,7 @@ DEPENDENCIES
   jquery-rails
   puma
   rails!
+  redis
   sass-rails!
   sprockets-rails!
   sqlite3
