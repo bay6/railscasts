@@ -1,11 +1,11 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for @member do |f| %>
+  <% if @member.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
-        <% @user.errors.full_messages.each do |message| %>
+        <% @member.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
