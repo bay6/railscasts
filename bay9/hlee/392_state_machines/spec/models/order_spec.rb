@@ -49,4 +49,9 @@ describe Order do
     shipped.ship
     Order.open_orders.should eq([open])
   end
+  it "is not open after invalid purchase" do
+    order = Order.create!
+    order.purchase!(false)
+    order.should_not be_open
+  end
 end

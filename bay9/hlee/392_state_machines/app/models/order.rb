@@ -1,37 +1,24 @@
-class Orders < ActiveRecord::Base
-  include AASM
+class Order < ActiveRecord::Base
+  include Workflow
 
-  scope :open_orders, -> { where(aasm_state: "open") }
-  attr_accessor :invalid_payment
+  scope :open_orders, -> { where(workflow_state: "open") }
 
-  aasm do
-    state :incomplete, initial: true
-    state :open
-    state :canceled
+  workflow do
+    state :incomplete do
+      event :purchase, transition_to: :open
+    end
+    state :open do
+      event :cancel, transition_to: :canceled
+      event :ship, transition_to: :shipped
+    end
+    state :canceled do
+      event :resume, transition_to: :open
+    end
     state :shipped
-
-    event :purchase, before: :process_purchase do
-      transitions from: :incomplete, to: :open, guard: :valid_payment?
-    end
-
-    event :cancel do
-      transitions from: :open, to: :canceled
-    end
-
-    event :resume do
-      transitions from: :canceled, to: :open
-    end
-
-    event :ship do
-      transitions from: :open, to: :shipped
-    end
   end
 
-  def process_purchase
-    # process order ...
-  end
-
-  def valid_payment?
-    !invalid_payment
+  def purchase(valid_payment = true)
+    # process purchase ...
+    halt unless valid_payment
   end
 end
