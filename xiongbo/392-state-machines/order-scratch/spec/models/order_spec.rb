@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+require 'spec_helper'
+
 describe Order do
   it "is open after purchasing" do
     order = Order.create!
@@ -10,8 +12,7 @@ describe Order do
 
   it "is not open after invalid purchase" do
     order = Order.create!
-    order.invalid_payment = true
-    order.purchase
+    order.purchase(false)
     order.should_not be_open
   end
 
@@ -28,7 +29,7 @@ describe Order do
     order.cancel
     order.resume
     order.should be_open
-  end
+  end 
 
   it "is closed after shipping" do
     order = Order.create!

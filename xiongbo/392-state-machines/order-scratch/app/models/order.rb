@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
 
   def self.open_orders
     joins(:events).merge OrderEvent.with_last_state("open")
-  end
+  end 
 
   def current_state
     (event.last.try(:state) || STATES.first).inquiry
