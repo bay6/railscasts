@@ -1,0 +1,32 @@
+<h1>Awesome To-Do List</h1>
+
+<% if current_user.nil? %>
+
+  <p>Welcome to the ultimate Awesome To-Do List application! Because all you need to organize your life is another to-do app. This one isn't like the others though, oh no! It is completely unique and will change everything.</p>
+
+  <p><%= button_to "Try it for free!", users_path, method: :post %></p>
+
+  <p>Already signed up? <%= link_to "Log in", login_path %></p>
+
+<% else %>
+
+  <%= form_for Task.new do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Add Task" %>
+  <% end %>
+
+  <% if @incomplete_tasks.empty? && @complete_tasks.empty? %>
+    <p>Currently no tasks. Add one above.</p>
+  <% else %>
+    <h2>Incomplete Tasks</h2>
+    <div class="tasks" id="incomplete_tasks">
+      <%= render @incomplete_tasks %>
+    </div>
+
+    <h2>Complete Tasks</h2>
+    <div class="tasks" id="complete_tasks">
+      <%= render @complete_tasks %>
+    </div>
+  <% end %>
+
+<% end %>
