@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   end 
 
   def current_state
-    (event.last.try(:state) || STATES.first).inquiry
+    (events.last.try(:state) || STATES.first).inquiry
   end 
 
   def purchase valid_payment = true
