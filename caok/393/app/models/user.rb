@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   attr_accessible :username, :email, :password, :password_confirmation
 
@@ -18,5 +18,9 @@ class User < ActiveRecord::Base
 
   def name
     guest ? "Guest" : username
+  end
+
+  def move_to(user)
+    tasks.update_all(user_id: user.id)
   end
 end
