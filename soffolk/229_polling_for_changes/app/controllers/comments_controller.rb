@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_filter :load_article
 
   def index
-    @comments = @article.comments
+    @comments = @article.comments.where("id > ?", params[:after].to_i)
   end
 
   def create
