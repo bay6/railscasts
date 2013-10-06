@@ -1,0 +1,12 @@
+<h1>Products</h1>
+
+<%= form_tag products_path, method: :get do %>
+  <%= text_field_tag :search, params[:search], size: 30 %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
+<% @products.each do |product| %>
+  <h2><%= product.name %></h2>
+  Price: <%= number_to_currency product.price %> |
+  Catgory: <%= product.category %>
+<% end %>
