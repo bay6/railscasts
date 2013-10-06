@@ -9,6 +9,9 @@ describe "Announcements" do
     visit root_path
     expect(page).to have_content "hello world"
     expect(page).not_to have_content "upcoming"
+
+    click_on "hide announcement"
+    expect(page).not_to have_content "hello world"
   end
 
   it "has current scope" do
@@ -17,5 +20,5 @@ describe "Announcements" do
     upcoming = Announcement.create! starts_at: 1.hour.from_now, ends_at: 1.day.from_now
 
     Announcement.current.should eq [current]
-  end
+  end 
 end
