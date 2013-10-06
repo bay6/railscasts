@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Announcements" do
-  it "displays active announcements" do
+  it "displays active announcements with js", js: true  do
     Announcement.create! message: "hello world",
                           starts_at: 1.hour.ago, ends_at: 1.hour.from_now
     Announcement.create! message: "upcoming",
@@ -10,7 +10,7 @@ describe "Announcements" do
     expect(page).to have_content "hello world"
     expect(page).not_to have_content "upcoming"
 
-    click_on "hide announcement"
+    expect { click_on "hide announcement" }.to_not change { page.response_headers }
     expect(page).not_to have_content "hello world"
   end
 
