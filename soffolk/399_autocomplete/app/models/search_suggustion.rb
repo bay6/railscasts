@@ -2,10 +2,7 @@ class SearchSuggustion < ActiveRecord::Base
   attr_accessible :popular, :term
 
   def self.term_for(prefix)
-    Rails.cache.fetch(["search_suggustions", prefix]) do
-      where("term like ?", "#{prefix}_%")
-      .order("popular desc").pluck(:term)
-    end
+    $redis.zrevrange "search_suggustions:#{prefix.downcase}", 0, 9
   end
 
   def self.index_products
@@ -17,8 +14,9 @@ class SearchSuggustion < ActiveRecord::Base
   end
 
   def self.index_term(term)
-    where(term: term.downcase).first_or_initialize.tap do |suggustion|
-      suggustion.increment! :popular
+    1.upto(term.length - 1) do |n|
+      prefix = term[0, n]
+      $redis.zincrby "search_suggustions:#{prefix.downcase}", 1, term
     end
   end
 end
