@@ -10,7 +10,7 @@
     <% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
       <%= div_for announcement do %>
         <%= announcement.message %>
-        <%= link_to "hide announcement", hide_announcement_path(announcement) %>
+        <%= link_to "hide announcement", hide_announcement_path(announcement), remote: true %>
       <% end %>
     <% end %>
     <div id="container">
