@@ -7,6 +7,11 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <% Announcement.all.each do |announcement| %>
+      <%= div_for announcement do %>
+        <%= announcement.message %>
+      <% end %>
+    <% end %>
     <div id="container">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, id: "flash_#{name}" %>
