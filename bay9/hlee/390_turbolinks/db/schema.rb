@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007122355) do
+ActiveRecord::Schema.define(:version => 20121101223814) do
 
-  create_table "prjects", :force => true do |t|
+  create_table "projects", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20131007122355) do
   create_table "tasks", :force => true do |t|
     t.integer  "project_id"
     t.string   "name"
-    t.boolean  "complete"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "complete",   :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "tasks", ["project_id"], :name => "index_tasks_on_project_id"

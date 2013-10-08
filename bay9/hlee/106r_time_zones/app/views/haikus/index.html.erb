@@ -1,0 +1,18 @@
+<h1>You Haiku</h1>
+
+<% if current_user %>
+  <%= form_for Haiku.new do |f| %>
+    <div class="field"><%= f.text_area :content, rows: 3, cols: 40 %></div>
+    <div class="actions"><%= f.submit "Add Haiku" %></div>
+  <% end %>
+<% end %>
+
+<% @haikus.each do |haiku| %>
+  <div class="haiku">
+    <%= simple_format haiku.content %>
+    <em>
+      &ndash; <%= haiku.user.name %>
+      on <%= haiku.published_at.strftime("%B %e, %Y at %I:%M %p") %>
+    </em>
+  </div>
+<% end %>
