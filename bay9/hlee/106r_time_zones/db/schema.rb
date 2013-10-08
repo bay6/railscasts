@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120709180737) do
+ActiveRecord::Schema.define(:version => 20131008123128) do
 
   create_table "haikus", :force => true do |t|
     t.text     "content"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120709180737) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "time_zone"
   end
 
 end
