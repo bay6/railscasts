@@ -1,0 +1,7 @@
+<div class="haiku">
+  <%= simple_format haiku.content %>
+  <em>
+    &ndash; <%= haiku.user.name %>
+    on <%= haiku.published_at.strftime("%B %e, %Y at %I:%M %p") %>
+  </em>
+</div>
