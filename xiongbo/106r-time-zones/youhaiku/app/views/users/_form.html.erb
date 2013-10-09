@@ -22,5 +22,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone, china_zones %>
+  </div>
   <div class="actions"><%= f.submit %></div>
 <% end %>
