@@ -3,18 +3,21 @@ development:
   encoding: unicode
   database: forum_development
   pool: 5
-  password:
+  username: postgres
+  password: postgres
 
 test:
   adapter: postgresql
   encoding: unicode
   database: forum_test
   pool: 5
-  password:
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql
   encoding: unicode
   database: forum_production
   pool: 5
-  password:
+  username: postgres
+  password: postgres
