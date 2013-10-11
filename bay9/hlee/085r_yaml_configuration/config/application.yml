@@ -1,0 +1,9 @@
+BLOG_USERNAME: "admin"
+BLOG_PASSWORD: "secret"
+SECRET_TOKEN: '024e1460a4fb8271e611d0f53811a382f1f6be121fb87c7125c3a231f4e281ad77a740a9cf9091c18484dfdd69c8761b40735b9626146fc83e224db8595bb2aa'
+development:
+  MAILER_HOST: "localhost:3000"
+test:
+  MAILER_HOST: "test.local"
+production:
+  MAILER_HOST: "blog.example.com"

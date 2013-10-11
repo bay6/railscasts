@@ -1,0 +1,10 @@
+<% cache ['v1', project] do %>
+  <h2><%= link_to project.name, edit_project_path(project) %></h2>
+  <ol><%= render project.tasks %></ol>
+<% end %>
+
+
+<% cache project do %>
+  <h2><%= link_to project.name, edit_project_path(project) %></h2>
+  <ul><%= render partial: 'tasks/task', collection: project.incomplete_tasks %></ul>
+<% end %>
