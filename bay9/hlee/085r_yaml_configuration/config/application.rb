@@ -10,6 +10,9 @@ if defined?(Bundler)
 end
 
 #ENV.update YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+CONFIG = YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+CONFIG.symbolize_keys!
 
 module Blog
   class Application < Rails::Application
