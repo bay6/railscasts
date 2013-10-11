@@ -1,4 +1,19 @@
 class TopicsController < ApplicationController
+  before_filter :authorize, only: :edit
+
+  # Other methods omitted
+
+  private
+  def authorize
+    if current_user && !current_user.admin?
+      redirect_to root_url, alert: "Not authorized"
+    end
+  end
+end
+
+class TopicsController < ApplicationController
+  before_filter :authorize, only: :edit
+
   def index
     @topics = Topic.order("sticky desc")
   end
@@ -41,6 +56,11 @@ class TopicsController < ApplicationController
   end
 
 private
+  def authorize
+    if current_user && !current_user.admin?
+      redirect_to root_url, alert: "Not authorized"
+    end
+  end
 
   def topic_params
     params.require(:topic).permit(:name, :sticky)
