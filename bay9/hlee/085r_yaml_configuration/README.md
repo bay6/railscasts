@@ -5,6 +5,7 @@ Run these commands to try it out.
 ```
 bundle
 rake db:setup
+cp config/application.example.yml config/application.yml
 rails s
 ```
 
