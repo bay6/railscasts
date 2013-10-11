@@ -1,4 +1,4 @@
-<% cache project do %>
+<% cache ['v1', project] do %>
   <h2><%= link_to project.name, edit_project_path(project) %></h2>
   <ol><%= render project.tasks %></ol>
 <% end %>
