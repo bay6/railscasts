@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    #@topics = Topic.all
+    @topics = current_tenant.topics
   end
 
   def show
