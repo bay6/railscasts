@@ -1,18 +1,18 @@
 class TopicsController < ApplicationController
-  def index
-    @topics = Topic.all
+  def index 
+    @topics = current_tenant.topics
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = current_tenant.topics.find(params[:id])
   end
 
   def new
-    @topic = Topic.new
+    @topic = current_tenant.topics.new
   end
 
   def create
-    @topic = Topic.new(params[:topic])
+    @topic = Tcurrent_tenant.topics.new(params[:topic])
     @topic.user = current_user
     if @topic.save
       redirect_to @topic, notice: "Created topic."
@@ -22,11 +22,11 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @topic = current_tenant.topics.find(params[:id])
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @topic = current_tenant.topics.find(params[:id])
     if @topic.update_attributes(params[:topic])
       redirect_to topics_url, notice: "Updated topic."
     else
@@ -35,7 +35,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
+    @topic = current_tenant.topics.find(params[:id])
     @topic.destroy
     redirect_to topics_url, notice: "Destroyed topic."
   end
