@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :topics
+  default_scope { where tenant_id: Tenant.current_id }
 end
