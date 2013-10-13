@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authorize
 
+  delegate :allow?, to: :current_permission
+  helper_method :allow?
+
 private
 
   def current_user
