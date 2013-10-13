@@ -23,3 +23,14 @@ describe "as admin" do
   it { should allow("topics", "update") }
   it { should allow("topics", "destroy") }
 end
+
+describe "as member" do
+  subject { Permission.new(build(:user, admin: false)) }
+  it { should allow("topics", "index") }
+  it { should allow("topics", "show") }
+  it { should allow("topics", "new") }
+  it { should allow("topics", "create") }
+  it { should allow("topics", "edit") }
+  it { should allow("topics", "update") }
+  it { should_not allow("topics", "destroy") }
+end
