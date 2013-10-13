@@ -43,3 +43,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include AuthMacros
 end
+
+RSpec::Matchers.define :allow do |*args|
+  match do |permission|
+    permission.allow?(*args).should be_true
+  end
+end
