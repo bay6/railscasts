@@ -10,6 +10,10 @@ class Permission < Struct.new(:user)
     end
   end
 
+  def allow?(controller, action)
+    @allow_all || @allowed_actions[[controller.to_s, action.to_s]]
+  end
+
   def allow_all
     @allow_all = true
   end
