@@ -40,5 +40,12 @@ describe "Topic request" do
     click_on "Destroy"
     page.should have_content("Destroyed topic")
     page.should_not have_content("Oops")
+  end 
+
+  it "cannot edit topic as non-admin" do
+    log_in admin: false
+    topic = create :topic
+    visit edit_topic_path topic
+    page.should have_content "Not authorized"
   end
 end
