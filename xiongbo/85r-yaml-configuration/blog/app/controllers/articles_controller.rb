@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: ENV["BLOG_USERNAME"], password: ENV["BLOG_PASSWORD"],
+  http_basic_authenticate_with name: CONFIG[:username], password: CONFIG[:password], 
                                except: [:index, :show]
 
   def index
