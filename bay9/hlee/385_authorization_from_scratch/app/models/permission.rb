@@ -10,4 +10,15 @@ class Permission < Struct.new(:user)
     end
     false
   end
+
+  def initialize(user)
+    allow :users, [:new, :create]
+    allow :sessions, [:new, :create, :destroy]
+    allow :topics, [:index, :show]
+    if user
+      allow :users, [:edit, :update]
+      allow :topics, [:new, :create, :edit, :update]
+      allow_all if user.admin?
+    end
+  end
 end
