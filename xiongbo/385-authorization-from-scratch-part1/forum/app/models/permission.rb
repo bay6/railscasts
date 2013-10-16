@@ -1,11 +1,13 @@
 class Permission < Struct.new(:user)
   def allow?(controller, action)
-    if user.nil?
-      controller == "topics" && action.in? %w(index, show)
-    elseif user.admin?
-      true
-    else
-      controller == "topics" && action != "destroy"
+    return true if controller == "sessions"
+    return true if controller == "users" && action.in?(%w[new create])
+    return true if controller == "topics" && action.in?(%w[index show])
+    if user
+      return true if user.admin?
+      return true if controller == "users" && action.in?(%w[edit update])
+      return true if controller == "topics" && action != "destroy"
     end
+    false
   end
 end

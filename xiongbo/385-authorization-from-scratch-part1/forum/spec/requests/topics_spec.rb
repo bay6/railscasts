@@ -48,4 +48,10 @@ describe "Topic request" do
     visit edit_topic_path topic
     page.should have_content "Not authorized"
   end
+
+  it "cannot edit topic as guest" do
+    topic = create :topic
+    visit edit_topic_path topic
+    page.should have_content "Not authorized"
+  end
 end
