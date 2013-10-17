@@ -31,13 +31,13 @@ describe "Topic request" do
     page.should have_content("New Name")
     page.should_not have_content("Old Name")
   end
-  
+
   it "cannot edit topic as guest" do
     topic = create(:topic)
     visit edit_topic_path(topic)
     page.should have_content("Not authorized")
   end
-  
+
   it "destroys topic as admin" do
     create(:topic, name: "Oops")
     log_in admin: true
@@ -46,5 +46,11 @@ describe "Topic request" do
     click_on "Destroy"
     page.should have_content("Destroyed topic")
     page.should_not have_content("Oops")
+  end
+  it "edit owned topic as member" do
+    log_in admin: false
+    topic = create(:topic, user: current_user)
+    visit edit_topic_path(topic)
+    page.should_not have_content("Not authorized")
   end
 end
