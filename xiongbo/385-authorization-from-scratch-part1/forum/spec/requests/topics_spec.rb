@@ -42,13 +42,6 @@ describe "Topic request" do
     page.should_not have_content("Oops")
   end 
 
-  it "cannot edit topic as non-admin" do
-    log_in admin: false
-    topic = create :topic
-    visit edit_topic_path topic
-    page.should have_content "Not authorized"
-  end
-
   it "cannot edit topic as guest" do
     topic = create :topic
     visit edit_topic_path topic

@@ -1,7 +1,6 @@
-require "spec_helper"
 
-RSpec::Matchers.define :allow do |*args|
+RSpec::Matchers.define :allowha do |controller, action|
   match do |permission|
-    permission.allow?(*args).should be_true
+    permission.allow?(controller, action)
   end
 end
