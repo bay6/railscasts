@@ -1,6 +1,6 @@
 
-RSpec::Matchers.define :allowha do |controller, action|
+RSpec::Matchers.define :allowha do |*args|
   match do |permission|
-    permission.allow?(controller, action)
+    permission.allow?(*args)
   end
 end

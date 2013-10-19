@@ -31,14 +31,23 @@ describe Permission do
   end
 
   describe "as member" do
-    subject { Permission.new(build(:user, admin: false)) }
+    let(:user) { create :user, admin: false }
+    let(:user_topic) { build :topic, user: user }
+    let(:other_topic) { build :topic }
+    
+    subject { Permission.new user }
+
+    it { should_not allowha "topics", "edit" }
+    it { should_not allowha "topics", "update" }
+    it { should_not allowha "topics", "edit", other_topic }
+    it { should_not allowha "topics", "update", other_topic }
+    it { should allowha "topics", "edit", user_topic }
+    it { should allowha "topics", "update", user_topic }
 
     it { should allowha("topics", "index") }
     it { should allowha("topics", "show") }
     it { should allowha("topics", "new") }
     it { should allowha("topics", "create") }
-    it { should allowha("topics", "edit") }
-    it { should allowha("topics", "update") }
     it { should_not allowha("topics", "destroy") }
 
     it { should allowha("sessions", "new") }
