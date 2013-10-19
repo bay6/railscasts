@@ -39,6 +39,10 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @topic.destroy
     redirect_to topics_url, notice: "Destroyed topic."
+  end 
+
+  def current_resource
+    @current_resource ||= Topic.find params[:id] if params[:id]
   end
 
 private

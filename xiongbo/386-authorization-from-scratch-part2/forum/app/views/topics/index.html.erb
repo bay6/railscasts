@@ -5,12 +5,15 @@
   <h2><%= link_to topic.name, topic %></h2>
   <%= "Sticky |" if topic.sticky? %>
   <%= pluralize topic.posts.size, "post" %>
-  <% if allow? "topics", "edit" %>
+
+  <% if allow? "topics", "edit", topic %>
   | <%= link_to "Edit", edit_topic_path(topic) %>
   <% end %>
-  <% if allow? "topics", "destroy" %>
+
+  <% if allow? "topics", "destroy", topic %>
   | <%= link_to "Destroy", topic_path(topic), method: :delete %>
   <% end %>
+
 <% end %>
 </div>
 

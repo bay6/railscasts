@@ -12,8 +12,12 @@ private
   end
   helper_method :current_user
 
+  def current_resource
+    nil
+  end 
+
   def authorize
-    unless current_permission.allow?(params[:controller], params[:action])
+    unless current_permission.allow?(params[:controller], params[:action], current_resource)
       redirect_to root_url, alert: "Not authorized" 
     end
   end
