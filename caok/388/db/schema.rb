@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131020135314) do
+ActiveRecord::Schema.define(:version => 20131020141112) do
 
   create_table "posts", :force => true do |t|
     t.integer  "topic_id"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20131020135314) do
     t.boolean  "inline_images"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "tenant_id"
   end
 
+  add_index "posts", ["tenant_id"], :name => "index_posts_on_tenant_id"
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
 
   create_table "tenants", :force => true do |t|
@@ -35,8 +37,10 @@ ActiveRecord::Schema.define(:version => 20131020135314) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "tenant_id"
   end
 
+  add_index "topics", ["tenant_id"], :name => "index_topics_on_tenant_id"
   add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
 
   create_table "users", :force => true do |t|
@@ -45,6 +49,9 @@ ActiveRecord::Schema.define(:version => 20131020135314) do
     t.boolean  "admin"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "tenant_id"
   end
+
+  add_index "users", ["tenant_id"], :name => "index_users_on_tenant_id"
 
 end
