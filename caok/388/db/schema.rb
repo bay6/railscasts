@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801181459) do
+ActiveRecord::Schema.define(:version => 20131020135314) do
 
   create_table "posts", :force => true do |t|
     t.integer  "topic_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20120801181459) do
   end
 
   add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
+
+  create_table "tenants", :force => true do |t|
+    t.string   "name"
+    t.string   "subdomain"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "topics", :force => true do |t|
     t.string   "name"
