@@ -1,18 +1,18 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = current_tenant.topics
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = current_tenant.topicsfind(params[:id])
   end
 
   def new
-    @topic = Topic.new
+    @topic = current_tenant.topicsnew
   end
 
   def create
-    @topic = Topic.new(params[:topic])
+    @topic = current_tenant.topicsnew(params[:topic])
     @topic.user = current_user
     if @topic.save
       redirect_to @topic, notice: "Created topic."
