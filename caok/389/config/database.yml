@@ -1,0 +1,20 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+  username: postgres
+  password:
+ 
+development:
+  <<: *defaults
+  database: forum_development
+ 
+test:
+  <<: *defaults
+  database: forum_test
+ 
+production:
+  <<: *defaults
+  database: forum_production
+
