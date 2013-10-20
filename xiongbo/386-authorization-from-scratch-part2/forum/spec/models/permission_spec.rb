@@ -28,6 +28,7 @@ describe Permission do
     subject { Permission.new(build(:user, admin: true)) }
 
     it { should allowha("anything", "here") }
+    it { should allowha_param "anything", "here" }
   end
 
   describe "as member" do
@@ -58,5 +59,8 @@ describe Permission do
     it { should allowha("users", "create") }
     it { should allowha("users", "edit") }
     it { should allowha("users", "update") }
+
+    it { should allowha_param "topic", "name" }
+    it { should_not allowha_param "topic", "sticky" }
   end
 end

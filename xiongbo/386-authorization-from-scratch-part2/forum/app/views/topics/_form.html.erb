@@ -10,15 +10,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, size: 50 %>
-  </div>
+  <% if allow_param? :topic, :name %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, size: 50 %>
+    </div>
+  <% end %>
   
-  <div class="field">
-    <%= f.check_box :sticky %>
-    <%= f.label :sticky %>
-  </div>
+  <% if allow_param? :topic, :sticky %>
+    <div class="field">
+      <%= f.check_box :sticky %>
+      <%= f.label :sticky %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

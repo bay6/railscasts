@@ -4,3 +4,9 @@ RSpec::Matchers.define :allowha do |*args|
     permission.allow?(*args)
   end
 end
+
+Rspec::Matchers.define :allowha_param do |*args|
+  match do |permission|
+    permission.allow_param? *args
+  end
+end
