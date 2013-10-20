@@ -1,4 +1,6 @@
-<li>
+<% cache task do %>
+  <li>
   <%= task.name %>
   <%= link_to "edit", edit_task_path(task) %>
-</li>
+  </li>
+<% end %>
