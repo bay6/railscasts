@@ -54,4 +54,13 @@ describe "Topic request" do
     visit edit_topic_path(topic)
     page.should_not have_content "Not authorized"
   end
+
+  it "cant create sticky topic as member" do
+    user = create :user, admin: false, password: "secret"
+    post sessions_path, {email: user.email, password: "secret"}
+    post topics_path, topic: { name: "Sticky Topics", sticky: "1" }
+    topic = Topic.last
+    topic.name.should eq "Sticky Topics"
+    topic.should_not be_sticky
+  end
 end

@@ -62,5 +62,6 @@ describe Permission do
 
     it { should allowha_param "topic", "name" }
     it { should_not allowha_param "topic", "sticky" }
+
   end
 end

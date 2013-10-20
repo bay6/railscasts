@@ -49,4 +49,16 @@ class Permission
       @allowed_params[resource.to_s].include? attribute.to_s
     end
   end
+
+  def permit_params! params
+    if @allow_all
+      params.permit!
+    elsif @allowed_params
+      @allowed_params.each do |resource, attributes|
+        if params[resource].respond_to? :permit
+          params[resource] = params[resource].permit(*attributes)
+        end
+      end
+    end
+  end
 end
