@@ -26,6 +26,10 @@ class TasksController < ApplicationController
 
   def destroy
     @task = Task.destroy(params[:id])
-    redirect_to tasks_url
+
+    respond_to do |format|
+      format.html { redirect_to tasks_url }
+      format.js
+    end
   end
 end
