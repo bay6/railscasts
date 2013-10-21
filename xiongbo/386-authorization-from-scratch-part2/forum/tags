@@ -1,0 +1,54 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Application	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Forum
+ApplicationController	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+AuthMacros	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/spec/support/auth_macros.rb	/^module AuthMacros$/;"	m
+CreatePosts	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/db/migrate/20120801181213_create_posts.rb	/^class CreatePosts < ActiveRecord::Migration$/;"	c
+CreateTopics	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/db/migrate/20120801180250_create_topics.rb	/^class CreateTopics < ActiveRecord::Migration$/;"	c
+CreateUsers	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/db/migrate/20120801181459_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+Forum	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/config/application.rb	/^module Forum$/;"	m
+Permission	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/permission.rb	/^class Permission$/;"	c
+Post	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/post.rb	/^class Post < ActiveRecord::Base$/;"	c
+SessionsController	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/sessions_controller.rb	/^class SessionsController < ApplicationController$/;"	c
+SessionsHelper	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
+Topic	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/topic.rb	/^class Topic < ActiveRecord::Base$/;"	c
+TopicsController	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^class TopicsController < ApplicationController$/;"	c
+TopicsHelper	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/helpers/topics_helper.rb	/^module TopicsHelper$/;"	m
+User	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UsersController	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
+UsersHelper	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
+allow	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/permission.rb	/^  def allow controllers, actions, &block $/;"	f	class:Permission
+allow?	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/permission.rb	/^  def allow? controller, action, resource = nil$/;"	f	class:Permission
+allow_all	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/permission.rb	/^  def allow_all$/;"	f	class:Permission
+authorize	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/application_controller.rb	/^  def authorize$/;"	f	class:ApplicationController
+change	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/db/migrate/20120801180250_create_topics.rb	/^  def change$/;"	f	class:CreateTopics
+change	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/db/migrate/20120801181213_create_posts.rb	/^  def change$/;"	f	class:CreatePosts
+change	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/db/migrate/20120801181459_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+create	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:SessionsController
+create	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def create$/;"	f	class:TopicsController
+create	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
+current_permission	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/application_controller.rb	/^  def current_permission$/;"	f	class:ApplicationController
+current_resource	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/application_controller.rb	/^  def current_resource$/;"	f	class:ApplicationController
+current_resource	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def current_resource$/;"	f	class:TopicsController
+current_user	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/application_controller.rb	/^  def current_user$/;"	f	class:ApplicationController
+current_user	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/spec/support/auth_macros.rb	/^  def current_user$/;"	f	class:AuthMacros
+destroy	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
+destroy	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def destroy$/;"	f	class:TopicsController
+edit	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def edit$/;"	f	class:TopicsController
+edit	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
+index	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def index$/;"	f	class:TopicsController
+initialize	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/models/permission.rb	/^  def initialize user$/;"	f	class:Permission
+log_in	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/spec/support/auth_macros.rb	/^  def log_in(attributes = {})$/;"	f	class:AuthMacros
+new	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
+new	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def new$/;"	f	class:TopicsController
+new	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
+show	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def show$/;"	f	class:TopicsController
+topic_params	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def topic_params$/;"	f	class:TopicsController
+update	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/topics_controller.rb	/^  def update$/;"	f	class:TopicsController
+update	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/users_controller.rb	/^  def update$/;"	f	class:UsersController
+user_params	/home/ian/union-railscasts/xiongbo/386-authorization-from-scratch-part2/forum/app/controllers/users_controller.rb	/^  def user_params$/;"	f	class:UsersController
