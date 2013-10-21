@@ -2,7 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery ->
-  $(".edit_task input[type=submit]").remove()
-  $(".edit_task input[type=checkbox]").click ->
+jQuery.fn.submitOnCheck ->
+  @find("input[type=submit]").remove()
+  @find("input[type=checkbox]").click ->
     $(this).parent("form").submit()
+
+jQuery ->
+  $(".edit_task").submitOnCheck()
