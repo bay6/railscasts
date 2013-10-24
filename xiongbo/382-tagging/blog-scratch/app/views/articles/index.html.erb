@@ -3,6 +3,7 @@
 <div id="articles">
   <% @articles.each do |article| %>
     <h2><%= link_to article.name, article %></h2>
+    <p>Tags: <%= raw article.tags.map { |t| link_to t.name, tag_path(t.name) }.join(', ') %>
     <%= simple_format article.content %>
     <p><%= link_to "Edit Article", edit_article_path(article) %></p>
   <% end %>
