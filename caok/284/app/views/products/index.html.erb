@@ -5,7 +5,7 @@
     <h2><%= link_to product.name, product %></h2>
     <div class="details">
       <%= number_to_currency(product.price) %> in
-      <%= product.category.name %>
+      <%= product.try(:category).try(:name) %>
     </div>
   </div>
 <% end %>
