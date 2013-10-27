@@ -1,0 +1,11 @@
+<h1>Painting Gallery</h1>
+
+<div id="paintings">
+  <%= render @paintings %>
+</div>
+<div class="clear"></div> 
+
+<%= form_for Painting.new do |f| %>
+  <%= f.label :image, "upload paintings" %>
+  <%= f.file_field :image, multiple: true, name: "painting[image]" %>
+<% end %>
