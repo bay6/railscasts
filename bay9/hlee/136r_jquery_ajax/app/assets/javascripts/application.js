@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+if (jQuery) {
+  alert('Jquery is loaded')
+} else {
+  alert ('Jquery is not loaded')
+}
