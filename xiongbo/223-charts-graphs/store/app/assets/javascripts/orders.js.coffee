@@ -7,5 +7,6 @@ jQuery ->
     element: 'orders_chart'
     data: $('#orders_chart').data('orders')
     xkey: 'purchased_at'
-    ykeys: ['price']
-    labels: ['price']
+    ykeys: ['price', 'shipping_price', 'download_price']
+    labels: ['total price', 'shipping price', 'download price']
+    preUnits: '$'
