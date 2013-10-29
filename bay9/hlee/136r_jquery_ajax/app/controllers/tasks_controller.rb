@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task = Task.create!(params[:task])
     respond_to do |format|
       format.html { redirect_to tasks_url }
-      format.js
+      #format.js
     end
   end
 
