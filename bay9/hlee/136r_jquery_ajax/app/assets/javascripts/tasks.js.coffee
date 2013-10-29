@@ -1,7 +1,11 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-$(document).ready ->
+#$(document).ready ->
+  #$(".edit_task input[type=checkbox]").click ->
+    #alert "clicked"
+
+$ ->
+  $(".edit_task input[type=submit]").remove()
   $(".edit_task input[type=checkbox]").click ->
-    debugger
-    alert "clicked"
+    $(this).parent("form").submit()    
