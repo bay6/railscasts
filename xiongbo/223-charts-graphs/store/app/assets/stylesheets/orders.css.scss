@@ -1,0 +1,14 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#orders {
+  border-collapse: collapse;
+  margin: 20px 0;
+  td, th {
+    padding: 4px 10px;
+    border: solid 1px #CCC;
+  }
+  td:last-child {
+    text-align: right;
+  }
+}
