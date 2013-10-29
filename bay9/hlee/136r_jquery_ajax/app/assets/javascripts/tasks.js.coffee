@@ -8,7 +8,7 @@ $ ->
   $('.edit_task').submitOnCheck()
 
 
-jQuery.fn.submitOnCheck = ->
+$.fn.submitOnCheck = ->
   @find("input[type=submit]").remove()
   @find("input[type=checkbox]").click ->
     $(this).parent("form").submit()
@@ -18,3 +18,12 @@ jQuery.fn.submitOnCheck = ->
   #$(".edit_task input[type=submit]").remove()
   #$(".edit_task input[type=checkbox]").click ->
     #$(this).parent("form").submit()    
+    #
+#jQuery.fn.submitOnCheck = ->
+  #@find('input[type=submit]').remove()
+  #@find('input[type=checkbox]').click ->
+    #$(this).parent('form').submit()
+  #this
+  
+#jQuery ->
+  #$('.edit_task').submitOnCheck()
