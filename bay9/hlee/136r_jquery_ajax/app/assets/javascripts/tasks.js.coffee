@@ -4,8 +4,17 @@
 #$(document).ready ->
   #$(".edit_task input[type=checkbox]").click ->
     #alert "clicked"
+$ -> 
+  $('.edit_task').submitOnCheck()
 
-$ ->
-  $(".edit_task input[type=submit]").remove()
-  $(".edit_task input[type=checkbox]").click ->
-    $(this).parent("form").submit()    
+
+jQuery.fn.submitOnCheck = ->
+  @find("input[type=submit]").remove()
+  @find("input[type=checkbox]").click ->
+    $(this).parent("form").submit()
+  this
+
+#$ ->
+  #$(".edit_task input[type=submit]").remove()
+  #$(".edit_task input[type=checkbox]").click ->
+    #$(this).parent("form").submit()    
