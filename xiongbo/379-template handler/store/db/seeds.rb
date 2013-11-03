@@ -25,3 +25,5 @@ Product.create!(name: "Unicorn Action Figure", price: 8.75, released_on: rand(1.
 Product.create!(name: "Rack", price: 32.49, released_on: rand(1..90).days.ago)
 Product.create!(name: "Model Train Rails", price: 45.00, released_on: rand(1..90).days.ago)
 Product.create!(name: "CanCan Music Record", price: 2.99, released_on: rand(1..90).days.ago)
+
+Product.first.views.create!(count: 10)
