@@ -39,4 +39,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'carrierwave'
+gem 'carrierwave-meta'
+gem 'unf'
 gem 'rmagick'
