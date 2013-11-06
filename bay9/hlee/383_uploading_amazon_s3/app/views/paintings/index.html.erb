@@ -5,4 +5,7 @@
 </div>
 <div class="clear"></div>
 
-<p><%= link_to "Add a Painting", new_painting_path %></p>
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.submit "Upload Image" %></p>
+<% end %>

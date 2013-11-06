@@ -6,6 +6,7 @@ gem 'rails', '3.2.15'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'fog'
 
 
 # Gems used only for assets and not required
@@ -38,4 +39,8 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'carrierwave'
+#gem 'carrierwave-meta'
+gem 'unf'
 gem 'rmagick'
+gem 'carrierwave_direct'
+gem 'sidekiq'
