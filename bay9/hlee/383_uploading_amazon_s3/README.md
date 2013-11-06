@@ -1,11 +1,3 @@
-# RailsCasts Example Application
+### 学习笔记
 
-Run these commands to try it out.
-
-```
-bundle
-rake db:setup
-rails s
-```
-
-Requires Ruby 1.9.2 or later to run.
+fog和unf配置一下就可以用了，background job的时候，又头疼了。心还是静不下来。
