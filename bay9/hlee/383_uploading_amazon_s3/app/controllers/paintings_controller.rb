@@ -1,6 +1,8 @@
 class PaintingsController < ApplicationController
   def index
     @paintings = Painting.all
+    @uploader = Painting.new.image
+    @uploader.success_action_redirect = new_painting_url
   end
 
   def show
@@ -8,7 +10,7 @@ class PaintingsController < ApplicationController
   end
 
   def new
-    @painting = Painting.new
+    @painting = Painting.new(key: params[:key])
   end
 
   def create

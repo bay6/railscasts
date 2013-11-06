@@ -1,21 +1,13 @@
 <%= form_for @painting do |f| %>
-  <% if @painting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@painting.errors.count, "error") %> prohibited this painting from being saved:</h2>
-      <ul>
-      <% @painting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <!-- Validation code omitted --> 
+ 
+  <%= f.hidden_field :key %>
+  
+  <p>File: <%= @painting.image_name %></p>
 
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>
