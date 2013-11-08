@@ -1,0 +1,20 @@
+<h1>Orders</h1>
+
+<table id="orders">
+  <tr>
+    <th>Number</th>
+    <th>Purchased</th>
+    <th>Shipping</th>
+    <th>Total Price</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.purchased_at.strftime("%B %e, %Y %H:%M") %></td>
+      <td><%= order.shipping ? "Yes" : "No" %></td>
+      <td><%= number_to_currency order.price %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate @orders %>
