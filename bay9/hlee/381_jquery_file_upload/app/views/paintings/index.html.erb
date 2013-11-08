@@ -9,3 +9,9 @@
   <%= f.label :image, "Upload paintings:" %>
   <%= f.file_field :image, multiple: true, name: 'painting[image]' %>
 <% end %>
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%;"></div></div>
+</div>
+</script>
