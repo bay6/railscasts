@@ -12,12 +12,7 @@ class PaintingsController < ApplicationController
   end
 
   def create
-    @painting = Painting.new(params[:painting])
-    if @painting.save
-      redirect_to paintings_url, notice: "Painting was successfully created."
-    else
-      render :new
-    end
+    @painting = Painting.create(params[:painting])
   end
 
   def edit
