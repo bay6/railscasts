@@ -1,4 +1,7 @@
 Store::Application.routes.draw do
+  resources :pages
+
+
   get "about", to: "info#about" 
   get "info/privacy" 
   get "info/license"
