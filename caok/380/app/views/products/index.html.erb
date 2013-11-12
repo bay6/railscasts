@@ -10,7 +10,7 @@
 <% @products.each do |product| %>
   <tr>
     <td><%= link_to(product.name, product) %></td>
-    <td><%= product.category.name %></td>
+    <td><%= product.category_name %></td>
     <td><%= product.released_on.strftime("%B %e, %Y") %></td>
     <td><%= number_to_currency(product.price) %></td>
   </tr>
