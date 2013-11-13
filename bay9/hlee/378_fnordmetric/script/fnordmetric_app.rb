@@ -1,3 +1,4 @@
+require "fnordmetric"
 FnordMetric.namespace :store do
   hide_active_users
   
@@ -21,3 +22,8 @@ FnordMetric.namespace :store do
     incr :product_views_per_second
   end
 end
+
+FnordMetric::Web.new(port: 4242)
+FnordMetric::Worker.new
+FnordMetric.run
+
