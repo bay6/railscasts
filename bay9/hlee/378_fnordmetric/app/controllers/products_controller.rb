@@ -5,6 +5,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    FNORD_METRIC.event(@product.attributes.merge(_type: :view_product))
+    @product.trigger_view_event
   end
 end
