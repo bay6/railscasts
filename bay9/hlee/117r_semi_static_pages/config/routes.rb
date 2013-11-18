@@ -1,5 +1,6 @@
 Store::Application.routes.draw do
-  get "info/about"
+  #get "info/about"
+  get 'about', to: 'info#about'
 
   get "info/privacy"
 
