@@ -10,3 +10,4 @@ preserve-inputs
 coffeescript
 bootstrap
 jquery
+backbone
