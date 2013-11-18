@@ -1,20 +1,3 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @page.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @page.name %>
-</p>
-
-<p>
-  <b>Permalink:</b>
-  <%= @page.permalink %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @page.content %>
-</p>
-
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>
+<%= simple_format @page.content %>
