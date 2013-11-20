@@ -1,5 +1,5 @@
 <head>
-  <title>Leaderboard</title>
+  <title>leaderboard</title>
 </head>
 
 <body>
@@ -9,28 +9,20 @@
 </body>
 
 <template name="leaderboard">
-  <div>
-    <input type='button' class='sort_name' value='Sort by Name' />
-    <input type='button' class='sort_score' value='Sort by Score' />
-  </div>
-
   <div class="leaderboard">
     {{#each players}}
       {{> player}}
     {{/each}}
-  </div>
+  </div> 
 
   {{#if selected_name}}
   <div class="details">
     <div class="name">{{selected_name}}</div>
-    <input type="button" class="inc" value="Give 5 points" />
-    <input type="button" class="desc" value="Loss 5 points" />
+    <input type="button" class="inc" value="Give 5 points">
   </div>
-  {{/if}}
-
-  {{#unless selected_name}}
-  <div class="none">Click a player to select</div>
-  {{/unless}}
+  {{else}}
+  <div class="none">Click a player or select one</div>
+  {{/if}} 
 </template>
 
 <template name="player">
@@ -39,4 +31,3 @@
     <span class="score">{{score}}</span>
   </div>
 </template>
-
