@@ -1,0 +1,14 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.report {
+  margin: 15px 0;
+  .code {
+    font-family: 'Menlo', 'Courier New', 'Terminal', monospace;
+    background-color: #EEE;
+    border: solid 1px #CCC;
+    padding: 2px 4px;
+    margin-bottom: 5px;
+    .result { color: #777; }
+  }
+}
