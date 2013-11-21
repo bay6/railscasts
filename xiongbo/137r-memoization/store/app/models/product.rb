@@ -6,5 +6,6 @@ class Product < ActiveRecord::Base
   def calculate_filesize
     sleep 0.5
     4815162342
+    false
   end
 end
