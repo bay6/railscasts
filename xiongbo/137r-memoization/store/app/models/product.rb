@@ -1,12 +1,12 @@
 class Product < ActiveRecord::Base
-  def filesize
-    @filesize = calculate_filesize unless defined? @filesize
-    @filesize
+  def filesize(*args)
+    @filesize ||= {}
+    @filesize[args] ||= calculate_filesize(*args)
   end
 
-  def calculate_filesize
+private
+  def calculate_filesize(num = 1)
     sleep 0.5
-    4815162342
-    false
+    4815162342 * num
   end
 end
