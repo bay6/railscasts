@@ -18,7 +18,7 @@ TodosRouter = Backbone.Router.extend
 
 Router = new TodosRouter
 
-listsHandle = Meteor.subscribe "list", ->
+listsHandle = Meteor.subscribe "lists", ->
   unless Session.get("list_id")
     list = Lists.findOne({}, {sort: {name: 1}})
     if list
