@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   def filesize
-    @filesize ||= calculate_filesize
+    @filesize = calculate_filesize unless defined? @filesize
+    @filesize
   end
 
 private
