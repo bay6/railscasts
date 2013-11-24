@@ -1,4 +1,8 @@
 Store::Application.routes.draw do
+  resources :pages, except: :show
+  get ':id', to: 'pages#show', as: :page
+
+
   #get "about", to: "info#about"
 
   #get "info/privacy"
