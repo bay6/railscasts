@@ -1,0 +1,8 @@
+<h1>Categories</h1>
+
+<% @categories.each do |category| %>
+  <div class="category">
+    <h2><%= link_to category.name, category %></h2>
+    <%= pluralize category.products.size, "product" %>
+  </div>
+<% end %>
