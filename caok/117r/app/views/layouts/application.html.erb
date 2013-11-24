@@ -11,8 +11,8 @@
       <div id="nav">
         <%= link_to_unless_current "Products", products_path %> |
         <%= link_to_unless_current "About Us", about_path %> |
-        <%= link_to_unless_current "Privacy Policy", info_privacy_path %> |
-        <%= link_to_unless_current "User License", info_license_path %>
+        <%= link_to_unless_current "Privacy Policy", privacy_path %> |
+        <%= link_to_unless_current "User License", license_path %>
       </div>
 
       <% flash.each do |name, msg| %>
