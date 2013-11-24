@@ -1,7 +1,9 @@
 Store::Application.routes.draw do
-  get "about/privacy"
+  get "about", to: "info#about"
 
-  get "about/license"
+  get "info/privacy"
+
+  get "info/license"
 
   resources :products
   root to: 'products#index'
