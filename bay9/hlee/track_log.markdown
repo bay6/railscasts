@@ -4,4 +4,4 @@
 
 11.24.2013
 
-213 revised calendar - 很好的rails helper，训练，有些东西不是很明白，值得再跑
+213 revised calendar - ［4.5］很好的rails helper，训练，有些东西不是很明白，值得再跑
