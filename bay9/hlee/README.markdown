@@ -34,7 +34,13 @@
 
 
 
+### 等待学习列表
 
+thoughtbot系列
+
+Ruby Science
+
+codeschool系列
 
 
 
