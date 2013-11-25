@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @articles_by_date = @articles.group_by(&:published_on)
-    @date = Date.today
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def show
