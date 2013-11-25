@@ -2,8 +2,14 @@
 
 <div id="articles">
   <%= calendar do |date| %>
-    <%= date.day%>
+    <%= date.day %>
+    <% if @articles_by_date[date] %>
+    <ul>
+      <% @articles_by_date[date].each do |article| %>
+        <li><%= link_to article.name, article %></li>
+      <% end %>
+    </ul>
+    <% end %>
   <% end %>
 </div>
-
 <p><%= link_to "New Article", new_article_path %></p>
