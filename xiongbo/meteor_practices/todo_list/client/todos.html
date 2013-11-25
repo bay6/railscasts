@@ -1,0 +1,41 @@
+<head>
+  <title>Todos Demo</title>
+</head>
+
+<body>
+  <div id="top-tag-filter">{{> tag_filter}}</div>
+  <div id="main-pane">{{> todos}}</div>
+  <div id="side-pane">{{> lists}}</div>
+</body> 
+
+<template name="tag_filter">
+</template>
+
+<template name="todos">
+</template>
+
+<template name="lists">
+  <h3>Todo Lists</h3>
+  {{#if loading}}
+  <div id="lists">Loading....</div>
+  {{else}}
+    <div id="lists">
+      {{#each lists}}
+      <div class="list {{selected}}">
+        {{#if editing}}
+        <div class="edit">
+          <input id="list-name-input" class="list-name-input" type="text" value="{{name}}" /> 
+        </div>
+        {{else}}
+        <div class="display">
+          <a class="list-name {{name_class}}" href="/{{_id}}">{{name}}</a>
+        </div>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+    <div id="create-list">
+      <input id="new-list" type="text" placeholder="New List" /> 
+    </div>
+  {{/if}}
+</template>
