@@ -30,7 +30,9 @@
 
 
 
+### 学习笔记
 
+https://github.com/bay6/railscasts/blob/master/bay9/hlee/track_log.markdown
 
 
 
