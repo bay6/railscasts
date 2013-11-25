@@ -1,3 +1,32 @@
+### 为期三个月的学习规划
+
+
+RailsCasts: 50 - 100 集
+
+
+The Rails 4 way: 700 页学习
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### Some index and hyper learn
 
 
