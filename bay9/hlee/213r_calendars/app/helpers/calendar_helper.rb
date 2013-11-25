@@ -25,12 +25,12 @@ module CalendarHelper
       weeks.map do |week|
         content_tag :tr do
           week.map { |day| day_cell(day) }.join.html_safe
-        end.join.html_safe
-      end
+        end
+      end.join.html_safe
     end
 
     def day_cell(day)
-      content_tag :td, view.captures(day, &callback), class: day_classes(day)
+      content_tag :td, view.capture(day, &callback), class: day_classes(day)
     end
    
     def day_classes(day)
