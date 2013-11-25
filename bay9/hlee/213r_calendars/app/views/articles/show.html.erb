@@ -1,0 +1,10 @@
+<h1><%= @article.name %></h1>
+
+<p class="info">Published on <%= @article.published_on.strftime("%B %e, %Y") %></p>
+
+<%= simple_format @article.content %>
+
+<p>
+  <%= link_to "Edit Article", edit_article_path(@article) %> |
+  <%= link_to "Back to Articles", articles_path %>
+</p>
