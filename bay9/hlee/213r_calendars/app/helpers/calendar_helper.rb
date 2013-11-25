@@ -32,6 +32,19 @@ module CalendarHelper
     def day_cell(day)
       content_tag :td, view.captures(day, &callback), class: day_classes(day)
     end
+   
+    def day_classes(day)
+      classes = []
+      classes << 'today' if day == Date.today
+      classes << 'notmonth' if day.month != date.month
+      classes.empty? ? nil : classes.join('')
+    end
+
+    def weeks
+      first = date.beginning_of_month.beginning_of_week(START_DAY)
+      last = date.end_of_month.end_of_week(START_DAY)
+      (first..last).to_a.in_groups_of(7)
+    end
 
   end
 end
