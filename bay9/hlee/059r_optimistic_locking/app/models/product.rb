@@ -6,6 +6,9 @@ class Product < ActiveRecord::Base
     update_attributes(*args)
   rescue ActiveRecord::StaleObjectError
     errors.add :base, "This record changed while you were editing it."
+    changes.each do |name, values|
+      errors.add name, "was #{values.first}"
+    end
     false 
   end  
 end
