@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params[:topic], as: current_user.try(:admin?) ? :admin : :user)
+    @topic = Topic.new(topic_params)
     if @topic.save
       redirect_to @topic, notice: "Created topic."
     else
@@ -38,4 +38,15 @@ class TopicsController < ApplicationController
     @topic.destroy
     redirect_to topics_url, notice: "Destroyed topic."
   end
+
+  private
+  private
+  def topic_params
+    if current_user && current_user.admin?
+      params.require(:topic).permit!
+    else
+      params.require(:topic).permit(:name)
+    end
+  end
 end
+
