@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params[:topic])
+    @topic = Topic.new(params[:topic], as: current_user.try(:admin?) ? :admin : :user)
     if @topic.save
       redirect_to @topic, notice: "Created topic."
     else
@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    if @topic.update_attributes(params[:topic])
+    if @topic.update_attributes(params[:topic].permit(:name, :sticky))
       redirect_to topics_url, notice: "Updated topic."
     else
       render :edit
