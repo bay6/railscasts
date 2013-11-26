@@ -5,3 +5,7 @@
 11.24.2013
 
 213 revised calendar - ［4.5］很好的rails helper，训练，有些东西不是很明白，值得再跑
+
+11.26.2013
+
+059 optimistic locking - [4] 概念还不错，和dirty相关，防止重复修改
