@@ -3,6 +3,13 @@
 <div id="articles">
   <%= calendar do |date| %>
     <%= date.day %>
+    <% if @articles_by_date[date] %>
+      <ul>
+        <% @articles_by_date[date].each do |article| %>
+          <li><%= link_to article.name, article %>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
 
