@@ -1,9 +1,13 @@
 class PermittedParams < Struct.new(:params, :user)
   def topic
+    params.require(:topic).permit(*topic_attributes)
+  end
+  
+  def topic_attributes
     if user && user.admin?
-      params.require(:topic).permit!
+      [:name, :sticky]
     else
-      params.require(:topic).permit(:name)
+      [:name]
     end
-  end  
+  end      
 end
