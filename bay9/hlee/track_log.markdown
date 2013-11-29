@@ -9,3 +9,5 @@
 11.26.2013
 
 059 optimistic locking - [4] 概念还不错，和dirty相关，防止重复修改
+
+371 strong parameter - [4] rails4 基础知识，容易需要掌握
