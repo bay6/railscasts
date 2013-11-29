@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    if @topic.update_attributes(params[:topic].permit(:name, :sticky))
+    if @topic.update_attributes(permitted_params.topic)
       redirect_to topics_url, notice: "Updated topic."
     else
       render :edit
