@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update_attributes(params[:product])
+    if @product.update_with_conflict_validation(params[:product])
       redirect_to @product, notice: "Updated product."
     else
       render :edit
