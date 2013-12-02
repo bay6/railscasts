@@ -2,16 +2,7 @@
 
 <%= search_form_for @search do |f| %>
   <%= f.condition_fields do |c| %>
-  <div class="field">
-    <%= c.attribute_fields do |a| %>
-      <%= a.attribute_select associations: [:category] %>
-      <%= a.attribute_select %>
-    <% end %>
-    <%= c.predicate_select %>
-    <%= c.value_fields do |v| %>
-      <%= v.text_field :value %>
-    <% end %>
-    </div>
+    <%= render "condition_fields", f: c%>
   <% end %>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
