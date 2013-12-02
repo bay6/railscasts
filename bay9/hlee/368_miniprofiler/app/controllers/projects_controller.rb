@@ -1,7 +1,13 @@
 class ProjectsController < ApplicationController
+
+
   def index
-    @projects = Project.order(:created_at)
+    @projects = Project.order(:created_at).select("projects.*, count(tasks.id) as tasks_count").joins("left outer join tasks on project_id = projects.id").group("projects.id")
+    Rack::MiniProfiler.step("fetch projects") do
+      @projects.all
+    end
   end
+
 
   def show
     @project = Project.find(params[:id])
