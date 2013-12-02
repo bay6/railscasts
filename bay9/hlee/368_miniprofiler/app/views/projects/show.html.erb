@@ -1,0 +1,15 @@
+<h1><%= @project.name %></h1>
+
+<ul>
+<% @project.tasks.each do |task| %>
+  <li><%= task.name %></li>
+<% end %>
+</ul>
+
+<%= form_for [@project, Task.new] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
