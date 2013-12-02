@@ -1,16 +1,17 @@
 <h1>Products</h1>
 
 <%= search_form_for @search do |f| %>
+  <%= f.condition_fields do |c| %>
   <div class="field">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont %>
-  </div>
-  <div class="field">
-    <%= f.label :price_gteq, "Price between" %>
-    <%= f.text_field :price_gteq %>
-    <%= f.label :price_lteq, "and" %>
-    <%= f.text_field :price_lteq %>    
-  </div>
+    <%= c.attribute_fields do |a| %>
+      <%= a.attribute_select %>
+    <% end %>
+    <%= c.predicate_select %>
+    <%= c.value_fields do |v| %>
+      <%= v.text_field :value %>
+    <% end %>
+    </div>
+  <% end %>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
