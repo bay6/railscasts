@@ -1,0 +1,13 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#products {
+  border-collapse: collapse;
+  td, th {
+    padding: 5px 8px;
+    border: solid 1px #CCC;
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
