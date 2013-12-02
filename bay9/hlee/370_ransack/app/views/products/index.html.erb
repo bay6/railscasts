@@ -1,8 +1,8 @@
 <h1>Products</h1>
 
-<%= search_form_for @search do |f| %>
+<%= search_form_for @search, url: search_products_path, method: :post do |f| %>
   <%= f.condition_fields do |c| %>
-    <%= render "condition_fields", f: c%>
+    <%= render "condition_fields", f: c %>
   <% end %>
   <p><%= link_to_add_fields "Add Conditions", f, :condition %>
   <div class="actions"><%= f.submit "Search" %></div>
