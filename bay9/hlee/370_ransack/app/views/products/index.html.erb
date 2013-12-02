@@ -4,6 +4,7 @@
   <%= f.condition_fields do |c| %>
   <div class="field">
     <%= c.attribute_fields do |a| %>
+      <%= a.attribute_select associations: [:category] %>
       <%= a.attribute_select %>
     <% end %>
     <%= c.predicate_select %>
