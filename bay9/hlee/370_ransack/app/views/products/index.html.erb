@@ -16,9 +16,9 @@
 
 <table id="products">
   <tr>
-    <th>Product Name</th>
-    <th>Release Date</th>
-    <th>Price</th>
+    <th><%= sort_link(@search, :name, "Product Name") %></th>
+    <th><%= sort_link(@search, :released_on, "Release Date") %></th>
+    <th><%= sort_link(@search, :price, "Price") %></th>
   </tr>
 <% @products.each do |product| %>
   <tr>
