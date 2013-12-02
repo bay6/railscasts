@@ -4,6 +4,7 @@
   <%= f.condition_fields do |c| %>
     <%= render "condition_fields", f: c%>
   <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
