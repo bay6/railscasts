@@ -7,6 +7,7 @@ load "config/recipes/postgresql"
 load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
+load "config/recipes/monit"
 
 server "69.164.192.207", :web, :app, :db, primary: true
 
