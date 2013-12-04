@@ -1,0 +1,12 @@
+<h1>Projects</h1>
+
+<% @projects.each do |project| %>
+  <div class="project">
+    <h2><%= link_to project.name, project %></h2>
+    <%= pluralize project.tasks.size, "task" %> |
+    <%= link_to 'Edit', edit_project_path(project) %> |
+    <%= link_to 'Destroy', project, method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+<% end %>
+
+<p><%= link_to 'New Project', new_project_path %></p>
