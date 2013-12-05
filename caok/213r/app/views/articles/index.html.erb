@@ -1,14 +1,20 @@
 <h1>Articles</h1>
 
 <div id="articles">
-  <%= calendar do |date| %>
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
     <%= date.day %>
-  <% end %>
-  <% @articles.each do |article| %>
-    <h2><%= link_to article.name, article %></h2>
-    <p class="info">Published on <%= article.published_on.strftime("%B %e, %Y") %></p>
-    <%= simple_format article.content %>
-    <p><%= link_to "Edit Article", edit_article_path(article) %></p>
+    <% if @articles_by_date[date] %>
+      <ul>
+        <% @articles_by_date[date].each do |article|  %>
+          <li><%= link_to article.name, article %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
 
