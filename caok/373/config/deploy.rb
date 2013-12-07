@@ -20,6 +20,8 @@ set :scm, "git"
 set :repository, "git@github.com:ryanb/#{application}.git"
 set :branch, "master"
 
+set :maintenance_template_path, File.expand_path("../recipes/templates/maintenance.html.erb", __FILE__)
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
