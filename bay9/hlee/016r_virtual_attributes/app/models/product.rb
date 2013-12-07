@@ -7,11 +7,16 @@ class Product < ActiveRecord::Base
   before_save :save_released_at_text
   validate :check_released_at_text
   attr_accessor :new_category
-
-  before_save :create_category
+  before_save :save_tag_names, :create_category
 
   def tag_names
     @tag_names || tags.pluck(:name).join(' ')
+  end
+
+  def save_tag_names
+    if @tag_names
+      self.tags = @tag_names.split.map { |name| Tag.where(name: name).first_or_create! }
+    end
   end
 
   def create_category
