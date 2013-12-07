@@ -1,14 +1,18 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price_in_dollars, :released_at_text, :category_id, :new_category
+  attr_accessible :name, :price_in_dollars, :released_at_text, :category_id, :new_category, :tag_names
   belongs_to :category
   has_many :taggings
   has_many :tags, through: :taggings
-  attr_writer :released_at_text
+  attr_writer :released_at_text, :tag_names
   before_save :save_released_at_text
   validate :check_released_at_text
   attr_accessor :new_category
 
   before_save :create_category
+
+  def tag_names
+    @tag_names || tags.pluck(:name).join(' ')
+  end
 
   def create_category
     self.category = Category.create(name: new_category) if new_category.present?
