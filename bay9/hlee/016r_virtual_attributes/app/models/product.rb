@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  validates_presence_of :released_at
+
   def price_in_dollars
     price_in_cents.to_d / 100 if price_in_cents
   end
@@ -18,5 +20,8 @@ class Product < ActiveRecord::Base
 
   def released_at_text=(time)
     self.released_at = Time.zone.parse(time) if time.present?
+  rescue ArgumentError
+    self.released_at = nil
   end
+
 end
