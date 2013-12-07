@@ -1,5 +1,13 @@
 <h1>Products</h1>
 
+<%= search_form_for @search do |f| %>
+  <div class="field">
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
 <table id="products">
   <tr>
     <th>Product Name</th>
