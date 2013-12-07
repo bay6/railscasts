@@ -1,17 +1,16 @@
 <h1>Products</h1>
 
-<%= search_form_for @search do |f| %>
+<%= search_form_for @search, url: search_products_path, method: :post do |f| %>
   <%= f.condition_fields do |c| %>
-  <div class="field">
-    <%= c.attribute_fields do |a| %>
-      <%= a.attribute_select associations: [:category] %>
-    <% end %>
-    <%= c.predicate_select %>
-    <%= c.value_fields do |v| %>
-      <%= v.text_field :value %>
-    <% end %>
-    </div>
+    <%= render "condition_fields", f: c %>
   <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+<div class="field">
+  Sort:
+  <%= f.sort_fields do |s| %>
+    <%= s.sort_select %>
+  <% end %>
+</div>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
