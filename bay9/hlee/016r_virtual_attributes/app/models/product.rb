@@ -1,11 +1,18 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price_in_dollars, :released_at_text, :category_id
+  attr_accessible :name, :price_in_dollars, :released_at_text, :category_id, :new_category
   belongs_to :category
   has_many :taggings
   has_many :tags, through: :taggings
   attr_writer :released_at_text
   before_save :save_released_at_text
   validate :check_released_at_text
+  attr_accessor :new_category
+
+  before_save :create_category
+
+  def create_category
+    self.category = Category.create(name: new_category) if new_category.present?
+  end
 
   def price_in_dollars
     price_in_cents.to_d / 100 if price_in_cents
