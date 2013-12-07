@@ -5,14 +5,20 @@
     <%= f.label :name_cont, "Name contains" %>
     <%= f.text_field :name_cont %>
   </div>
+  <div class="field">
+    <%= f.label :price_gteq, "Price between" %>
+    <%= f.text_field :price_gteq %>
+    <%= f.label :price_lteq, "and" %>
+    <%= f.text_field :price_lteq %>
+  </div>
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
 <table id="products">
   <tr>
-    <th>Product Name</th>
-    <th>Release Date</th>
-    <th>Price</th>
+    <th><%= sort_link(@search, :name, "Product Name") %></th>
+    <th><%= sort_link(@search, :released_on, "Release Date") %></th>
+    <th><%= sort_link(@search, :price, "Price") %></th>
   </tr>
 <% @products.each do |product| %>
   <tr>
