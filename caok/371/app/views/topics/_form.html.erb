@@ -14,10 +14,12 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, size: 50 %>
   </div>
+  <% if permitted_params.topic_attributes.include? :sticky %>
   <div class="field">
     <%= f.check_box :sticky %>
     <%= f.label :sticky %>
   </div>
+  <% end %>
 
   <% if @topic.new_record? %>
     <%= f.fields_for :posts, Post.new do |post_form| %>

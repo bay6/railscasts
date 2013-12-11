@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new(params[:topic], as: current_user.try(:admin?) ? :admin : :user)
+    @topic = Topic.new(permitted_params.topic)
     if @topic.save
       redirect_to @topic, notice: "Created topic."
     else
@@ -26,7 +26,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    if @topic.update_attributes(params[:topic], as: current_user.try(:admin?) ? :admin : :user)
+    if @topic.update_attributes(permitted_params.topic)
       redirect_to topics_url, notice: "Updated topic."
     else
       render :edit
@@ -38,4 +38,5 @@ class TopicsController < ApplicationController
     @topic.destroy
     redirect_to topics_url, notice: "Destroyed topic."
   end
+
 end

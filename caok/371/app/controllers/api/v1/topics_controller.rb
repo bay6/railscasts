@@ -12,11 +12,11 @@ module Api
       end
 
       def create
-        respond_with Topic.create(params[:topic])
+        respond_with Topic.create(permitted_params.topic)
       end
 
       def update
-        respond_with Topic.update(params[:id], params[:topic])
+        respond_with Topic.update(params[:id], permitted_params.topic)
       end
 
       def destroy
