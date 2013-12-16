@@ -3,7 +3,7 @@
   <head>
     <title>Example</title>
     <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
+    <%= render "layouts/async_javascript", path: "application" %>
     <%= csrf_meta_tag %>
   </head>
   <body>
