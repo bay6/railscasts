@@ -1,0 +1,2 @@
+$('#tasks #<%= j dom_id(@task) %>').remove();
+$('#completed_tasks').append('<%= j content_tag_for(:li, @task) { @task.name } %>');

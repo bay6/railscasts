@@ -1,0 +1,29 @@
+<h1><%= @project.name %></h1>
+
+<ul id="tasks">
+<% @project.uncompleted_tasks.each do |task| %>
+  <%= content_tag_for :li, task do %>
+    <%= form_for [@project, task], remote: true do |f| %>
+      <%= f.check_box :completed %>
+      <%= f.label :completed, task.name %>
+    <% end %>
+  <% end %>
+<% end %>
+</ul>
+
+<%= form_for [@project, Task.new] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Add Task" %>
+<% end %>
+
+<h2>Completed Tasks</h2>
+<ul id="completed_tasks">
+<% @project.completed_tasks.each do |task| %>
+  <%= content_tag_for(:li, task) { task.name } %>
+<% end %>
+</ul>
+
+<p>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
+</p>
