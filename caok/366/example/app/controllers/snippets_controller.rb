@@ -10,7 +10,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Snippet.new(params[:snippet])
     if @snippet.save
-      PygmentsWorker.perform_async(@snippet.id)
+      PygmentsWorker.perform_in(1.hour, @snippet.id)
       redirect_to @snippet
     else
       render :new
