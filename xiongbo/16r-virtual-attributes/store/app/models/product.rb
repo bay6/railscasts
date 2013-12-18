@@ -1,12 +1,16 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price_in_dollars, :released_at_text, :category_id
+  attr_accessible :name, :price_in_dollars, :released_at_text, :category_id, :new_category, :tag_names
   belongs_to :category
   has_many :taggings
   has_many :tags, through: :taggings
 
   attr_writer :released_at_text
-  before_save :save_released_at_text
+  attr_writer :tag_names
+  attr_accessor :new_category
 
+  before_save :save_released_at_text 
+  before_save :create_category
+  before_save :save_tag_names
   validates_presence_of :check_released_at_text
 
   def price_in_dollars
@@ -31,6 +35,20 @@ class Product < ActiveRecord::Base
     end
   rescue ArgumentError
     errors.add :released_at_text, "is out of range"
+  end
+
+  def create_category
+    self.category = Category.create(name: new_category) if new_category.present?
+  end
+
+  def tag_names
+    @tag_names || tags.plunk(:name).join(' ')
+  end
+
+  def save_tag_names
+    if @tag_names
+      self.tags = @tag_names.split.map {|name| Tag.where(name: name).first_or_create!}
+    end
   end
 
 end
