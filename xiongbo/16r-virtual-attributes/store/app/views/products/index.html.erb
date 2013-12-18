@@ -1,0 +1,18 @@
+<h1>Products</h1>
+
+<table id="products">
+  <tr>
+    <th>Product Name</th>
+    <th>Release Date</th>
+    <th class="price">Price</th>
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= link_to(product.name, product) %></td>
+    <td><%= product.released_at.strftime("%B %e, %Y") %></td>
+    <td class="price"><%= number_to_currency(product.price_in_cents/100.0) %></td>
+  </tr>
+<% end %>
+</table>
+
+<p><%= link_to "New Product", new_product_path %></p>
