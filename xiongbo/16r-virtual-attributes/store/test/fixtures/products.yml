@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  price_in_cents: 1
+  released_at: 2012-07-20 10:22:29
+  category: 
+
+two:
+  name: MyString
+  price_in_cents: 1
+  released_at: 2012-07-20 10:22:29
+  category: 

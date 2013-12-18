@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :haikus
+  
+  has_reputation :votes, source: {reputation: :votes, of: :haikus}, aggregated_by: :sum
 end
