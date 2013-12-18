@@ -5,20 +5,17 @@ require 'celluloid'
 class FeedCounter
   include Celluloid
 
-  def initialize(url)
-    @url = url
-  end
-
-  def count
-    open(@url) do |f|
+  def count(url)
+    open(url) do |f|
       rss = RSS::Parser.parse(f.read, false)
       count = rss.items.size
-      puts "#{count} in #{@url}"
+      puts "#{count} in #{url}"
       count
     end
   end
 end
 
-futures = $*.map { |url| FeedCounter.new(url).future(:count) }
+pool = FeedCounter.pool(size: 6)
+futures = $*.map { |url| pool.future(:count, url) }
 total = futures.map(&:value).inject(:+)
 puts "#{total} total" if total
