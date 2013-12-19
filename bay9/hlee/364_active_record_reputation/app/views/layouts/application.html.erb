@@ -11,7 +11,7 @@
       <div id="user_nav">
         <% if current_user %>
           Logged in as <strong><%= current_user.name %></strong>
-(<%= current_user.reputation_value_for(:votes).to_i %>).
+(<%= current_user.reputation_for(:votes).to_i %>).
           <%= link_to "Log Out", logout_path %>
         <% else %>
           <%= link_to "Sign Up", signup_path %> or
