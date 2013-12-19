@@ -28,6 +28,10 @@
     or create one:
     <%= f.text_field :new_category %>
   </div>
+  <div class="field">
+    <%= f.label :tag_names, "Tags (space separated)" %><br />
+    <%= f.text_field :tag_names %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
