@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>You Haiku</title>
+    <title>Blog</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
@@ -9,13 +9,13 @@
   <body>
     <div id="container">
       <div id="user_nav">
-        <% if current_user %>
-          Logged in as <strong><%= current_user.name %></strong>
-(<%= current_user.reputation_for(:votes).to_i %>).
-          <%= link_to "Log Out", logout_path %>
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
         <% else %>
-          <%= link_to "Sign Up", signup_path %> or
-          <%= link_to "Log In", login_path %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
         <% end %>
       </div>
 
@@ -23,7 +23,6 @@
         <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
 
-      <h1>You Haiku</h1>
       <%= yield %>
     </div>
   </body>
