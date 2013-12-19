@@ -1,0 +1,25 @@
+<h1><%= @product.name %></h1>
+
+<p>
+  <b>Price:</b>
+  <%= number_to_currency @product.price_in_cents/100.0 %>
+</p>
+
+<p>
+  <b>Release Date:</b>
+  <%= @product.released_at.try(:strftime, "%B %e, %Y at %I:%M:%S %p") %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @product.category.name %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @product.tags.map(&:name).join(", ") %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Destroy', @product, method: :delete, confirm: "Are you sure?" %> |
+<%= link_to 'List Products', products_path %>
