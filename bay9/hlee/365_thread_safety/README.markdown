@@ -5,3 +5,14 @@
 3. how to synchronize
 
 
+```ruby
+  def bar
+    @@mutex.synchronize do
+      counter = @@counter
+      sleep 1
+      counter += 1
+      @@counter = counter
+    end
+    render text: "#{@@counter}\n"
+  end
+```
