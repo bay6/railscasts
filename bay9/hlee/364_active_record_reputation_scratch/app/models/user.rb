@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :haikus
+  def total_votes
+    HaikuVote.joins(:haiku).where(haikus: {user_id: self.id}).sum('value')
+  end
 end
