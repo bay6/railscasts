@@ -25,6 +25,8 @@
   <div class="field">
     <%= f.label :category_id %><br />
     <%= f.collection_select :category_id, Category.order(:name), :id, :name %>
+    or create one:
+    <%= f.text_field :new_category %>
   </div>
   <div class="actions">
     <%= f.submit %>
