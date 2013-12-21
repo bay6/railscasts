@@ -1,8 +1,11 @@
 require 'rss'
 require 'open-uri'
+require 'celluloid'
 
 
 class FeedCounter
+  include Celluloid
+
   def initialize(url)
     @url = url
   end
@@ -18,6 +21,6 @@ class FeedCounter
   end
 end
 
-counts = $*.map { |url| FeedCounter.new(url).count }
-total = counts.inject(:+)
+futures = $*.map { |url| FeedCounter.new(url).future.count }
+total = futures.map(&:value).inject(:+)
 puts "#{total} total" if total
