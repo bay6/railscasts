@@ -9,11 +9,13 @@
   <div class="field"><%= f.label :username %><br />
   <%= f.email_field :username %></div>
 
-  <div class="field"><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <% if f.object.password_required? %>
+    <div class="field"><%= f.label :password %><br />
+    <%= f.password_field :password %></div>
 
-  <div class="field"><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="field"><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %></div>
+  <% end %>
 
   <div class="field"><%= f.submit "Sign up" %></div>
 <% end %>
