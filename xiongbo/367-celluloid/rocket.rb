@@ -3,7 +3,11 @@ require 'celluloid'
 class Rocket
   include Celluloid
 
-  def lanuch
+  def initialize(autolaunch = false)
+    async.launch if autolaunch
+  end
+
+  def launch
     3.downto(1) do |n|
       puts "#{n}......"
       sleep 1
@@ -17,13 +21,13 @@ end
 
 class Launcher
   include Celluloid
-  trap_exit :recover
+  trap_exit :relaunch
 
   def launch_rocket
-    Rocket.new_link.async.lanuch
+    Rocket.new_link.async.launch
   end
 
-  def recover(actor, reason)
-    puts "Recoverying"
+  def relaunch(actor, reason)
+    launch_rocket
   end
 end
