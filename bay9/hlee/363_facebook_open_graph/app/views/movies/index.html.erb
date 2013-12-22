@@ -1,0 +1,7 @@
+<h1>Movies</h1>
+
+<% if current_user %>
+  Number of Friends: <%= current_user.friends_count %>
+<% end %>
+
+<%= render @movies %>
