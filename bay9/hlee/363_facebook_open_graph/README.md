@@ -1,11 +1,6 @@
-# RailsCasts Example Application
+### the way to test facebook open API
 
-Run these commands to try it out.
-
+```ruby
+u = User.last
+u.facebook.put_connections("me", "lkvdemo:review", movie: "http://samples.ogp.me/453907197960619")
 ```
-bundle
-rake db:setup
-rails s
-```
-
-Requires Ruby 1.9.2 or later to run.
