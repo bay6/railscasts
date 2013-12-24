@@ -1,3 +1,11 @@
+<% content_for :head do %>
+  <%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+  <%= tag :meta, property: "og:site_name", content: "Cinematron" %>
+  <%= tag :meta, property: "og:type", content: "cinematron:movie" %>
+  <%= tag :meta, property: "og:title", content: @movie.name %>
+  <%= tag :meta, property: "og:url", content: movie_url(@movie) %>
+  <%= tag :meta, property: "og:image", content: request.protocol + request.host_with_port + image_path(@movie.image) %>
+<% end %>
 <div id="movie">
   <%= render @movie %>
 </div>
