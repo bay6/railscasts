@@ -12,6 +12,7 @@ describe "CreditCard", ->
   it "validates number when field loses focus", ->
     loadFixtures "order_form"
     field = $('#card_number')
+    field.validateCreditCardNumber()
     field.val('123')
     field.blur()
     expect(field.next('.error')).toHaveText("Invalid card number.")
