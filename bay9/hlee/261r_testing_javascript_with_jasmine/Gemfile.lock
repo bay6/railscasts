@@ -39,8 +39,13 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    haml (4.0.4)
+      tilt
     hike (1.2.3)
     i18n (0.6.9)
+    jasminerice (0.0.10)
+      coffee-rails
+      haml
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -103,6 +108,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  jasminerice
   jquery-rails
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
