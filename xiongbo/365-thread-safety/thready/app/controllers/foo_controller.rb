@@ -1,10 +1,14 @@
 class FooController < ApplicationController
   @@counter = 0
+  @@mutex = Mutex.new
+
   def bar
-    counter = @@counter
-    sleep 1
-    counter += 1
-    @@counter = counter
+    @@mutex.synchronize do
+      counter = @@counter
+      sleep 1
+      counter += 1
+      @@counter = counter
+    end
     render text: "foobar\n"
   end
 end
