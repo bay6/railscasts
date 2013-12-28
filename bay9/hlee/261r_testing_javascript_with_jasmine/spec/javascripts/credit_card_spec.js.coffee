@@ -16,3 +16,6 @@ describe "CreditCard", ->
     field.val('123')
     field.blur()
     expect(field.next('.error')).toHaveText("Invalid card number.")
+    field.val('4111-1111-1111 1111')
+    field.blur()
+    expect(field.next('.error')).toHaveText("")
