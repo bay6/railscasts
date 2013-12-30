@@ -1,0 +1,4 @@
+<%= form_for @product, html: {method: :delete} do |f| %>
+  <h2>Are you sure you want to delete this product?</h2>
+  <p><%= f.submit "Destroy" %> or <%= link_to "cancel", products_path %></p>
+<% end %>
