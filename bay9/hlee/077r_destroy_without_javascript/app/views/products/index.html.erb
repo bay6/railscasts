@@ -8,6 +8,7 @@
     <div class="actions">
       <%= link_to "Edit", edit_product_path(product) %> |
       <%= link_to "Destroy", product, method: :delete, data: {confirm: "Are you sure?"} %>
+      <%= button_to "Destroy", product, method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   </div>
 <% end %>
