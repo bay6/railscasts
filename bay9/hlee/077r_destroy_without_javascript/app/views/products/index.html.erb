@@ -10,6 +10,7 @@
       <%= link_to "Destroy", product, method: :delete, data: {confirm: "Are you sure?"} %>
       <%= link_to "Destroy", [:delete, product] %>
       <%= button_to "Destroy", product, method: :delete, data: {confirm: "Are you sure?"} %>
+      <%= link_to "Destroy", [:delete, product], method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   </div>
 <% end %>
