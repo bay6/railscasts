@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_url = session.delete(:return_to) || root_url
-      redirect_to redirect_url
+      redirect_to redirect_url, only_path: true
     else
       flash.now.alert = "Name or password is invalid"
       render "new"
