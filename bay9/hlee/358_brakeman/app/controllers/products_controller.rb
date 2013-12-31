@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order("name #{params[:direction]}")
+    direction = params[:direction] == "desc" ? "desc" : "asc"
+    @products = Product.order("name #{direction}")
   end
 
   def show
