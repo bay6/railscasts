@@ -38,4 +38,8 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_url, notice: "Product was destroyed."
   end
+
+  def delete
+    @product = Product.find(params[:id])    
+  end
 end
