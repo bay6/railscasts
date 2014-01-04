@@ -1,0 +1,8 @@
+<div class="haiku">
+  <%= simple_format haiku.content %>
+  <em>
+    -- <%= haiku.user.name %>
+    | <%= link_to "up", vote_haiku_path(haiku, type: "up"), method: "post" %>
+    | <%= link_to "down", vote_haiku_path(haiku, type: "down"), method: "post" %>
+  </em>
+</div>
