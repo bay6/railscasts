@@ -1,5 +1,34 @@
 <div id="testimonies">
-  TODO: Add quotes from Twitter here.
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'faves',
+  rpp: 10,
+  interval: 30000,
+  title: 'What people are saying about',
+  subject: 'RailsCasts',
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#adadad',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#444444',
+      links: '#3f89ba'
+    }
+  },
+  features: {
+    scrollbar: true,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('railscasts').start();
+</script>
 </div>
 
 <h1>Welcome</h1>
