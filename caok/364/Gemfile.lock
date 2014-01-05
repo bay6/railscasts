@@ -22,6 +22,7 @@ GEM
       activesupport (= 3.2.16)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-reputation-system (2.0.2)
     activeresource (3.2.16)
       activemodel (= 3.2.16)
       activesupport (= 3.2.16)
@@ -103,6 +104,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-reputation-system
   bcrypt-ruby (~> 3.0.0)
   coffee-rails
   jquery-rails

@@ -5,7 +5,9 @@ Youhaiku::Application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :haikus
+  resources :haikus do
+     member { post :vote }
+  end
 
   root to: 'haikus#index'
 end
