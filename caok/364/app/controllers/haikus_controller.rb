@@ -2,7 +2,7 @@ class HaikusController < ApplicationController
   before_filter :authorize, except: [:index, :show]
 
   def index
-    @haikus = Haiku.all
+    @haikus = Haiku.find_with_reputation(:votes, :all, order: 'votes desc')
   end
 
   def show
