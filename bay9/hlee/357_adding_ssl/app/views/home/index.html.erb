@@ -11,6 +11,7 @@
   <p>
     First <%= link_to "Sign Up", signup_path %>
     or <%= link_to "Log In", login_path %>
+    <%= link_to "Log In", login_url(protocol: "https") %>
   </p>
 <% end %>
 
