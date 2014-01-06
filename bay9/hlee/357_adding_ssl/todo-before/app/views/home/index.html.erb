@@ -1,0 +1,20 @@
+<h1>Welcome</h1>
+
+<% if current_user %>
+  <p>Logged in as <strong><%= current_user.name %></strong>.</p>
+  <p>
+    <%= link_to "Manage To Do List", tasks_path %> or
+    <%= link_to "Log Out", logout_path %>
+  </p>
+<% else %>
+  <p><strong>Currently not logged in.</strong></p>
+  <p>
+    First <%= link_to "Sign Up", signup_path %>
+    or <%= link_to "Log In", login_path %>
+  </p>
+<% end %>
+
+<p>
+  <%= image_tag "http://farm1.staticflickr.com/199/441091281_e0cef7bc45_z.jpg" %>
+  <i>Photo by Damien du Toit</i>
+</p>

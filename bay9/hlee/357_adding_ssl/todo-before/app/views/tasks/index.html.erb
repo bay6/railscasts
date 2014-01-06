@@ -1,0 +1,12 @@
+<h1>To Do List</h1>
+
+<%= form_for Task.new do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Add" %>
+<% end %>
+
+<ul id="tasks">
+<% current_user.tasks.each do |task| %>
+  <li><%= task.name %></li>
+<% end %>
+</ul>
