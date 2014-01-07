@@ -9,3 +9,5 @@ rails s
 ```
 
 Requires Ruby 1.9.2 or later to run.
+
+Twitter api
