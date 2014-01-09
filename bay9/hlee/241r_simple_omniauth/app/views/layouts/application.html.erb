@@ -10,6 +10,9 @@
   <body>
     <div id="container">
       <div id="user_nav">
+        <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+      </div>
+      <div id="user_nav">
         <% if current_user %>
           Welcome <%= current_user.name %>!
           <%= link_to "Sign Out", signout_path %>
