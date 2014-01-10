@@ -1,5 +1,10 @@
 SimpleOmniauth::Application.routes.draw do
   resources :articles
+  root to: 'articles#index'
+  #get 'auth/twitter/callback', to: 'sessions#create'
+  #resources :articles
+  #root to: 'articles#index'
+  get 'auth/:provider/callback', to: 'sessions#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
