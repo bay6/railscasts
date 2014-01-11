@@ -1,8 +1,6 @@
-<% title "Edit Article" %>
+<h1>Editing article</h1>
 
 <%= render 'form' %>
 
-<p>
-  <%= link_to "Show", @article %> |
-  <%= link_to "View All", articles_path %>
-</p>
+<%= link_to 'Show', @article %> |
+<%= link_to 'Back', articles_path %>
