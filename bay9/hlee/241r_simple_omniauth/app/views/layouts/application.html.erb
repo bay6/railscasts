@@ -9,7 +9,11 @@
 <body>
 
 <div id="user_nav">
-  <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+  <% if current_user %>
+    Signed in as <%= current_user.name %>
+  <% else %>
+    <%= link_to "Sign in with Twitter", "/auth/twitter"%>
+  <% end %>
 </div>
 
 <%= yield %>
