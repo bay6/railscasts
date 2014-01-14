@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   
   generate_scopes
   
-  scope :not_discontinued,  -> { where("discontinued_at is null or discontinued_at > ?", Time.zone.now) }
+  scope :not_discontinued, -> { discontinued_at_eq(nil) | discontinued_at_gt(Time.zone.now) }
   scope :available,         -> { released_at_lteq(Time.zone.now).not_discontinued.stock_gte(2) }
   
   def self.search(query)
