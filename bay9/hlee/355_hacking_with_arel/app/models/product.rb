@@ -19,4 +19,8 @@ class Product < ActiveRecord::Base
   def self.search2(query)
     where(alel_table[:price].gt(query))
   end
+  
+  def self.search3(query)
+    available.where(arel_table(:name).matches("%#{query}%"))
+  end
 end
