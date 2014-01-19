@@ -1,0 +1,13 @@
+<h1>New Order</h1>
+
+<%= form_for @order do |f| %>
+  <div class="field">
+    <%= f.label :card_number, "Credit Card Number" %><br />
+    <%= f.text_field :card_number %>
+  </div>
+  <div class="field">
+    <%= f.label :card_expires_on, "Credit Card Expiration" %><br />
+    <%= f.date_select :card_expires_on, add_month_numbers: true, start_year: Time.now.year, order: [:month, :year] %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
