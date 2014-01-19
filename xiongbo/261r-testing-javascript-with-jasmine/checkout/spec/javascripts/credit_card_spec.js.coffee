@@ -9,3 +9,11 @@ describe "CreditCard", ->
     expect(valideCard.validNumber()).toBeTruthy()
     expect(invalidCard.validNumber()).toBeFalsy()
 
+  it "validates number when field loses focus", ->
+    loadFixtures "order_form"
+    field = $("#card_number")
+    field.validateCreditCardNumber()
+    field.val('123')
+    field.blur()
+    expect(field.next('.error')).toHaveText("invalid card number")
+
