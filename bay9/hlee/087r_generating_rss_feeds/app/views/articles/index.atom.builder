@@ -1,7 +1,7 @@
 atom_feed do |feed|
   feed.title "Superhero Articles"
   @articles.each do |article|
-    feed.entry article do |entry|
+    feed.entry article, published: article.published_at do |entry|
       entry.title article.name
       entry.content article.content
       entry.author do |author|
