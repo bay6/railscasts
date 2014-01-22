@@ -1,3 +1,4 @@
+<%= content_for :head, auto_discovery_link_tag(:atom, articles_url(format: "atom")) %>
 <%= link_to image_tag("feed-icon-28x28.png"), articles_url(format: "atom")%>
 <h1>Superhero Articles</h1>
 
