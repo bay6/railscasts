@@ -1,5 +1,5 @@
 module Api
-  module V1
+  module V2
     class ProductsController < ApplicationController
       class Product < ::Product
         def as_json(options={})
